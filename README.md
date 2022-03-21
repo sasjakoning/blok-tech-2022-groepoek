@@ -31,7 +31,7 @@ npm install
 ```
 nodemon index.js
 ```
-Ga naar een browser en navigeer naar: localhost:8000
+Ga naar een browser en navigeer naar: localhost:3000
 Als alles goed is verlopen zie je de matching applicatie
 
 ### Node installeren 🔨  
