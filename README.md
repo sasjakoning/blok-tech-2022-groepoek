@@ -5,7 +5,12 @@ Wij zij team Groepoek (team2) uit tech2.
 Dit project is het team onderdeel, alle features zijn samengevoegd en gevormt naar 1 matching applicatie
 
 ## Concept en Feature
-De volgende features zitten in de applicatie
+
+**De volgende features zitten in de applicatie**
+* log in
+* Account aanmaken & Editen
+* Filteren
+* Swipen/matchen
 
 ## Installatie
 
