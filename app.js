@@ -1,6 +1,7 @@
 // requires
 const express = require("express");
 const handlebars = require("express-handlebars");
+const db = require("./config/connect.js");
 
 // ---
 
@@ -25,6 +26,8 @@ app.engine(
 app.set("view engine", "hbs");
 
 app.use(express.static("public"));
+
+db.connectDb();
 
 // Code hier
 
