@@ -1,10 +1,10 @@
-# blok-tech-2022-groepoek
+# blok-tech-2022-groepoek 💙
 Wij zij team Groepoek (team2) uit tech2.
 
 ## Over dit project
 Dit project is het team onderdeel, alle features zijn samengevoegd en gevormt naar 1 matching applicatie
 
-## Concept en Feature
+## Concept en Feature 🔮
 (Vaste concept moet nog precies worden geschreven)
 
 **De volgende features zitten in de applicatie**
@@ -13,8 +13,9 @@ Dit project is het team onderdeel, alle features zijn samengevoegd en gevormt na
 * Filteren
 * Swipen/matchen
 
-## Installatie
-### Aan de slag
+# Installatie 🔍
+
+### Aan de slag 🔨
 Wil je aan de slag met mijn project? Voer dan de volgende stappen uit:
 
 1. Open een terminal en navigeer naar een map waar jij mijn repository in wilt opslaan.
@@ -33,7 +34,7 @@ nodemon index.js
 Ga naar een browser en navigeer naar: localhost:8000
 Als alles goed is verlopen zie je de matching applicatie
 
-### Node installeren
+### Node installeren 🔨  
 Heb je bij stap 3 (van installatie) problemen gehad dan kan dat zijn omdat je geen node hebt geïnstalleerd.
 
 1. Open je terminal en installeer nvm met het volgende commando;
@@ -55,10 +56,11 @@ npm -v #
 ## Documentatie
 De gehele documentatie over het project, vind je in de [Wiki](https://github.com/sasjakoning/blok-tech-2022-groepoek/wiki). Hier lees je over hoe wij tot stand zijn gekomen van deze applicatie & ons onderzoek die er is gedaan.
 
-## Lincense
-blok-tech-2022-groepoek is licensed met "MIT License" 
+## Lincense 📑
+blok-tech-2022-groepoek is licensed met "MIT License" <br>
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Contact
+## Contact 👥
 Sasja Koning - sasja.koning@hva.nl <br>
 Chris Gabriel III - chris.gabriel.iii@hva.nl <br>
 Romy-thu Zwijnenburg - romy-thu.zwijnenburg@hva.nl <br>
