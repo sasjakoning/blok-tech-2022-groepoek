@@ -1,11 +1,13 @@
 // requires
 const express = require("express");
 const handlebars = require("express-handlebars");
-const db = require("./config/connect.js");
+const db = require("./config/connect.js"); //verbinding mongoDB
 
 // ---
 
 const app = express();
+
+// setup van port. post is http://localhost:3000/
 let port = process.env.PORT;
 if (port == null || port == "") {
   port = 3000;
@@ -22,13 +24,17 @@ app.engine(
   })
 );
 
-
+// set view engine to handlebars
 app.set("view engine", "hbs");
 
+// laat files uit "public" zien
 app.use(express.static("public"));
 
+// verbinding maken met het database
 db.connectDb();
 
 // Code hier
+
+// ---
 
 app.listen(port, () => console.log(`App listening to port ${port}`));
