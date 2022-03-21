@@ -1,4 +1,4 @@
-# blok-tech-2022-groepoek 💙
+# Groepoek 💙
 Wij zij team Groepoek (team2) uit tech2.
 
 ## Over dit project
