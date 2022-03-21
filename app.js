@@ -35,6 +35,12 @@ db.connectDb();
 
 // Code hier
 
+app.get("/", (req, res) => {
+    res.render("main", {
+        layout: "index"
+    })
+})
+
 // ---
 
 app.listen(port, () => console.log(`App listening to port ${port}`));
