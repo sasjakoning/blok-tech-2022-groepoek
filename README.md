@@ -5,6 +5,7 @@ Wij zij team Groepoek (team2) uit tech2.
 Dit project is het team onderdeel, alle features zijn samengevoegd en gevormt naar 1 matching applicatie
 
 ## Concept en Feature
+(Vaste concept moet nog precies worden geschreven)
 
 **De volgende features zitten in de applicatie**
 * log in
