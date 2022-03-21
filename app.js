@@ -13,6 +13,8 @@ if (port == null || port == "") {
   port = 3000;
 }
 
+// hi this is a comment
+
 // handlebars setup
 app.engine(
   "hbs",
