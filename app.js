@@ -38,10 +38,13 @@ db.connectDb();
 
 // Code hier
 
-app.get("/", (req, res) => {
-    res.render("main", {
-        layout: "index"
-    })
+app.get("/", async (req, res) => {
+  const userCount = await likedislikeUserModel.find({}).lean();
+
+  res.render("main", {
+      layout: "index",
+      data: userCount
+  })
 })
 
 // ---
