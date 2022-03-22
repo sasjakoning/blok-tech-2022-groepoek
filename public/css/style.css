@@ -99,3 +99,11 @@ main > article {
     width: 100%;
     object-fit: cover;
 }
+
+/************************/
+/* like dislike buttons */
+/************************/
+
+.likeDislike {
+    display: flex;
+}
