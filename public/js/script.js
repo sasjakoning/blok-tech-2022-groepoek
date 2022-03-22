@@ -1,27 +1,15 @@
-let httpRequest;
-const btn = document.querySelector("#ajaxBtn")
+const forms = document.querySelectorAll("form");
 
-btn.addEventListener("click", () => {
-    httpRequest = new XMLHttpRequest();
-
-    if (!httpRequest) {
-        console.log("unsuccesful")
-        return false;
-    }
-
-    httpRequest.onreadystatechange = alertContents;
-
-    httpRequest.open("GET", "test.html");
-    httpRequest.send();
-})
-
-function alertContents() {
-    console.log("statereadychange")
-    if (httpRequest.readyState === XMLHttpRequest.DONE) {
-        if (httpRequest.status === 200) {
-            console.log(httpRequest.responseText);
-        } else {
-            console.log("there was a problem with the request");
-        }
-    }
-}
+forms.forEach((form) => {
+  form.addEventListener("submit", (e) => {
+    //prevent the html submit
+    e.preventDefault();
+    //post the form yourself via JavaScript
+    fetch(e.target.action, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+    }).then((res) => {
+      console.log("Request complete! response:", res);
+    });
+  });
+});

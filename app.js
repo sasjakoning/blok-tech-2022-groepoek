@@ -2,6 +2,7 @@
 const express = require("express");
 const handlebars = require("express-handlebars");
 const db = require("./config/connect.js"); //verbinding mongoDB
+const likedislikeUserModel = require("./models/likedislike-user")
 
 // ---
 
