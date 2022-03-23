@@ -2,7 +2,7 @@
 const express = require("express");
 const handlebars = require("express-handlebars");
 const db = require("./config/connect.js"); //verbinding mongoDB
-const likedislikeUserModel = require("./models/likedislike-user")
+const userModel = require("./models/user")
 
 // ---
 
@@ -39,11 +39,8 @@ db.connectDb();
 // Code hier
 
 app.get("/", async (req, res) => {
-  const userCount = await likedislikeUserModel.find({}).lean();
-  console.log(userCount)
   res.render("main", {
-      layout: "index",
-      data: userCount
+      layout: "index"
   })
 })
 
