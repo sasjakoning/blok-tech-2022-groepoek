@@ -39,8 +39,10 @@ db.connectDb();
 // Code hier
 
 app.get("/", async (req, res) => {
+  const users = await userModel.find({}).lean();
   res.render("main", {
-      layout: "index"
+      layout: "index",
+      data: users
   })
 })
 
