@@ -21,7 +21,7 @@ Wil je aan de slag met mijn project? Voer dan de volgende stappen uit:
 1. Open een terminal en navigeer naar een map waar jij mijn repository in wilt opslaan.
 2. Clone deze repository:
 ```
-Git clone https://github.com/sasjakoning/blok-tech-2022-groepoek
+git clone https://github.com/sasjakoning/blok-tech-2022-groepoek
 ```
 3. Wanneer dit is gelukt heb je de repository op je eigen computer staan. Navigeer binnen deze repository in de terminal. Je wilt nu alle packages installeren die je nodig hebt voor deze feature. Om dit project vervolgens te laten werken voer je het volgende commando uit:
 ```
