@@ -38,13 +38,7 @@ db.connectDb();
 
 // Code hier
 
-app.get("/", async (req, res) => {
-  const users = await userModel.find({}).lean();
-  res.render("main", {
-      layout: "index",
-      data: users
-  })
-})
+app.use("/", require("./routes/likedislike"))
 
 // ---
 
