@@ -40,7 +40,7 @@ db.connectDb();
 
 app.get("/", async (req, res) => {
   const userCount = await likedislikeUserModel.find({}).lean();
-
+  console.log(userCount)
   res.render("main", {
       layout: "index",
       data: userCount
