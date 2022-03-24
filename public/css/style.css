@@ -1,5 +1,13 @@
 /* styling here */
 
+:root {
+	--primary1: rgba(66, 49, 179, 1);
+	--primary2: rgba(255, 255, 255, 1);
+	--secondary: rgba(161, 169, 238, 1);
+	--accent: rgba(255, 133, 128, 1);
+	--detail: rgba(230, 234, 243, 1);
+}
+
 body {
     width: 100vw;
     height: 100vh;
