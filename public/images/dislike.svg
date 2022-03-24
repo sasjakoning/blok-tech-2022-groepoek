@@ -1,7 +1,7 @@
 <svg width="116" height="116" viewBox="0 0 116 116" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_di_26_150)">
-<circle cx="56" cy="56" r="54" fill="#FF8580" fill-opacity="0.2" shape-rendering="crispEdges"/>
-<circle cx="56" cy="56" r="53.5" stroke="#FF8580" shape-rendering="crispEdges"/>
+<circle cx="56" cy="56" r="54" fill="#FF8580" fill-opacity="0.2" shape-rendering="smooth"/>
+<circle cx="56" cy="56" r="53" stroke="#FF8580" stroke-width="2" shape-rendering="smooth"/>
 </g>
 <path d="M33.2368 33.5825L78.7636 79.1093" stroke="#FF8580" stroke-width="8" stroke-linecap="round"/>
 <path d="M33.2368 79.1089L78.7636 33.5821" stroke="#FF8580" stroke-width="8" stroke-linecap="round"/>
