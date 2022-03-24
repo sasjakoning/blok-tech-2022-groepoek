@@ -1,5 +1,8 @@
 <main>
     <article>
+        {{#if isMatched}}
+            {{>matchPopup}}
+        {{/if}}
         {{>largeCard}}
     </article>
     {{>likeDislike}}
