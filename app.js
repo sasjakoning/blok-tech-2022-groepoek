@@ -32,6 +32,7 @@ app.engine(
 app.set("view engine", "hbs");
 
 // laat files uit "public" zien
+app.use(express.static(__dirname));
 app.use(express.static("public"));
 
 // verbinding maken met het database
