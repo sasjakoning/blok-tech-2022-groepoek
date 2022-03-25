@@ -1,11 +1,13 @@
 // requires
 const express = require("express");
 const handlebars = require("express-handlebars");
+const multer  = require("multer");
 const db = require("./config/connect.js"); //verbinding mongoDB
 
 // ---
 
 const app = express();
+const upload = multer({ dest: "public/uploads/" })
 
 // setup van port. post is http://localhost:3000/
 let port = process.env.PORT;
@@ -39,6 +41,10 @@ app.get("/", (req, res) => {
     res.render("main", {
         layout: "index"
     })
+})
+
+app.get("/profile", (req, res) => {
+    res.render("profile");
 })
 
 // ---
