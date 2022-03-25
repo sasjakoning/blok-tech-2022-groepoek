@@ -1,7 +1,10 @@
 <section class="profilePage">
-<form action="">
-    <div>
-        <input type="file">
-    </div>
-</form>
+    <form action="" method="post" enctype="multipart/form-data">
+        <div class="avatarUploadField">
+            <img src="images/profile/NoAvatar" alt="">
+            <img src="images/profile/workaRoundFoto.jpg" alt="Eigen profielfoto" name="avatar" class="eigenProfielfotoGr"
+            <img src="images/profile/uploadicon.png" alt="" class="uploadFotoOverlay hidden">
+            <input type="file" accept=".jpeg,.jpg,.png" onchange="this.form.submit()">
+        </div>
+    </form>
 </section>
