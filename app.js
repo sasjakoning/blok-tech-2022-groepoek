@@ -40,6 +40,7 @@ db.connectDb();
 // Code hier
 
 app.use("/", require("./routes/likedislike"))
+app.use("/register", require("./routes/register"))
 
 // ---
 
