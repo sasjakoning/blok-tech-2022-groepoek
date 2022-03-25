@@ -1,0 +1,50 @@
+/* ---- Start styling profile ---- */
+
+.profilePage .avatarUploadField{
+    position: relative;
+    width: 20em;
+    height: 25em;
+    overflow: hidden;
+    border-radius: 15px;
+    align-items: center;
+}
+
+.profilePage .avatarUploadField img{
+    position: absolute;
+    top: 0;
+}
+
+.profilePage .avatarUploadField img:not(.profilePage .avatarUploadField img:first-child, .profilePage .avatarUploadField img:last-of-type){
+    width: 100%;
+    right: 0;
+}
+
+.profilePage .avatarUploadField > img[src="images/profile/NoAvatar.jpg"]{
+    height: 100%;
+    right: -15%;
+}
+
+.profilePage .avatarUploadField > img[src="images/profile/uploadicon.svg"]{
+    height: 50%;
+    top: 25%;
+    left: 9.5%;
+}
+
+.profilePage .avatarUploadField input{
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+/* ---- End styling profile ---- */
+
+.hidden {
+    display: none;
+}
+
+.transparent50{
+    opacity: 50%;
+}
