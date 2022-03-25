@@ -14,7 +14,9 @@ const router = express.Router();
 // get all users from database etc
 const getUsers = async () => {
   // find the admin user (which is being used as "logged in user" for demo purposes)
-  const admin = await adminUserModel.findOne({ username: "adminuser" });
+  const admin = await adminUserModel.findOne({}).lean();
+
+  console.log(admin)
 
   // find which users admin has matched
   const adminMatches = admin.matches;
