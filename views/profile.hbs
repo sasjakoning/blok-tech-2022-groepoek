@@ -1,5 +1,5 @@
 <section class="profilePage">
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="/updateprofile" method="post" enctype="multipart/form-data">
         <div>
             <div class="avatarUploadField">
                 <img src="images/profile/NoAvatar.jpg" alt="">
@@ -7,7 +7,7 @@
                 <img src="images/profile/uploadicon.svg" alt="" class="uploadFotoOverlay hidden">
                 <input type="file" name="Avatar" accept=".jpeg,.jpg,.png" onchange="this.form.submit()">
             </div>
-            <input type="text" id="formRoepnaam" name="Naam" value="" placeholder="Wat is je naam?">
+            <input type="text" id="formRoepnaam" name="naam" value="" placeholder="Wat is je naam?">
             <h2>Over mij</h2>
             <div class="grow-wrap">
                 <textarea id="formOmschrijving" name="omschrijving" placeholder="Vertel iets over jezelf" onInput="this.parentNode.dataset.replicatedValue = this.value"></textarea>
@@ -16,17 +16,43 @@
         <div>
             <h2>Persoonlijke informatie</h2>
             <label for="formLeeftijd">Leeftijd</label>
-            <input type="text" id="formLeeftijd" name="Leeftijd" value="" placeholder="Laat potentiele matches weten hoe oud je bent">
+            <input type="text" id="formLeeftijd" name="leeftijd" value="" placeholder="Laat potentiele matches weten hoe oud je bent">
             <label for="formPlaats">Plaats</label>
-            <input type="text" id="formPlaats" name="Plaats" value="" placeholder="plaatsnaam">
+            <input type="text" id="formPlaats" name="plaats" value="" placeholder="plaatsnaam">
             <label for="formLengte">Lengte</label>
-            <input type="number" id="formLengte" name="Lengte" value="" min="100" max="250">
+            <input type="number" id="formLengte" name="lengte" value="" min="100" max="250">
             <h2>Interesses</h2>
             <h2>Tags</h2>
         </div>
         <div>
             <h2>Platforms</h2>
+            <div class="discordLabel">
+                <img src="images/profile/icon/discord-white-logo.svg" alt="">
+                <input type="text" id="formDiscord" name="discord" value="" placeholder="Account naam">
+            </div>
+            <div class="xboxLabel">
+                <img src="images/profile/icon/xbox-white-logo.svg" alt="">
+                <input type="text" id="formxbox" name="xbox" value="" placeholder="Account naam">
+            </div>
+            <div class="playstationLabel">
+                <img src="images/profile/icon/playstation-white-logo.svg" alt="">
+                <input type="text" id="formplaystation" name="playstation" value="" placeholder="Account naam">
+            </div>
+            <div class="whatsappLabel">
+                <img src="images/profile/icon/whatsapp-white-logo.svg" alt="">
+                <input type="number" id="formwhatsapp" name="whatsapp" value="" placeholder="Nummer">
+            </div>
+            <div class="messengerLabel">
+                <img src="images/profile/icon/messenger-white-logo.svg" alt="">
+                <input type="text" id="formmessenger" name="messenger" value="" placeholder="Account naam">
+            </div>
+            <div class="skypeLabel">
+                <img src="images/profile/icon/skype-white-logo.svg" alt="">
+                <input type="text" id="formskype" name="skype" value="" placeholder="Account naam">
+            </div>
+            
         </div>
+        <button>✓ Opslaan</button>
     </form>
 </section>
 

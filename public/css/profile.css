@@ -4,11 +4,24 @@ body{
     background-color: #4d023d;
 }
 
+p, a, label, h2, ::placeholder{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h2{
+    font-size: 2em;
+}
+
+p, a, label, ::placeholder{
+    font-size: 1.1em;
+}
+
 .profilePage{
     background-color: white;
     border-radius: 15px;
     width: 60%;
-    margin: 3em;
+    min-width: 80em;
+    margin: 3em auto;
     padding: 5em 3em 3em 3em;
 }
 
@@ -54,15 +67,121 @@ body{
     bottom: 0;
     left: 0;
     right: 0;
+    cursor: pointer;
 }
 .profilePage form{
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
-.profilePage form div:nth-of-type(3){
+.profilePage form div:nth-of-type(3), .profilePage form button{
     grid-column: 1 / 3;
 }
+
+.profilePage button{
+    background-color: var(--accent);
+    border: none;
+    border-radius: 5px;
+    padding: 1em;
+    width: 10em;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+    justify-self: end;
+}
+
+.profilePage > form > div:nth-of-type(3) h2{
+    flex: 0 0 100%;
+}
+
+.profilePage > form > div:nth-of-type(3){
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em 1.5em;
+    width: 65%;
+}
+
+.profilePage > form > div:nth-of-type(3) div {
+    display: flex;
+    align-items: center;
+    width: 17em;
+    height: 3.5em;
+    border-radius: 5px;
+}
+
+.profilePage > form > div:nth-of-type(3) div input{
+    width: 8.8em;
+    height: 2em;
+    padding: 0 0 0 0.5em;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.profilePage > form > div:nth-of-type(3) div input::placeholder{
+    color: rgba(255, 255, 255, 0.603);
+}
+
+.profilePage > form > div:nth-of-type(3) div img{
+    width: 2em;
+    height: 100%;
+    padding: 1em;
+}
+
+.profilePage .discordLabel{
+    background-color: #5662f6;
+}
+
+.profilePage .discordLabel input:hover{
+    background-color: #6e77f3;
+}
+
+.profilePage .xboxLabel{
+    background-color: #2e8c2e;
+}
+
+.profilePage .xboxLabel input:hover{
+    background-color: #4da74d;
+}
+
+.profilePage .playstationLabel{
+    background-color: #0070d1;
+}
+
+.profilePage .playstationLabel input:hover{
+    background-color: #1c87e4;
+}
+
+.profilePage .playstationLabel img[src="images/profile/icon/playstation-white-logo.svg"]{
+    width: 3em;
+    padding: 1em 0.5em 1em 0.5em;
+}
+
+.profilePage .whatsappLabel{
+    background-color: #46e862;
+}
+
+.profilePage .whatsappLabel input:hover{
+    background-color: #70e784;
+}
+
+.profilePage .messengerLabel{
+    background-color: #00b1ff;
+}
+
+.profilePage .messengerLabel input:hover{
+    background-color: #33b9f3;
+}
+
+.profilePage .skypeLabel{
+    background-color: #15ace5;
+}
+
+.profilePage .skypeLabel input:hover{
+    background-color: #32b6e6;
+}
+
 
 
 /* ---- End styling profile ---- */
