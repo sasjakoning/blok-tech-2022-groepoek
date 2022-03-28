@@ -45,8 +45,31 @@ db.connectDb();
 app.use("/", require("./routes/likedislike"))
 
 app.get("/profile", (req, res) => {
-    res.render("profile");
+  res.render("profile");
 })
+
+// app.post("/updateprofile", updateProfile);
+
+// async function update(client, profielKenmerk, updatedata) {
+//   const result = await client.db(naamDatabase).collection(naamCollection).updateOne({profiel: profielKenmerk}, {$set: updatedata}, {upsert: true})
+// }
+// async function updateProfile(req, res) {
+//   update(client, "0", {
+//     "roepnaam": req.body.naam,
+//     "omschrijving": req.body.omschrijving,
+//     "leeftijd": req.body.leeftijd,
+//     "plaats": req.body.plaats,
+//     "lengte": req.body.lengte,
+//   })
+
+//   let user = await FindProfile(client, "0");
+//   res.render("profile", {
+//       user
+//   });
+// }
+
+
+
 
 // ---
 
