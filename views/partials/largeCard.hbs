@@ -23,8 +23,18 @@
             </picture>
 
             <article>
-                <h1>{{this.firstname}} {{this.lastname}}</h1>
-                <p>{{this.aboutme}}</p>
+                <h1>{{this.firstname}} {{this.lastname}} - age</h1>
+                <p>location (i forgor)</p>
+                <ul>
+                    {{#each interests}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+
+                <section>
+                    <h2>About me</h2>
+                    <p>{{this.aboutme}}</p>
+                </section>
             </article>
         </section>
 

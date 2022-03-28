@@ -11,13 +11,13 @@ gulp.task("default", (done) => {
     })
     done()
 
-    // stream.on("restart", () => {
-    //     console.log("restarted!")
-    // })
-    // .on("crash", () => {
-    //     console.error("Application has crashed!\n")
-    //     stream.emit("restart", 10)
-    // })
+    stream.on("restart", () => {
+        console.log("restarted!")
+    })
+    .on("crash", () => {
+        console.error("Application has crashed!\n")
+        stream.emit("restart", 10)
+    })
 })
 
 gulp.task("concat", (done) => {

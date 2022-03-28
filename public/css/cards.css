@@ -99,14 +99,31 @@ main > article:last-of-type > section:first-of-type {
 
 .cardFront > article {
 	width: calc(100% - 2em);
+	font-size: 12px;
 }
 
+/* name and age */
 .cardFront > article > h1 {
 	font-size: 28px;
 }
 
-.cardFront > article > p {
-	font-size: 12px;
+
+/* tags */
+.cardFront > article > ul {
+	display: flex;
+	margin: 1em 0;
+}
+
+.cardFront > article > ul > li {
+	padding: .4em 1em;
+	background: var(--tertiary);
+	margin-right: 1em;
+	border-radius: 10em;
+}
+
+/* about me */
+.cardFront > article > section > h2{
+	font-size: 16px;
 }
 
 .cardLike {
