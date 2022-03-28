@@ -69,6 +69,14 @@ window.onload=function dragOverAvatarUploadField() {
     const HuidigeAvatar = document.querySelector(".eigenAvatarfotoGr");
     const uploadFotoOverlay = document.querySelector(".uploadFotoOverlay");
 
+    const profilePageGlobal = document.querySelector(".profilePage")
+    const editButton = document.querySelector(".profilePage > img:first-of-type")
+    // const formRoepnaam = document.querySelector("#formRoepnaam");
+    // const formOmschrijving = document.querySelector("formOmschrijving");
+    // const formLeeftijd = document.querySelector("formLeeftijd");
+    // const formPlaats = document.querySelector("#formPlaats");
+    // const formLengte = document.querySelector("formLengte");
+
     dropZone.addEventListener("dragover", e => {
         e.preventDefault();
         dropZone.classList.add("hover");
@@ -100,6 +108,7 @@ window.onload=function dragOverAvatarUploadField() {
       HuidigeAvatar.classList.remove("transparent50");
       uploadFotoOverlay.classList.add("hidden");
   })
-    
+    editButton.addEventListener("click", e => {
+      profilePageGlobal.classList.add("editingProfile");
+    })
 }
-

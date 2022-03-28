@@ -1,4 +1,5 @@
 <section class="profilePage">
+    <img src="images/profile/icon/editIcon.svg" alt="">    
     <form action="/updateprofile" method="post" enctype="multipart/form-data">
         <div>
             <div class="avatarUploadField">
@@ -7,7 +8,7 @@
                 <img src="images/profile/uploadicon.svg" alt="" class="uploadFotoOverlay hidden">
                 <input type="file" name="Avatar" accept=".jpeg,.jpg,.png" onchange="this.form.submit()">
             </div>
-            <input type="text" id="formRoepnaam" name="naam" value="" placeholder="Wat is je naam?">
+            <input type="text" id="formRoepnaam" name="naam" value="" placeholder="Wat is je naam?" required>
             <h2>Over mij</h2>
             <div class="grow-wrap">
                 <textarea id="formOmschrijving" name="omschrijving" placeholder="Vertel iets over jezelf" onInput="this.parentNode.dataset.replicatedValue = this.value"></textarea>
@@ -15,14 +16,27 @@
         </div>
         <div>
             <h2>Persoonlijke informatie</h2>
-            <label for="formLeeftijd">Leeftijd</label>
-            <input type="text" id="formLeeftijd" name="leeftijd" value="" placeholder="Laat potentiele matches weten hoe oud je bent">
-            <label for="formPlaats">Plaats</label>
-            <input type="text" id="formPlaats" name="plaats" value="" placeholder="plaatsnaam">
-            <label for="formLengte">Lengte</label>
-            <input type="number" id="formLengte" name="lengte" value="" min="100" max="250">
+            <div>
+                <label for="formLeeftijd">Leeftijd</label>
+                <input type="text" id="formLeeftijd" name="leeftijd" value="" placeholder="Laat potentiele matches weten hoe oud je bent">
+            </div>
+            <div>
+                <label for="formPlaats">Plaats</label>
+                <input type="text" id="formPlaats" name="plaats" value="" placeholder="plaatsnaam">
+            </div>
+            <div>
+                <label for="formLengte">Lengte</label>
+                <input type="number" id="formLengte" name="lengte" value="" min="100" max="250">
+            </div>
             <h2>Interesses</h2>
+            <div class="grow-wrap">
+                <textarea id="formInteresses" name="interesses" placeholder="Wat zijn je interesses" onInput="this.parentNode.dataset.replicatedValue = this.value"></textarea>
+            </div>
             <h2>Tags</h2>
+            <div>
+                <p>Fortnite</p>
+                <p>+</p>
+            </div>
         </div>
         <div>
             <h2>Platforms</h2>
@@ -40,7 +54,7 @@
             </div>
             <div class="whatsappLabel">
                 <img src="images/profile/icon/whatsapp-white-logo.svg" alt="">
-                <input type="number" id="formwhatsapp" name="whatsapp" value="" placeholder="Nummer">
+                <input type="number" id="formwhatsapp" name="whatsapp" value="" placeholder="+31 ">
             </div>
             <div class="messengerLabel">
                 <img src="images/profile/icon/messenger-white-logo.svg" alt="">
