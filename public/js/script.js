@@ -1,3 +1,4 @@
+
 // fix for transitions firing on load
 window.addEventListener("load", () => {
   document.querySelector("body").classList.remove("preload");
@@ -62,34 +63,29 @@ if (matchBackground != null) {
   });
 }
 
-// const forms = document.querySelectorAll("form");
+window.onload=function dragOverAvatarUploadField() {
+    const dropZone = document.querySelector(".avatarUploadField");
+    const stockFotoInDropZone = document.querySelector(".avatarUploadField img:first-of-type");
+    const HuidigeAvatar = document.querySelector(".eigenAvatarfotoGr");
+    const uploadFotoOverlay = document.querySelector(".uploadFotoOverlay");
 
-// forms.forEach((form) => {
-//   form.addEventListener("submit", (e) => {
-//     console.log("yes")
-//     //prevent the html submit
-//     e.preventDefault();
-//     //post the form yourself via JavaScript
-//     fetch(e.target.action, {
-//       method: "POST",
-//       headers: { "Content-Type": "application/json" },
-//     }).then((res) => {
-//       console.log("Request complete! response:", res);
-//     });
-//   });
-// });
+    dropZone.addEventListener("dragover", e => {
+        e.preventDefault();
+        stockFotoInDropZone.classList.add("hidden");
+        HuidigeAvatar.classList.add("transparent50");
+        uploadFotoOverlay.classList.remove("hidden");
+    })
 
-// forms.forEach((form) => {
-//   form.addEventListener("submit", (e) => {
-//     console.log("yes")
-//     //prevent the html submit
-//     e.preventDefault();
-//     //post the form yourself via JavaScript
-//     fetch(e.target.action, {
-//       method: "POST",
-//       headers: { "Content-Type": "application/json" },
-//     }).then((res) => {
-//       console.log("Request complete! response:", res);
-//     });
-//   });
-// });
+    dropZone.addEventListener("dragleave", e => {
+        stockFotoInDropZone.classList.remove("hidden");
+        HuidigeAvatar.classList.remove("transparent50");
+        uploadFotoOverlay.classList.add("hidden");
+    })
+
+    dropZone.addEventListener("dragend", e => {
+        stockFotoInDropZone.classList.remove("hidden");
+        HuidigeAvatar.classList.remove("transparent50");
+        uploadFotoOverlay.classList.add("hidden");
+    })
+}
+
