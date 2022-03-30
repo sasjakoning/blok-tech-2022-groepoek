@@ -3,13 +3,12 @@ const concat = require("gulp-concat")
 const nodemon = require("gulp-nodemon")
 
 gulp.task("default", (done) => {
-    var stream = nodemon({
+    const stream = nodemon({
         script: "app.js",
         ext: "html js css",
         ignore: "style.min.css",
         tasks: ["concat"]
     })
-    done()
 
     stream.on("restart", () => {
         console.log("restarted!")
@@ -18,6 +17,8 @@ gulp.task("default", (done) => {
         console.error("Application has crashed!\n")
         stream.emit("restart", 10)
     })
+
+    done()
 })
 
 gulp.task("concat", (done) => {
