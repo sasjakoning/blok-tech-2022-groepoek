@@ -31,6 +31,8 @@ main > article:last-of-type > section:first-of-type {
     width: 30em;
     height: 50em;
     background: transparent;
+
+	flex-shrink: 0;
 }
 
 /* .cardLabel:first-of-type {
@@ -105,6 +107,22 @@ main > article:last-of-type > section:first-of-type {
 /* name and age */
 .cardFront > article > h1 {
 	font-size: 28px;
+}
+
+/* location */
+.cardFront > article > p {
+	position: relative;
+	padding-left: 1.3em;
+}
+
+.cardFront > article > p::before {
+	content: "";
+	position: absolute;
+	width: 1.2em;
+	height: 1.2em;
+	background: url(../images/location.svg) no-repeat center;
+	background-size: contain;
+	left: 0;
 }
 
 
