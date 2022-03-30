@@ -130,6 +130,8 @@ main > article:last-of-type > section:first-of-type {
 .cardFront > article > ul {
 	display: flex;
 	margin: 1em 0;
+	flex-wrap: wrap;
+	row-gap: 1em;
 }
 
 .cardFront > article > ul > li {
