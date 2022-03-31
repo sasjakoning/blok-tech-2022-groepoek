@@ -45,7 +45,7 @@ dislikeForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
   card.classList.add("cardDislike");
-  actionOverlay.classList.add("actionDisliked");
+  actionOverlay.classList.add("actionLiked");
   actionOverlayImg.src = "/images/overlayDislike.svg";
 
   otherCards.forEach((card) => {
