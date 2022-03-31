@@ -33,6 +33,7 @@ main > article:last-of-type > section:first-of-type {
     background: transparent;
 
 	flex-shrink: 0;
+	transform-style: preserve-3d;
 }
 
 /* .cardLabel:first-of-type {
@@ -130,12 +131,14 @@ main > article:last-of-type > section:first-of-type {
 .cardFront > article > ul {
 	display: flex;
 	margin: 1em 0;
+	flex-wrap: wrap;
 }
 
 .cardFront > article > ul > li {
 	padding: .4em 1em;
 	background: var(--tertiary);
 	margin-right: 1em;
+	margin: 0 1em 1em 0;
 	border-radius: 10em;
 }
 
@@ -150,7 +153,7 @@ main > article:last-of-type > section:first-of-type {
 
 @keyframes cardLike {
 	to {
-		transform: rotate(30deg) translateX(45em) translateY(-20em);
+		transform: rotateX(40deg) translateY(-100em);
 	}
 }
 
@@ -160,7 +163,18 @@ main > article:last-of-type > section:first-of-type {
 
 @keyframes cardDislike {
 	to {
-		transform: rotate(-30deg) translateX(-45em) translateY(-20em);
+		transform: rotateX(-40deg) translateY(100em);
+	}
+}
+
+.cardsMove {
+	animation: cardsMove .3s ease-in-out forwards;
+	animation-delay: .2s;
+}
+
+@keyframes cardsMove {
+	to {
+		transform: translateX(-35em);
 	}
 }
 
