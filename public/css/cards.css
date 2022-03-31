@@ -114,6 +114,7 @@ main > article:last-of-type > section:first-of-type {
 .cardFront > article > p {
 	position: relative;
 	padding-left: 1.3em;
+	color: var(--text);
 }
 
 .cardFront > article > p::before {
@@ -144,6 +145,10 @@ main > article:last-of-type > section:first-of-type {
 }
 
 /* about me */
+.cardFront > article > section {
+	color: var(--text);
+}
+
 .cardFront > article > section > h2{
 	font-size: 16px;
 }
