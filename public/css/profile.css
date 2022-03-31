@@ -35,6 +35,10 @@ p, a, label, ::placeholder{
     filter: invert(76%) sepia(0%) saturate(12%) hue-rotate(140deg) brightness(106%) contrast(109%);
     padding: 1em;
     cursor: pointer;
+    opacity: 0.5;
+}
+.profilePage img[src="images/profile/icon/editIcon.svg"]:hover{
+    filter: invert(90%) sepia(0%) saturate(1399%) hue-rotate(53deg) brightness(87%) contrast(105%);
 }
 
 .profilePage form{
@@ -332,6 +336,51 @@ p, a, label, ::placeholder{
 }
 
 /* // END profile - platforms // */
+
+
+/* // profile - tag menu // */
+
+.tagsMenu{
+    position: absolute;
+    background-color: rgba(16, 16, 16, 0.714);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.tagsMenu form{
+    background-color: white;
+    width: 50em;
+    margin: 3em auto;
+}
+
+.tagsMenu form div{
+    border: 1px solid var(--primary1);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+}
+
+.tagsMenu form input{
+    display: none;
+}
+
+.tagsMenu form label{
+    padding: 0.3em 0.8em;
+}
+
+.tagsMenu form input:checked{
+    content: "\2713";
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+    font-size: 15px;
+    color: #f3f3f3;
+    text-align: center;
+    line-height: 15px;
+}
+
+/* // END profile - tag menu // */
 
 /* ---- END styling profile ---- */
 
