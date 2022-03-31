@@ -16,7 +16,7 @@ let port = process.env.PORT;
 if (port == null || port == "") {
   port = 3000;
 }
-
+//
 // hi this is a comment
 
 // handlebars setup
@@ -47,6 +47,8 @@ app.use("/", require("./routes/likedislike"))
 app.get("/profile", (req, res) => {
     res.render("profile");
 })
+
+app.use("/matches", require("./routes/matches"))
 
 // ---
 
