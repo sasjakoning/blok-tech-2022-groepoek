@@ -1,0 +1,160 @@
+/*********/
+/* cards */
+/*********/
+
+main > article:last-of-type {
+    height: 100%;
+    width: 75%;
+    background: var(--primary1);
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+	flex-direction: column;
+
+	padding-left: 5em;
+
+	gap: 2em;
+}
+
+main > article:last-of-type > section:first-of-type {
+	display: flex;
+
+	gap: 5em;
+}
+
+/* container */
+.smallCardLabel {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    width: 30em;
+    height: 40em;
+    background: transparent;
+
+	flex-shrink: 0;
+}
+
+/* .cardLabel:first-of-type {
+    z-index: 1;
+} */
+
+.flipBtn {
+    position: absolute;
+    display: none;
+}
+
+.flipBtn:checked ~ .cardContainer {
+    transform: rotateY(180deg);
+}
+
+.cardContainer {
+    visibility: visible;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    z-index: -1;
+}
+
+/* bugfix specifically for firefox */
+@-moz-document url-prefix() {
+    .cardContainer {
+        backface-visibility: hidden;
+    }
+}
+
+.smallCardFront, .cardBack {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+	border-radius: 1.2em;
+}
+
+.cardBack {
+    background: var(--primary2);
+    transform: scaleX(-1);
+}
+
+.smallCardFront {
+    background: var(--primary2);
+    backface-visibility: hidden;
+}
+
+.SmallCardFront > picture {
+    width: calc(100% - 2em);
+    margin-top: 1em;
+    display: block;
+}
+
+.smallCardFront > picture > img {
+    width: 100%;
+    object-fit: cover;
+	border-radius: 1.2em;
+}
+
+.smallCardFront > article {
+	width: calc(100% - 2em);
+	font-size: 12px;
+}
+
+/* name and age */
+.SmallcardFront > article > h1 {
+	font-size: 28px;
+}
+
+/* location */
+.smallCardFront > article > p {
+	position: relative;
+	padding-left: 1.3em;
+}
+
+.smallCardFront > article > p::before {
+	content: "";
+	position: absolute;
+	width: 1.2em;
+	height: 1.2em;
+	background: url(../images/location.svg) no-repeat center;
+	background-size: contain;
+	left: 0;
+}
+
+
+/* tags */
+.smallCardFront > article > ul {
+	display: flex;
+	margin: 1em 0;
+}
+
+.smallCardFront > article > ul > li {
+	padding: .4em 1em;
+	background: var(--tertiary);
+	margin-right: 1em;
+	border-radius: 10em;
+}
+
+.matchCard figcaption {
+	margin-top: -1em;
+	width: calc(100% - 2em);
+}
+
+.matchCard .playerInfo > h2 {
+	font-size: 20px;
+}
+
+.matchCard .playerInfo > h3 {
+	font-size: 14px;
+	line-height: 1.2;
+}
+
+.matchPopup > h1 {
+	font-size: 3.2em;
+	text-align: center;
+	margin-top: .7em;
+}

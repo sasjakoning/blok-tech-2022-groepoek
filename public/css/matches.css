@@ -1,0 +1,61 @@
+
+:root {
+	--primary1: rgba(72, 0, 56, 1);
+	--primary2: rgba(255, 255, 255, 1);
+	--secondary: rgba(161, 169, 238, 1);
+	--tertiary: rgba(255, 211, 205, 1);
+	--accent: rgba(255, 133, 128, 1);
+	--detail: rgba(230, 234, 243, 1);
+}
+::-webkit-scrollbar {
+    width: 0.5em;  
+
+  }
+  
+::-webkit-scrollbar-track {
+    background: #FFD6D1; 
+ 
+  }
+  
+::-webkit-scrollbar-thumb {
+    background-color: #FF8580;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+
+	font-size: 10px;
+
+	font-family: 'Roboto', sans-serif;
+}
+
+.matchTitle {
+font-weight: bolder;
+font-size: 4em;
+padding: 1em;
+}
+.matchesSideBar {
+    position: static;
+    background: var(--primary2);
+    height: 100%;
+    width: 65em;
+    flex-shrink: 0;
+}
+
+
+ul.smallCards {
+    overflow: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+ul.smallCards > li {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 3em;
+    padding-right: 5.5em;
+    padding-left: 5.5em;
+}

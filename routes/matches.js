@@ -52,7 +52,7 @@ router.get("/", async (req, res) => {
       result = result.slice(counter1, counter2);
 
       // send result to handlebars
-      res.render("main", {
+      res.render("matches", {
         layout: "index",
         data: result,
       });

@@ -1,0 +1,359 @@
+/*********/
+/* cards */
+/*********/
+
+main > article:last-of-type {
+    height: 100%;
+    width: 75%;
+    background: var(--primary1);
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+	flex-direction: column;
+
+	padding-left: 5em;
+
+	gap: 2em;
+}
+
+main > article:last-of-type > section:first-of-type {
+	display: flex;
+
+	gap: 5em;
+}
+
+/* container */
+.cardLabel {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    width: 30em;
+    height: 50em;
+    background: transparent;
+
+	flex-shrink: 0;
+}
+
+/* .cardLabel:first-of-type {
+    z-index: 1;
+} */
+
+.flipBtn {
+    position: absolute;
+    display: none;
+}
+
+.flipBtn:checked ~ .cardContainer {
+    transform: rotateY(180deg);
+}
+
+.cardContainer {
+    visibility: visible;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    z-index: -1;
+}
+
+/* bugfix specifically for firefox */
+@-moz-document url-prefix() {
+    .cardContainer {
+        backface-visibility: hidden;
+    }
+}
+
+.cardFront, .cardBack {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+	border-radius: 1.2em;
+}
+
+.cardBack {
+    background: var(--primary2);
+    transform: scaleX(-1);
+}
+
+.cardFront {
+    background: var(--primary2);
+    backface-visibility: hidden;
+}
+
+.cardFront > picture {
+    width: calc(100% - 2em);
+    margin-top: 1em;
+    display: block;
+}
+
+.cardFront > picture > img {
+    width: 100%;
+    object-fit: cover;
+	border-radius: 1.2em;
+}
+
+.cardFront > article {
+	width: calc(100% - 2em);
+	font-size: 12px;
+}
+
+/* name and age */
+.cardFront > article > h1 {
+	font-size: 28px;
+}
+
+/* location */
+.cardFront > article > p {
+	position: relative;
+	padding-left: 1.3em;
+}
+
+.cardFront > article > p::before {
+	content: "";
+	position: absolute;
+	width: 1.2em;
+	height: 1.2em;
+	background: url(../images/location.svg) no-repeat center;
+	background-size: contain;
+	left: 0;
+}
+
+
+/* tags */
+.cardFront > article > ul {
+	display: flex;
+	margin: 1em 0;
+}
+
+.cardFront > article > ul > li {
+	padding: .4em 1em;
+	background: var(--tertiary);
+	margin-right: 1em;
+	border-radius: 10em;
+}
+
+/* about me */
+.cardFront > article > section > h2{
+	font-size: 16px;
+}
+
+.cardLike {
+	animation: cardLike .5s ease-in-out forwards;
+}
+
+@keyframes cardLike {
+	to {
+		transform: rotate(30deg) translateX(45em) translateY(-20em);
+	}
+}
+
+.cardDislike {
+	animation: cardDislike .5s ease-in-out forwards;
+}
+
+@keyframes cardDislike {
+	to {
+		transform: rotate(-30deg) translateX(-45em) translateY(-20em);
+	}
+}
+
+.actionOverlay {
+	display: none;
+}
+
+/************************/
+/* like dislike buttons */
+/************************/
+
+.likeDislike {
+    display: flex;
+	gap: 4em;
+	width: 30em;
+	justify-content: center;
+}
+
+.likeDislike button {
+	background: none;
+	border: none;
+}
+
+.likeDislike button > img {
+	width: 7em;
+}
+
+/************************/
+/* when a match happens */
+/************************/
+
+.matchTitle {
+	align-self: flex-start;
+	font-size: 2.4em;
+	margin: 0 auto .5em auto;
+	width: 100%;
+	max-width: 17em;
+	display: block;
+}
+
+.matchBackground {
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0);
+
+	z-index: 100;
+
+	position: fixed;
+
+	top: 50%;
+	left: 50%;
+
+	transform: translate(-50%, -50%);
+
+	backdrop-filter: blur(0px);
+
+	animation: matchBackground .5s forwards ease-in-out;
+}
+
+@keyframes matchBackground {
+	to {
+		background: rgba(0, 0, 0, 0.3);
+		backdrop-filter: blur(5px);
+	}
+}
+
+.matchPopup {
+	width: 80%;
+	max-width: 40em;
+	height: 50%;
+	max-height: 40em;
+
+	z-index: 100;
+
+	display: flex;
+	flex-direction: column;
+
+	position: fixed;
+
+	top: 50%;
+	left: 50%;
+
+	transform: translate(-50%, -50%) scale(0);
+	animation: matchPopup 0.5s 0.4s forwards ease-in-out;
+}
+
+@keyframes matchPopup {
+	0% {
+		transform: translate(-50%, -50%) scale(0);
+	}
+	60% {
+		transform: translate(-50%, -50%) scale(1.2);
+	}
+	80% {
+		transform: translate(-50%, -50%) scale(0.9);
+	}
+	90% {
+		transform: translate(-50%, -50%) scale(1.05);
+	}
+	100% {
+		transform: translate(-50%, -50%) scale(1);
+	}
+}
+
+.matchPopup > section {
+	display: flex;
+	justify-content: center;
+
+	filter: drop-shadow(0px 0px 10px var(--detail-lightblue));
+}
+
+.matchButtonContainer {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+
+	margin-top: 3em;
+}
+
+.matchButtonContainer button {
+	padding: 1em;
+	border-radius: 1em;
+}
+
+.matchCard {
+    background: var(--card-blue);
+    height: 20em;
+
+	width: 48%;
+
+    border-radius: 12px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	transform-origin: bottom center;
+
+	position: relative;
+}
+
+.matchCard:first-of-type {
+	transform: rotate(-20deg) translateX(30%);
+}
+
+.matchCard:last-of-type {
+	transform: rotate(20deg) translateX(-30%);
+	border-left: 1px solid var(--background);
+	border-bottom: 1px solid var(--background);
+}
+
+.matchCard .pictureContainer {
+    width: 100%;
+    height: 55%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.matchCard .pictureContainer > picture {
+	width: calc(100% - 2em);
+	margin-top: 1em;
+	display: block;
+	position: relative;
+}
+
+.matchCard .pictureContainer > picture > img {
+	width: 100%;
+    height: 90%;
+    object-fit: cover;
+
+	border-radius: 12px;
+}
+
+
+.matchCard figcaption {
+	margin-top: -1em;
+	width: calc(100% - 2em);
+}
+
+.matchCard .playerInfo > h2 {
+	font-size: 20px;
+}
+
+.matchCard .playerInfo > h3 {
+	font-size: 14px;
+	line-height: 1.2;
+}
+
+.matchPopup > h1 {
+	font-size: 3.2em;
+	text-align: center;
+	margin-top: .7em;
+}
