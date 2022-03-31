@@ -7,7 +7,7 @@
 	--accent: rgba(255, 133, 128, 1);
 	--detail: rgba(230, 234, 243, 1);
 }
-::-webkit-scrollbar {
+/*::-webkit-scrollbar {
     width: 0.5em;  
 
   }
@@ -19,7 +19,7 @@
   
 ::-webkit-scrollbar-thumb {
     background-color: #FF8580;
-}
+} */
 body {
     width: 100vw;
     height: 100vh;

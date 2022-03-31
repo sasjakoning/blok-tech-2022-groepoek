@@ -52,4 +52,6 @@ app.use("/matches", require("./routes/matches"))
 
 // ---
 
+app.use("/login", require("./routes/loginregister"))
+
 app.listen(port, () => console.log(`App listening to port ${port}`));

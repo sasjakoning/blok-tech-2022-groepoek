@@ -1,0 +1,206 @@
+/*Colors*/
+
+:root {
+    --primary1: rgba(66, 49, 179, 1);
+    --primary2: rgba(255, 255, 255, 1);
+    --secondary: rgba(161, 169, 238, 1);
+    --accent: rgba(255, 133, 128, 1);
+    --detail: rgba(230, 234, 243, 1);
+    --background-color: #C0C0C0;
+    --form-color: #727272;
+}
+ 
+/* Styling Login Form*/
+ 
+#loginpage {
+    overflow-x: hidden;
+}
+ 
+#loginpage header nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 5%;
+    font-family: 'Roboto', sans-serif;
+    margin: 5%;
+    margin-top: 2%;
+}
+ 
+#loginpage header nav ul li a {
+    color: var(--background-color);
+    font-size: 24px;
+    text-decoration: none;
+}
+ 
+#loginpage main {
+    display: flex;
+    flex-direction: column;
+    margin-left: 50%;
+}
+ 
+#loginpage main h2{
+    font-size: 36px;
+    font-family: 'Inter', sans-serif;
+    border-bottom: solid 1px;
+    padding-bottom: 3%;
+    margin-right: 55%;
+}
+ 
+#loginpage main form {
+    display: flex;
+    flex-direction: column;
+    font-size: 25px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    padding-top: 2%;
+    margin-right: 20%;
+}
+ 
+#loginpage main form label {
+    color: var(--form-color);
+    margin-bottom: 2%;
+}
+ 
+#loginpage main form label:last-of-type {
+    margin-top: 3%;
+}
+ 
+#loginpage main form input:last-of-type {
+    color: var(--primary2);
+    background-color: var(--accent);
+    margin-top: 8%;
+    border-color: var(--accent);
+    font-size: 25px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    padding: 10px;
+}
+ 
+#loginpage main form input {
+    padding: 14px;
+    border-radius: 8px;
+    border: var(--background-color) 1px solid;
+}
+ 
+#loginpage main section {
+    margin-top: 2%;
+    display: flex;
+    flex-direction: row;
+    gap: 1%;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+}
+ 
+#loginpage main section p a{
+    text-decoration: none;
+    color: var(--primary1);
+}
+ 
+#loginpage footer > p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: var(--background-color);
+    font-size: 20px;
+    margin-top: 3%;
+    margin-left: 50%;
+    margin-right: 10%;
+}
+ 
+/* Styling Register form */
+ 
+#registerpage {
+    overflow-x: hidden;
+}
+ 
+#registerpage header nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 5%;
+    font-family: 'Roboto', sans-serif;
+    margin: 5%;
+    margin-top: 2%;
+}
+ 
+#registerpage header nav ul li a {
+    color: var(--background-color);
+    font-size: 24px;
+    text-decoration: none;
+}
+ 
+#registerpage main {
+    display: flex;
+    flex-direction: column;
+    margin-left: 50%;
+}
+ 
+#registerpage main h2{
+    font-size: 36px;
+    font-family: 'Inter', sans-serif;
+    border-bottom: solid 1px;
+    padding-bottom: 3%;
+    margin-right: 55%;
+}
+ 
+#registerpage main form {
+    display: flex;
+    flex-direction: column;
+    font-size: 25px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    padding-top: 2%;
+    margin-right: 20%;
+}
+ 
+#registerpage main form label {
+    color: var(--form-color);
+    margin-bottom: 2%;
+}
+ 
+#registerpage main form label:nth-of-type(2),label:nth-of-type(3),label:last-of-type {
+    margin-top: 3%;
+}
+ 
+#registerpage main form input:last-of-type {
+    color: var(--primary2);
+    background-color: var(--accent);
+    margin-top: 8%;
+    border-color: var(--accent);
+    font-size: 25px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    padding: 10px;
+}
+ 
+#registerpage main form input {
+    padding: 14px;
+    border-radius: 8px;
+    border: var(--background-color) 1px solid;
+}
+ 
+#registerpage main section {
+    margin-top: 2%;
+    display: flex;
+    flex-direction: row;
+    gap: 1%;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+}
+ 
+#registerpage main section p a{
+    text-decoration: none;
+    color: var(--primary1);
+}
+ 
+#registerpage footer > p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: var(--background-color);
+    font-size: 20px;
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 30%;
+}
+ 
