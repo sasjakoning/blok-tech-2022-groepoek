@@ -48,25 +48,53 @@ app.get("/profile", (req, res) => {
   res.render("profile");
 })
 
-// app.post("/updateprofile", updateProfile);
+// get all users from database etc
+const getUsers = async () => {
+  // find the admin user (which is being used as "logged in user" for demo purposes)
+  const admin = await adminUserModel.findOne({ });
+  console.log(admin)
+  // find which users admin has matched
+  const adminMatches = admin.matches;
 
-// async function update(client, profielKenmerk, updatedata) {
-//   const result = await client.db(naamDatabase).collection(naamCollection).updateOne({profiel: profielKenmerk}, {$set: updatedata}, {upsert: true})
-// }
-// async function updateProfile(req, res) {
-//   update(client, "0", {
-//     "roepnaam": req.body.naam,
-//     "omschrijving": req.body.omschrijving,
-//     "leeftijd": req.body.leeftijd,
-//     "plaats": req.body.plaats,
-//     "lengte": req.body.lengte,
-//   })
+  // return all users except the already matched ones
+  const usersList = await userModel.find({
+    _id: { $nin: adminMatches },
+  }).lean();
 
-//   let user = await FindProfile(client, "0");
-//   res.render("profile", {
-//       user
-//   });
-// }
+  const adminLeaned = await adminUserModel.findOne({
+    username: "adminuser",
+  }).lean();
+
+  return [usersList, admin, adminLeaned];
+};
+
+
+app.post("/updateprofile", upload.none(), updateProfile);
+
+
+async function update(updatedata){
+const result = await adminUserModel.updateOne({email: "admin@hotmail.com"}, {$set: updatedata}, {upsert: true}
+)}
+
+async function updateProfile(req, res) {
+  update({
+    "firstname": req.body.voornaam,
+    "aboutme": req.body.omschrijving,
+    "age": req.body.leeftijd,
+    "place": req.body.plaats,
+    "height": req.body.lengte,
+    "platforms": {
+      "discord": req.body.discord,
+      "xbox": req.body.xbox,
+      "playstation": req.body.playstation,
+      "whatsapp": req.body.whatsapp,
+      "messenger": req.body.messenger,
+      "skype": req.body.skype,
+    }
+})
+res.render("profile");
+
+}
 
 
 
