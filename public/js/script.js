@@ -15,9 +15,9 @@ const actionOverlayImg = actionOverlay.querySelector("img");
 const card = document.querySelector(".cardLabel:first-of-type");
 
 const likeForm = document.querySelector(".form-like");
-console.log(likeForm);
-console.log(card)
-console.log("hello");
+
+const otherCards = document.querySelectorAll(".cardLabel:not(:first-of-type)")
+
 
 likeForm.addEventListener("submit", (e) => {
   console.log("submitted");
@@ -27,6 +27,10 @@ likeForm.addEventListener("submit", (e) => {
   card.classList.add("cardLike");
   actionOverlay.classList.add("actionLiked");
   actionOverlayImg.src = "/images/overlayLike.svg";
+
+  otherCards.forEach((card) => {
+    card.classList.add("cardsMove")
+  })
 
   card.addEventListener("animationend", () => {
     likeForm.submit();
@@ -43,6 +47,10 @@ dislikeForm.addEventListener("submit", (e) => {
   card.classList.add("cardDislike");
   actionOverlay.classList.add("actionDisliked");
   actionOverlayImg.src = "/images/overlayDislike.svg";
+
+  otherCards.forEach((card) => {
+    card.classList.add("cardsMove")
+  })
 
   card.addEventListener("animationend", () => {
     dislikeForm.submit();
