@@ -88,4 +88,3 @@ window.onload=function dragOverAvatarUploadField() {
         uploadFotoOverlay.classList.add("hidden");
     })
 }
-
