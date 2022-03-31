@@ -1,0 +1,71 @@
+<Section class="padding-sidebar">
+  <form action="/formulier" method="post" id="filters">
+    <h1>Filter</h1>
+
+    <h2>Geslacht</h2>
+    <label class="container">Man
+      <input type="radio" name="radio" />
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">Vrouw
+      <input type="radio" name="radio" />
+      <span class="checkmark"></span>
+    </label>
+
+    <h2>Leeftijd</h2>
+    <div class="slidecontainer">
+      <input
+        type="range"
+        min="1"
+        max="100"
+        value="50"
+        class="slider"
+        id="myRange"
+      />
+      <p> <span id="demo"></span></p>
+    </div>
+
+    <details>
+      <summary>Interesses</summary>
+      <label class="container-dropdown">Fortnite
+        <input type="radio" name="radio" />
+        <span class="checkmark"></span>
+      </label>
+      <label class="container-dropdown">Minecraft
+        <input type="radio" name="radio" />
+        <span class="checkmark"></span>
+      </label>
+      <label class="container-dropdown">Minecraft
+        <input type="radio" name="radio" />
+        <span class="checkmark"></span>
+      </label>
+      <label class="container-dropdown">Minecraft
+        <input type="radio" name="radio" />
+        <span class="checkmark"></span>
+      </label>
+    </details>
+
+    <details>
+      <summary>
+        Platform
+      </summary>
+      <label class="container-dropdown">Discord
+        <input type="radio" name="radio" />
+        <span class="checkmark"></span>
+      </label>
+      <label class="container-dropdown">Skype
+        <input type="radio" name="radio" />
+        <span class="checkmark"></span>
+      </label>
+      <label class="container-dropdown">Playstation
+        <input type="radio" name="radio" />
+        <span class="checkmark"></span>
+      </label>
+      <label class="container-dropdown">Xbox
+        <input type="radio" name="radio" />
+        <span class="checkmark"></span>
+      </label>
+    </details>
+    <button class="opslaan" type="submit">Opslaan</button>
+  </form>
+</Section>
