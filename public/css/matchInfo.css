@@ -1,0 +1,38 @@
+
+.matchInfo {
+    padding: 4em;
+    margin: 3em;
+
+
+flex-direction: column;
+}
+.matchInfo > picture > img {
+    max-width: 15%;
+    height: 15%;
+    float:left;
+	border-radius: 0.5em;
+    margin-right: 1em;
+}
+.matchInfo > h1 {
+    font-size: 3em;
+    }
+.matchInfo > p {
+    font-size: 2em;
+}
+.motivation {
+    text-decoration: none;
+    
+    font-size: 2.5em;
+    color: var(--tertiary);
+    font-weight: bold;
+padding-bottom: 1em;
+    border-bottom: 2px solid var(--detail);
+}
+.motivation:hover {
+    color: var(--accent);
+}
+.matchesSideBar > img {
+    padding: 4.2em;
+    width: 15%;
+   float: left;
+}
