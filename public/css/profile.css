@@ -67,6 +67,11 @@ p, a, label, ::placeholder{
     background-color: rgb(248, 151, 148);
 }
 
+.profilePage > form:nth-of-type(1){
+    position: absolute;
+    width: 31em;
+}
+
 .profilePage > form > div:nth-of-type(1) > input{
     border: none;
     border-radius: 5px;
@@ -78,6 +83,10 @@ p, a, label, ::placeholder{
 
 .profilePage.editingProfile > form > div:nth-of-type(1) > input, .profilePage > form > div:nth-of-type(1) > input:hover, .profilePage.editingProfile > form > div:nth-of-type(1) > input.empty{
     outline: 2px dashed var(--detail);
+}
+
+.profilePage > form:nth-of-type(2) > div:nth-of-type(1){
+    margin: 30em 0 0 0;
 }
 
 /* // profile - profielfoto-dropzone // */
@@ -104,17 +113,20 @@ p, a, label, ::placeholder{
 .profilePage .avatarUploadField img:not(.profilePage .avatarUploadField img:first-child, .profilePage .avatarUploadField img:last-of-type){
     width: 100%;
     right: 0;
+    object-fit: contain;
 }
 
 .profilePage .avatarUploadField > img[src="images/profile/NoAvatar.jpg"]{
     height: 100%;
-    right: -15%;
+    right: 0;
+    object-fit: contain;
 }
 
 .profilePage .avatarUploadField > img[src="images/profile/uploadicon.svg"]{
     height: 50%;
     top: 25%;
-    left: 17%;
+    left: 20%;
+    filter: drop-shadow(2px 2px 8px rgba(47, 47, 47, 0.24));
 }
 
 .profilePage .avatarUploadField input{

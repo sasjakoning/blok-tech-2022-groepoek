@@ -2,6 +2,7 @@
 const express = require("express");
 const handlebars = require("express-handlebars");
 const multer  = require("multer");
+const path = require('path');
 const db = require("./config/connect.js"); //verbinding mongoDB
 const userModel = require("./models/user")
 const adminUserModel = require("./models/adminUser")
@@ -116,7 +117,9 @@ async function avatarUpdate(req, res) {
   const avatar = await "uploads/" + req.file.filename;
 
   update( {
-      "profielfoto": avatar,
+      "images": {
+        "avatar": avatar,
+      }
   })
 
   getUsers().then(([result, admin, adminLeaned]) => {

@@ -1,14 +1,16 @@
 {{#with data}}
 <section class="profilePage">
-    <img src="images/profile/icon/editIcon.svg" alt="">    
-    <form action="/updateprofile" method="post" enctype="multipart/form-data">
-        <div>
+    <img src="images/profile/icon/editIcon.svg" alt="">  
+    <form action="/avatarupdate" method="post" enctype="multipart/form-data">
             <div class="avatarUploadField">
                 <img src="images/profile/NoAvatar.jpg" alt="">
-                <img src="images/profile/workaRoundFoto.jpg" alt="Eigen profielfoto" name="avatar" class="eigenAvatarfotoGr" onerror="this.style.display='none'">
+                <img src="{{this.images.avatar}}" alt="Eigen profielfoto" name="avatar" class="eigenAvatarfotoGr" onerror="this.style.display='none'">
                 <img src="images/profile/uploadicon.svg" alt="" class="uploadFotoOverlay hidden">
-                <input type="file" name="Avatar" accept=".jpeg,.jpg,.png" onchange="this.form.submit()">
+                <input type="file" name="avatar" accept=".jpeg,.jpg,.png" onchange="this.form.submit()">
             </div>
+    </form>
+    <form action="/updateprofile" method="post" enctype="multipart/form-data">
+        <div>
             <input type="text" id="formRoepnaam" name="voornaam" value="{{this.firstname}}" placeholder="Wat is je naam?" required>
             <h2>Over mij</h2>
             <div class="grow-wrap">
