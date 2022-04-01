@@ -126,7 +126,7 @@ p, a, label, ::placeholder{
     height: 50%;
     top: 25%;
     left: 20%;
-    filter: drop-shadow(2px 2px 8px rgba(47, 47, 47, 0.24));
+    filter: drop-shadow(2px 2px 8px rgba(230, 234, 243, 1));
 }
 
 .profilePage .avatarUploadField input{
