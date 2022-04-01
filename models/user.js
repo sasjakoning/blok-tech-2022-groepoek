@@ -165,7 +165,7 @@ const userModel = mongoose.model("user", userSchema)
 //         email: "keithgoodwin@hotmail.com",
 //         password: "123",
 //         firstname: "Keith",
-//        lastname: "Goodwin",
+//         lastname: "Goodwin",
 //         gender: "non-binary",
 //         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
 //         interests: [
@@ -174,15 +174,15 @@ const userModel = mongoose.model("user", userSchema)
 //           ],
 //         location: "Amsterdam",
 //         age: 22,
-//        images: "",    
+//         images: "",    
 //     },
 //     {
 //         email: "ellicemartins@hotmail.com",
 //         password: "123",
 //         firstname: "Ellice",
 //         lastname: "Martins",
-//        gender: "male",
-//        aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
+//         gender: "male",
+//         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
 //         interests: [
 //             "minecraft",
 //             "jentlegarden"
@@ -204,20 +204,20 @@ const userModel = mongoose.model("user", userSchema)
 //           ],
 //         location: "Amsterdam",
 //         age: 22,
-//        images: "",    
-//    },
+//         images: "",    
+//     },
 //     {
 //         email: "kubafrencis@hotmail.com",
 //         password: "123",
 //         firstname: "Kuba",
-//        lastname: "Frencis",
+//         lastname: "Frencis",
 //         gender: "male",
-//       aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
+//         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
 //         interests: [
 //             "callofduty",
 //             "minecraft"
 //           ],
-//        location: "Amsterdam",
+//         location: "Amsterdam",
 //         age: 22,
 //         images: "",    
 //     },
