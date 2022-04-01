@@ -41,16 +41,16 @@ router.get("/register", async (req, res) => {
 
 // wanneer je hebt geregistreerd
 router.post("/register/done", upload.none(), async (req, res) => {
-  const errors = validationResult(req);
+  // const errors = validationResult(req);
 
-  if(!errors.isEmpty()) {
-    return res.status(400).json({
-      errors: errors.array()
-    })
-  }
+  // if(!errors.isEmpty()) {
+  //   return res.status(400).json({
+  //     errors: errors.array()
+  //   })
+  // }
 
   // ophalen ingevulde email en password uit de body
-  const {email, password} = req.body;
+  const {firstname, lastname, gender ,email, password} = req.body;
 
   try {
 
@@ -69,11 +69,11 @@ router.post("/register/done", upload.none(), async (req, res) => {
     
     // als de user nog niet bestaat, maak een nieuwe user aan
     user = new userModel({
+      firstname,
+      lastname,
+      gender,
       email,
       password,
-      firstname: "klaas",
-      lastname: "klomp",
-      gender: "female"
     })
 
     // bcrypt dingen, security
