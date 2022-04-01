@@ -13,7 +13,7 @@
     <main>
         <h2>Register</h2>
 
-        <form id="register-form">
+        <form id="register-form" action="/login/register/done" method="POST" enctype="multipart/form-data">
             <label for="email">Email</label>
             <input type="text" id="email" name="email" placeholder="Email@dievanjou.nl" required>
  
@@ -28,7 +28,7 @@
 
         <section>
             <h3>Already have an account?</h3>
-            <p><a href="register.hbs">Log in</a></p>
+            <p><a href="/login">Log in</a></p>
         </section>
     </main>
 </body>

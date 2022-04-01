@@ -3,31 +3,48 @@ const express = require("express");
 const handlebars = require("express-handlebars");
 const db = require("../config/connect.js"); //verbinding mongoDB
 const userModel = require("../models/user");
+const multer = require("multer")
 
 // Registreer functie
 
 const router = express();
+const upload = multer({dest: "public/uploads/"})
 
 router.get("/register", async (req, res) => {
+  console.log("mmm kaas");
   res.render("register", {
     layout: "index"
     }) 
 })
 
-router.post('/register', async (req, res) => {
-    console.log(req.body)
+router.post('/register/done', upload.none(),  async (req, res) => {
+  console.log("kaas is lekker")
+    console.log(req.body.email)
   
-  const { username, email, password} = req.body
+  // const { username, email, password} = req.body
   
     // User.create functie
 
     try {
-      const response = await User.create({
-        username,
-        email,
-        password,
+      // const response = await User.create({
+      //   username,
+      //   email,
+      //   password,
+      // })
+
+      const user = new userModel({
+        email: req.body.email,
+        password: req.body.password,
+        firstname: "klaas",
+        lastname: "klomp",
+        gender: "vrouw"
       })
-      console.log('Er is een nieuw account aangemaakt:', response)
+
+      user.save((err, results) => {
+        console.log(results._id)
+      })
+
+      console.log('Er is een nieuw account aangemaakt:')
     } catch(error) {
       if (error.code === 11000) {
   
