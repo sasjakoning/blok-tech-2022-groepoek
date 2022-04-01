@@ -6,11 +6,11 @@ const userModel = require("../models/user");
 const multer = require("multer")
 const bcrypt = require("bcrypt")
 const saltRounds = 10;
-const jwt = require("jsonwebtoken")
-const {check, validationResult} = require("express-validator/check")
 const auth = require("../config/auth")
 const cookieParser = require("cookie-parser");
 let session = require("express-session");
+
+const { authenticate } = require('../config/auth');
 
 // express session expires in 24 hrs
 const oneDay = 1000 * 60 * 60 * 24;
@@ -82,20 +82,6 @@ router.post("/register/done", upload.none(), async (req, res) => {
 
     // opslaan nieuwe user naar database
     await user.save();
-
-    // const payload = {
-    //   user: {
-    //     id: user.id
-    //   }
-    // };
-
-    // jwt.sign(payload, "randomString", {expiresIn: 10000},(err, token) => {
-    //     if (err) throw err;
-    //     res.status(200).json({
-    //       token
-    //     })
-    //   }
-    // );
 
   } catch (err) {
     console.log(err.message);

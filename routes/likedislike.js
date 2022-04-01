@@ -7,9 +7,25 @@ const adminUserModel = require("../models/adminUser");
 const mongoose = require("mongoose");
 const toId = mongoose.Types.ObjectId;
 
+const cookieParser = require("cookie-parser");
+let session = require("express-session");
+
+const { authenticate } = require('../config/auth');
+
 // ---
 
 const router = express.Router();
+
+// express session expires in 24 hrs
+const oneDay = 1000 * 60 * 60 * 24;
+
+// sessions
+router.use(session({
+  secret: "secret",
+  saveUninitialized: true,
+  cookie: {maxAge: oneDay},
+  resave: false
+}))
 
 // get all users from database etc
 const getUsers = async () => {
@@ -37,7 +53,7 @@ const getUsers = async () => {
 let counter1 = 0;
 let counter2 = 3;
 
-router.get("/", async (req, res) => {
+router.get("/", authenticate, async (req, res) => {
   try {
     counter1 = 0;
     counter2 = 3;

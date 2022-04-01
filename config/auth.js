@@ -1,17 +1,19 @@
-const jwt = require("jsonwebtoken");
+let session = require("express-session");
 
-module.exports = function(req, res, next) {
-    const token = req.header("token");
-    
-    if (!token) return res.status(401).json({ message: "Auth error" });
+// module maken
+module.exports = {
+  // de functie is authenticate
+  authenticate: function(req, res, next){
+    // haal de cookie op van client side
+    session=req.session;
+    console.log(session)
 
-    try {
-        const decoded = jwt.verify(token, "randomString");
-
-        req.user = decoded.user;
-        next();
-    }catch (e) {
-        console.error(e);
-        res.status(500).send({ message: "Invalid token" })
+    // als de cookie een userid heeft, ga verder
+    if(session.userid){
+      return next()
     }
-}
+
+    // als de cookie geen userid heeft, redirect naar login
+    res.redirect("/login")
+  }
+};
