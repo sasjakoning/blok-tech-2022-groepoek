@@ -4,6 +4,9 @@ const handlebars = require("express-handlebars");
 const db = require("../config/connect.js"); //verbinding mongoDB
 const userModel = require("../models/user");
 const multer = require("multer")
+const bcrypt = require("bcrypt")
+const saltRounds = 10;
+
 
 // Registreer functie
 
@@ -32,17 +35,23 @@ router.post('/register/done', upload.none(),  async (req, res) => {
       //   password,
       // })
 
-      const user = new userModel({
-        email: req.body.email,
-        password: req.body.password,
-        firstname: "klaas",
-        lastname: "klomp",
-        gender: "vrouw"
+      const password = req.body.password
+
+      bcrypt.hash(password, saltRounds, (err, hash) => {
+        console.log(`hash is: ${hash}, password is: ${password}`)
       })
 
-      user.save((err, results) => {
-        console.log(results._id)
-      })
+      // const user = new userModel({
+      //   email: req.body.email,
+      //   password: req.body.password,
+      //   firstname: "klaas",
+      //   lastname: "klomp",
+      //   gender: "vrouw"
+      // })
+
+      // user.save((err, results) => {
+      //   console.log(results._id)
+      // })
 
       console.log('Er is een nieuw account aangemaakt:')
     } catch(error) {
