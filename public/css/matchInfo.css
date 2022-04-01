@@ -27,12 +27,8 @@ flex-direction: column;
     font-weight: bold;
 padding-bottom: 1em;
     border-bottom: 2px solid var(--detail);
+    transition: all 0.5s ease;
 }
 .motivation:hover {
-    color: var(--accent);
-}
-.matchesSideBar > img {
-    padding: 4.2em;
-    width: 15%;
-   float: left;
+    color: var(--accent)
 }
