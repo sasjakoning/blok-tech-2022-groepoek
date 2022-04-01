@@ -8,6 +8,7 @@
     --detail: rgba(230, 234, 243, 1);
     --background-color: #C0C0C0;
     --form-color: #727272;
+    --formlink-color: #2F53EB;
 }
  
 /* Styling Login Form*/
@@ -30,6 +31,11 @@
     color: var(--background-color);
     font-size: 24px;
     text-decoration: none;
+}
+
+#loginpage header nav ul li a:hover {
+    text-decoration: underline 2.5px solid;
+    text-underline-offset: 0.2em;
 }
  
 #loginpage main {
@@ -94,7 +100,7 @@
  
 #loginpage main section p a{
     text-decoration: none;
-    color: var(--primary1);
+    color: var(--formlink-color);
 }
  
 #loginpage footer > p {
@@ -128,6 +134,11 @@
     color: var(--background-color);
     font-size: 20px;
     text-decoration: none;
+}
+
+#registerpage header nav ul li a:hover {
+    text-decoration: underline 2.5px solid;
+    text-underline-offset: 0.2em;
 }
  
 #registerpage main {
@@ -192,7 +203,7 @@
  
 #registerpage main section p a{
     text-decoration: none;
-    color: var(--primary1);
+    color: var(--formlink-color);
 }
  
 #registerpage footer > p {
