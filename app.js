@@ -49,6 +49,8 @@ db.connectDb();
 
 app.use("/", require("./routes/likedislike"))
 
+app.use("/filter", require("./routes/filter"))
+
 app.get("/profile", (req, res) => {
     res.render("profile");
 })
