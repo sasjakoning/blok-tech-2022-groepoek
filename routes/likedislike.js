@@ -41,10 +41,15 @@ router.get("/", async (req, res) => {
     counter2 = 5;
     // for demo purposes, counter is always reset when on start page
 
+    const filtered = await userModel.find({interests: "callofduty"})
+
+    console.log(filtered)
+
     // get users
     getUsers().then(([result, admin]) => {
       console.log(`counter1 is ${counter1}`);
       console.log(`counter2 is ${counter2}`);
+
 
       // only return two users from the array
       result = result.slice(counter1, counter2);
