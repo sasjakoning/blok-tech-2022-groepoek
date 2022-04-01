@@ -1,3 +1,4 @@
+{{#with data}}
 <section class="profilePage">
     <img src="images/profile/icon/editIcon.svg" alt="">    
     <form action="/updateprofile" method="post" enctype="multipart/form-data">
@@ -8,29 +9,29 @@
                 <img src="images/profile/uploadicon.svg" alt="" class="uploadFotoOverlay hidden">
                 <input type="file" name="Avatar" accept=".jpeg,.jpg,.png" onchange="this.form.submit()">
             </div>
-            <input type="text" id="formRoepnaam" name="voornaam" value="" placeholder="Wat is je naam?" required>
+            <input type="text" id="formRoepnaam" name="voornaam" value="{{this.firstname}}" placeholder="Wat is je naam?" required>
             <h2>Over mij</h2>
             <div class="grow-wrap">
-                <textarea id="formOmschrijving" name="omschrijving" placeholder="Vertel iets over jezelf" onInput="this.parentNode.dataset.replicatedValue = this.value"></textarea>
+                <textarea id="formOmschrijving" name="omschrijving" placeholder="Vertel iets over jezelf" onInput="this.parentNode.dataset.replicatedValue = this.value">{{this.aboutme.description}}</textarea>
             </div>
         </div>
         <div>
             <h2>Persoonlijke informatie</h2>
             <div>
                 <label for="formLeeftijd">Leeftijd</label>
-                <input type="text" id="formLeeftijd" name="leeftijd" value="" placeholder="Laat potentiele matches weten hoe oud je bent">
+                <input type="text" id="formLeeftijd" name="leeftijd" value="{{this.aboutme.age}}" placeholder="Laat potentiele matches weten hoe oud je bent">
             </div>
             <div>
                 <label for="formPlaats">Plaats</label>
-                <input type="text" id="formPlaats" name="plaats" value="" placeholder="plaatsnaam">
+                <input type="text" id="formPlaats" name="plaats" value="{{this.aboutme.place}}" placeholder="plaatsnaam">
             </div>
             <div>
                 <label for="formLengte">Lengte</label>
-                <input type="number" id="formLengte" name="lengte" value="" min="100" max="250">
+                <input type="number" id="formLengte" name="lengte" value="{{this.aboutme.height}}" min="100" max="250">
             </div>
             <h2>Interesses</h2>
             <div class="grow-wrap">
-                <textarea id="formInteresses" name="interesses" placeholder="Wat zijn je interesses" onInput="this.parentNode.dataset.replicatedValue = this.value"></textarea>
+                <textarea id="formInteresses" name="interesses" placeholder="Wat zijn je interesses" onInput="this.parentNode.dataset.replicatedValue = this.value">{{this.interests}}</textarea>
             </div>
             <h2>Tags</h2>
             <div>
@@ -42,27 +43,27 @@
         <div>
             <div class="discordLabel">
                 <img src="images/profile/icon/discord-white-logo.svg" alt="">
-                <input type="text" id="formDiscord" name="discord" value="" placeholder="Account naam">
+                <input type="text" id="formDiscord" name="discord" value="{{this.platform.discord}}" placeholder="Account naam">
             </div>
             <div class="xboxLabel">
                 <img src="images/profile/icon/xbox-white-logo.svg" alt="">
-                <input type="text" id="formxbox" name="xbox" value="" placeholder="Account naam">
+                <input type="text" id="formxbox" name="xbox" value="{{this.platform.xbox}}" placeholder="Account naam">
             </div>
             <div class="playstationLabel">
                 <img src="images/profile/icon/playstation-white-logo.svg" alt="">
-                <input type="text" id="formplaystation" name="playstation" value="" placeholder="Account naam">
+                <input type="text" id="formplaystation" name="playstation" value="{{this.platform.playstation}}" placeholder="Account naam">
             </div>
             <div class="whatsappLabel">
                 <img src="images/profile/icon/whatsapp-white-logo.svg" alt="">
-                <input type="number" id="formwhatsapp" name="whatsapp" value="" placeholder="+31 ">
+                <input type="number" id="formwhatsapp" name="whatsapp" value="{{this.platform.whatsapp}}" placeholder="+31 ">
             </div>
             <div class="messengerLabel">
                 <img src="images/profile/icon/messenger-white-logo.svg" alt="">
-                <input type="text" id="formmessenger" name="messenger" value="" placeholder="Account naam">
+                <input type="text" id="formmessenger" name="messenger" value="{{this.platform.messenger}}" placeholder="Account naam">
             </div>
             <div class="skypeLabel">
                 <img src="images/profile/icon/skype-white-logo.svg" alt="">
-                <input type="text" id="formskype" name="skype" value="" placeholder="Account naam">
+                <input type="text" id="formskype" name="skype" value="{{this.platform.skype}}" placeholder="Account naam">
             </div>
         </div>
         <button>✓ Opslaan</button>
@@ -76,3 +77,4 @@
         </div>
     </form>
 </section>
+{{/with}}

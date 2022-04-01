@@ -44,15 +44,11 @@ db.connectDb();
 
 app.use("/", require("./routes/likedislike"))
 
-app.get("/profile", (req, res) => {
-  res.render("profile");
-})
-
 // get all users from database etc
 const getUsers = async () => {
   // find the admin user (which is being used as "logged in user" for demo purposes)
   const admin = await adminUserModel.findOne({ });
-  console.log(admin)
+
   // find which users admin has matched
   const adminMatches = admin.matches;
 
@@ -68,22 +64,35 @@ const getUsers = async () => {
   return [usersList, admin, adminLeaned];
 };
 
+app.get("/profile", profile);
+
+async function profile(req, res) {
+  getUsers().then(([result, admin, adminLeaned]) => {
+    res.render("profile", {
+      layout: "index",
+      data: adminLeaned
+    });
+  })
+}
 
 app.post("/updateprofile", upload.none(), updateProfile);
-
 
 async function update(updatedata){
 const result = await adminUserModel.updateOne({email: "admin@hotmail.com"}, {$set: updatedata}, {upsert: true}
 )}
 
 async function updateProfile(req, res) {
+
   update({
     "firstname": req.body.voornaam,
-    "aboutme": req.body.omschrijving,
-    "age": req.body.leeftijd,
-    "place": req.body.plaats,
-    "height": req.body.lengte,
-    "platforms": {
+    "aboutme": {
+      "description": req.body.omschrijving,
+      "age": req.body.leeftijd,
+      "place": req.body.plaats,
+      "height": req.body.lengte,
+    },
+    "interests": req.body.interesses,
+    "platform": {
       "discord": req.body.discord,
       "xbox": req.body.xbox,
       "playstation": req.body.playstation,
@@ -92,10 +101,31 @@ async function updateProfile(req, res) {
       "skype": req.body.skype,
     }
 })
-res.render("profile");
 
+getUsers().then(([result, admin, adminLeaned]) => {
+  res.render("profile", {
+    layout: "index",
+    data: adminLeaned
+  });
+})
 }
 
+app.post('/avatarupdate', upload.single('avatar'), avatarUpdate);
+
+async function avatarUpdate(req, res) {
+  const avatar = await "uploads/" + req.file.filename;
+
+  update( {
+      "profielfoto": avatar,
+  })
+
+  getUsers().then(([result, admin, adminLeaned]) => {
+    res.render("profile", {
+      layout: "index",
+      data: adminLeaned
+    });
+  })
+}
 
 
 
