@@ -15,7 +15,9 @@ const upload = multer({ dest: "public/uploads/" })
 
 // set view engine to handlebars
 app.set("view engine", "hbs");
-app.use(compression())
+app.use(compression());
+app.use(minify());
+app.use(express.static(__dirname + '/static'));
 
 // setup van port. post is http://localhost:3000/
 let port = process.env.PORT;
