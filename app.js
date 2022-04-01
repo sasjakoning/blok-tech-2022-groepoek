@@ -5,16 +5,17 @@ const multer  = require("multer");
 const db = require("./config/connect.js"); //verbinding mongoDB
 const userModel = require("./models/user")
 const adminUserModel = require("./models/adminUser")
-// const compression = require('compression')
-// const minify = require('express-minify');
+const compression = require('compression')
+const minify = require('express-minify');
 
 // ---
 
 const app = express();
 const upload = multer({ dest: "public/uploads/" })
 
-app.set('view engine', 'ejs');
-// app.use(compression())
+// set view engine to handlebars
+app.set("view engine", "hbs");
+app.use(compression())
 
 // setup van port. post is http://localhost:3000/
 let port = process.env.PORT;
@@ -35,8 +36,6 @@ app.engine(
   })
 );
 
-// set view engine to handlebars
-app.set("view engine", "hbs");
 
 // laat files uit "public" zien
 app.use(express.static(__dirname));
