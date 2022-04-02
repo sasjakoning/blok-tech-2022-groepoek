@@ -23,7 +23,7 @@ gulp.task("default", (done) => {
 
 gulp.task("concat", (done) => {
     console.log("concating and moving all css files in css folder")
-    gulp.src("public/css/**.css")
+    gulp.src(["./public/css/cssreset.css", "./public/css/**.css"])
         .pipe(concat("style.min.css"))
         .pipe(gulp.dest("public/dist"))
     done()

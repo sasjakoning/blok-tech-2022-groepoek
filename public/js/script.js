@@ -14,10 +14,10 @@
 
 // const card = document.querySelector(".cardLabel:first-of-type");
 
-// const likeForm = document.querySelector(".form-like");
-// console.log(likeForm);
-// console.log(card)
-// console.log("hello");
+const likeForm = document.querySelector(".form-like");
+
+const otherCards = document.querySelectorAll(".cardLabel:not(:first-of-type)")
+
 
 // likeForm.addEventListener("submit", (e) => {
 //   console.log("submitted");
@@ -28,10 +28,15 @@
 //   actionOverlay.classList.add("actionLiked");
 //   actionOverlayImg.src = "/images/overlayLike.svg";
 
-//   card.addEventListener("animationend", () => {
-//     likeForm.submit();
-//   });
-// });
+  otherCards.forEach((card) => {
+    card.classList.add("cardsMove")
+  })
+
+  card.addEventListener("animationend", () => {
+    likeForm.submit();
+  });
+});
+
 
 // const dislikeForm = document.querySelector(".form-dislike");
 
@@ -40,14 +45,19 @@
 
 //   e.preventDefault();
 
-//   card.classList.add("cardDislike");
-//   actionOverlay.classList.add("actionDisliked");
-//   actionOverlayImg.src = "/images/overlayDislike.svg";
+  card.classList.add("cardDislike");
+  actionOverlay.classList.add("actionLiked");
+  actionOverlayImg.src = "/images/overlayDislike.svg";
 
-//   card.addEventListener("animationend", () => {
-//     dislikeForm.submit();
-//   });
-// });
+  otherCards.forEach((card) => {
+    card.classList.add("cardsMove")
+  })
+
+  card.addEventListener("animationend", () => {
+    dislikeForm.submit();
+  });
+});
+
 
 // // match popup
 // const continueBtn = document.querySelector(".continue");
@@ -112,3 +122,13 @@ window.onload=function dragOverAvatarUploadField() {
       profilePageGlobal.classList.add("editingProfile");
     })
 }
+
+// Voor Slider
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+

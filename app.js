@@ -6,11 +6,19 @@ const path = require('path');
 const db = require("./config/connect.js"); //verbinding mongoDB
 const userModel = require("./models/user")
 const adminUserModel = require("./models/adminUser")
+const compression = require('compression')
+const minify = require('express-minify');
 
 // ---
 
 const app = express();
 const upload = multer({ dest: "public/uploads/" })
+
+// set view engine to handlebars
+app.set("view engine", "hbs");
+app.use(compression());
+app.use(minify());
+app.use(express.static(__dirname + '/static'));
 
 // setup van port. post is http://localhost:3000/
 let port = process.env.PORT;
@@ -31,8 +39,6 @@ app.engine(
   })
 );
 
-// set view engine to handlebars
-app.set("view engine", "hbs");
 
 // laat files uit "public" zien
 app.use(express.static(__dirname));
@@ -48,6 +54,8 @@ app.use("/swiping", require("./routes/likedislike"))
 app.use("/matches", require("./routes/matches"))
 
 app.use("/profile", require("./routes/profile"))
+
+app.use("/filter", require("./routes/filter"))
 
 
 // ---

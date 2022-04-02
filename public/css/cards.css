@@ -33,6 +33,7 @@ main > article:last-of-type > section:first-of-type {
     background: transparent;
 
 	flex-shrink: 0;
+	transform-style: preserve-3d;
 }
 
 /* .cardLabel:first-of-type {
@@ -113,6 +114,7 @@ main > article:last-of-type > section:first-of-type {
 .cardFront > article > p {
 	position: relative;
 	padding-left: 1.3em;
+	color: var(--text);
 }
 
 .cardFront > article > p::before {
@@ -130,16 +132,23 @@ main > article:last-of-type > section:first-of-type {
 .cardFront > article > ul {
 	display: flex;
 	margin: 1em 0;
+	flex-wrap: wrap;
+	row-gap: 1em;
 }
 
 .cardFront > article > ul > li {
 	padding: .4em 1em;
 	background: var(--tertiary);
 	margin-right: 1em;
+	margin: 0 1em 1em 0;
 	border-radius: 10em;
 }
 
 /* about me */
+.cardFront > article > section {
+	color: var(--text);
+}
+
 .cardFront > article > section > h2{
 	font-size: 16px;
 }
@@ -150,7 +159,7 @@ main > article:last-of-type > section:first-of-type {
 
 @keyframes cardLike {
 	to {
-		transform: rotate(30deg) translateX(45em) translateY(-20em);
+		transform: rotateX(40deg) translateY(-100em);
 	}
 }
 
@@ -160,13 +169,49 @@ main > article:last-of-type > section:first-of-type {
 
 @keyframes cardDislike {
 	to {
-		transform: rotate(-30deg) translateX(-45em) translateY(-20em);
+		transform: rotateX(-40deg) translateY(100em);
+	}
+}
+
+.cardsMove {
+	animation: cardsMove .3s ease-in-out forwards;
+	animation-delay: .2s;
+}
+
+@keyframes cardsMove {
+	to {
+		transform: translateX(-35em);
 	}
 }
 
 .actionOverlay {
 	display: none;
+	width: 30em;
+	height: 50em;
+	position: absolute;
+	z-index: 2;
+	place-items: center;
+	border: 6px solid var(--accent);
+	border-radius: 1.2em;
 }
+
+.actionOverlay > img {
+	width: 60%;
+}
+
+.actionLiked {
+	display: grid;
+	opacity: 0;
+	animation: actionLiked .2s forwards;
+}
+
+@keyframes actionLiked {
+	to {
+		opacity: 1;
+	}
+}
+
+
 
 /************************/
 /* like dislike buttons */
@@ -185,7 +230,7 @@ main > article:last-of-type > section:first-of-type {
 }
 
 .likeDislike button > img {
-	width: 7em;
+	width: 8em;
 }
 
 /************************/
@@ -293,7 +338,7 @@ main > article:last-of-type > section:first-of-type {
 
 	width: 48%;
 
-    border-radius: 12px;
+    border-radius: 1.2em;
 
 	display: flex;
 	flex-direction: column;
@@ -334,7 +379,7 @@ main > article:last-of-type > section:first-of-type {
     height: 90%;
     object-fit: cover;
 
-	border-radius: 12px;
+	border-radius: 1.2em;
 }
 
 
