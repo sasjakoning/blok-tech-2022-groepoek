@@ -1,0 +1,99 @@
+
+:root {
+	--primary1: rgba(72, 0, 56, 1);
+	--primary2: rgba(255, 255, 255, 1);
+	--secondary: rgba(161, 169, 238, 1);
+	--tertiary: rgba(255, 211, 205, 1);
+	--accent: rgba(255, 133, 128, 1);
+	--detail: rgba(230, 234, 243, 1);
+}
+::-webkit-scrollbar {
+    width: 0.5em;  
+
+  }
+  
+::-webkit-scrollbar-track {
+    background: #FFD6D1; 
+ 
+  }
+  
+::-webkit-scrollbar-thumb {
+    background-color: #FF8580;
+}
+.matchMain{
+     /* display: grid;
+    place-items: center; */
+    display: flex;
+ 
+    align-items: flex-start;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+
+	font-size: 10px;
+
+	font-family: 'Roboto', sans-serif;
+}
+.title {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    top: 0;
+    background: var(--primary2);
+}
+.title > img {
+    padding: 4.2em;
+    width: 15%;
+ 
+}
+
+.matchTitle {
+font-weight: bolder;
+font-size: 4em;
+padding: 1em;
+}
+.matchesSideBar {
+   position: relative;
+    background: var(--primary2);
+    height: 100%;
+    width: 65em;
+    flex-shrink: 0;
+overflow: scroll;
+overflow-x: hidden;
+    
+}
+.matchesSideBar > ul {
+    margin-top: 15em;
+}
+
+ul.smallCards {
+    overflow: scroll;
+    overflow-x: hidden;
+    
+    width: 100%;
+    height: 100%;
+}
+ul.smallCards > li {
+   
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 3em;
+  
+}
+#shadowBox {
+    background: linear-gradient(180deg, rgba(72,0,56,0) 33%, rgba(72,0,56,0.6) 100%);
+    width: 100%;
+    z-index: 1;
+    height: 80px;
+    position: fixed;
+    bottom: 0;
+}

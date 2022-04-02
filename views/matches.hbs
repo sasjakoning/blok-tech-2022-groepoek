@@ -1,0 +1,30 @@
+
+<main class="matchMain">
+
+    <article class="matchesSideBar">
+        <article class="title">
+            <img class="icon" src="images/placeholder_icon.png" alt="">
+            <h1 class="matchTitle">Matches</h1>
+        </article>
+
+        <ul>
+            {{>matchInfo}}
+        </ul>
+
+
+    </article>
+    <article>
+        <header>
+    {{>navBar}}
+</header>
+
+        <ul class="smallCards">
+            <li> {{>smallCard}} </li>
+
+
+        </ul>
+        <div id="shadowBox"></div>
+    </article>
+
+</main>
+{{>background}}

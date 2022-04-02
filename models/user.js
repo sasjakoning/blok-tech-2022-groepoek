@@ -21,12 +21,24 @@ const userSchema = new Schema({
         type: String,
         required: [true,  "Lastname is required"]
     },
+    gender: {
+        type: String,
+        required: [true,  "gender is required"]
+    },
     aboutme: {
         type: String,
         required: [false]
     },
     interests: {
         type: Array,
+        required: [false]
+    },
+    location: {
+        type: String,
+        required: [false]
+    },
+    age: {
+        type: Number,
         required: [false]
     },
     images: {
@@ -48,8 +60,15 @@ const userModel = mongoose.model("user", userSchema)
 //         password: "123",
 //         firstname: "Sasja",
 //         lastname: "Koning",
+//         gender: "male",
 //         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
-//         interests: "",
+//         interests: [
+//             "minecraft",
+//             "fortnite",
+//             "overwatch"
+//           ],
+//         location: "Amsterdam",
+//         age: 22,
 //         images: "",    
 //     },
 //     {
@@ -57,8 +76,14 @@ const userModel = mongoose.model("user", userSchema)
 //         password: "123",
 //         firstname: "Griffin",
 //         lastname: "Rollins",
+//         gender: "male",
 //         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
-//         interests: "",
+//         interests: [
+//             "overwatch",
+//             "jentiegarden"
+//           ],
+//         location: "Amsterdam",
+//         age: 22,
 //         images: "",    
 //     },
 //     {
@@ -66,8 +91,14 @@ const userModel = mongoose.model("user", userSchema)
 //         password: "123",
 //         firstname: "Valentin",
 //         lastname: "Tanner",
+//         gender: "male",
 //         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
-//         interests: "",
+//         interests: [
+//             "minecraft",
+//             "valorant"
+//           ],
+//         location: "Amsterdam",
+//         age: 22,
 //         images: "",    
 //     },
 //     {
@@ -75,8 +106,14 @@ const userModel = mongoose.model("user", userSchema)
 //         password: "123",
 //         firstname: "Noah",
 //         lastname: "Powell",
+//         gender: "male",
 //         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
-//         interests: "",
+//         interests: [
+//             "valorant",
+//             "minecraft"
+//           ],
+//         location: "Amsterdam",
+//         age: 22,
 //         images: "",    
 //     },
 //     {
@@ -84,8 +121,14 @@ const userModel = mongoose.model("user", userSchema)
 //         password: "123",
 //         firstname: "Roy",
 //         lastname: "Yu",
+//         gender: "non-binary",
 //         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
-//         interests: "",
+//         interests: [
+//             "overwatch",
+//             "minecraft"
+//           ],
+//         location: "Amsterdam",
+//         age: 22,
 //         images: "",    
 //     },
 //     {
@@ -93,8 +136,14 @@ const userModel = mongoose.model("user", userSchema)
 //         password: "123",
 //         firstname: "Alfred",
 //         lastname: "Munoz",
+//         gender: "male",
 //         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
-//         interests: "",
+//         interests: [
+//             "fortnite",
+//             "minecraft"
+//           ],
+//         location: "Amsterdam",
+//         age: 22,
 //         images: "",    
 //     },
 //     {
@@ -102,8 +151,14 @@ const userModel = mongoose.model("user", userSchema)
 //         password: "123",
 //         firstname: "Augustus",
 //         lastname: "Gilbert",
+//         gender: "female",
 //         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
-//         interests: "",
+//         interests: [
+//             "overwatch",
+//             "valorant"
+//           ],
+//         location: "Amsterdam",
+//         age: 22,
 //         images: "",    
 //     },
 //     {
@@ -111,8 +166,14 @@ const userModel = mongoose.model("user", userSchema)
 //         password: "123",
 //         firstname: "Keith",
 //         lastname: "Goodwin",
+//         gender: "non-binary",
 //         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
-//         interests: "",
+//         interests: [
+//             "overwatch",
+//             "valorant"
+//           ],
+//         location: "Amsterdam",
+//         age: 22,
 //         images: "",    
 //     },
 //     {
@@ -120,8 +181,14 @@ const userModel = mongoose.model("user", userSchema)
 //         password: "123",
 //         firstname: "Ellice",
 //         lastname: "Martins",
+//         gender: "male",
 //         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
-//         interests: "",
+//         interests: [
+//             "minecraft",
+//             "jentlegarden"
+//           ],
+//         location: "Amsterdam",
+//         age: 22,
 //         images: "",    
 //     },
 //     {
@@ -129,8 +196,14 @@ const userModel = mongoose.model("user", userSchema)
 //         password: "123",
 //         firstname: "Aviana",
 //         lastname: "William",
+//         gender: "female",
 //         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
-//         interests: "",
+//         interests: [
+//             "callofduty",
+//             "valorant"
+//           ],
+//         location: "Amsterdam",
+//         age: 22,
 //         images: "",    
 //     },
 //     {
@@ -138,8 +211,14 @@ const userModel = mongoose.model("user", userSchema)
 //         password: "123",
 //         firstname: "Kuba",
 //         lastname: "Frencis",
+//         gender: "male",
 //         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
-//         interests: "",
+//         interests: [
+//             "callofduty",
+//             "minecraft"
+//           ],
+//         location: "Amsterdam",
+//         age: 22,
 //         images: "",    
 //     },
 //     {
@@ -147,8 +226,14 @@ const userModel = mongoose.model("user", userSchema)
 //         password: "123",
 //         firstname: "Eamonn",
 //         lastname: "Mcknight",
+//         gender: "male",
 //         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
-//         interests: "",
+//         interests: [
+//             "overwatch",
+//             "fortnite"
+//           ],
+//         location: "Amsterdam",
+//         age: 22,
 //         images: "",    
 //     },
 //     {
@@ -156,8 +241,14 @@ const userModel = mongoose.model("user", userSchema)
 //         password: "123",
 //         firstname: "Kasim",
 //         lastname: "Stevenson",
+//         gender: "female",
 //         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
-//         interests: "",
+//         interests: [
+//             "overwatch",
+//             "minecraft"
+//           ],
+//         location: "Amsterdam",
+//         age: 22,
 //         images: "",    
 //     },
 //     {
@@ -165,8 +256,14 @@ const userModel = mongoose.model("user", userSchema)
 //         password: "123",
 //         firstname: "Bethany",
 //         lastname: "Gallagher",
+//         gender: "female",
 //         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
-//         interests: "",
+//         interests: [
+//             "callofduty",
+//             "valorant"
+//           ],
+//         location: "Amsterdam",
+//         age: 22,
 //         images: "",    
 //     },
 //     {
@@ -174,8 +271,14 @@ const userModel = mongoose.model("user", userSchema)
 //         password: "123",
 //         firstname: "Riya",
 //         lastname: "Rossi",
+//         gender: "male",
 //         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
-//         interests: "",
+//         interests: [
+//             "valorant",
+//             "jentlegarden"
+//           ],
+//         location: "Amsterdam",
+//         age: 22,
 //         images: "",    
 //     },
 //     {
@@ -183,8 +286,14 @@ const userModel = mongoose.model("user", userSchema)
 //         password: "123",
 //         firstname: "Dev",
 //         lastname: "Villalobos",
+//         gender: "female",
 //         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
-//         interests: "",
+//         interests: [
+//             "callofduty",
+//             "fortnite"
+//           ],
+//         location: "Amsterdam",
+//         age: 22,
 //         images: "",    
 //     },
 //     {
@@ -192,8 +301,14 @@ const userModel = mongoose.model("user", userSchema)
 //         password: "123",
 //         firstname: "Evie-Mai",
 //         lastname: "Bevan",
+//         gender: "male",
 //         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
-//         interests: "",
+//         interests: [
+//             "overwatch",
+//             "fortnite"
+//           ],
+//         location: "Amsterdam",
+//         age: 22,
 //         images: "",    
 //     },
 //     {
@@ -201,11 +316,16 @@ const userModel = mongoose.model("user", userSchema)
 //         password: "123",
 //         firstname: "Asiya",
 //         lastname: "Redfern",
+//         gender: "female",
 //         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
-//         interests: "",
+//         interests: [
+//             "overwatch"
+//           ],
+//         location: "Amsterdam",
+//         age: 22,
 //         images: "",    
 //     },
 // ])
 
 
-module.exports = userModel;
+ module.exports = userModel;

@@ -35,12 +35,12 @@ const getUsers = async () => {
 
 // to count the amount of times the page has been visited by the user. this to serve the correct object from array
 let counter1 = 0;
-let counter2 = 3;
+let counter2 = 6;
 
 router.get("/", async (req, res) => {
   try {
     counter1 = 0;
-    counter2 = 3;
+    counter2 = 6;
     // for demo purposes, counter is always reset when on start page
 
     // get users
@@ -52,7 +52,7 @@ router.get("/", async (req, res) => {
       result = result.slice(counter1, counter2);
 
       // send result to handlebars
-      res.render("main", {
+      res.render("matches", {
         layout: "index",
         data: result,
       });
@@ -97,7 +97,7 @@ router.post("/like/:id", async (req, res) => {
       // if the counter goes beyond the amount of users in array, reset back to original
       if (counter2 == userCount.length) {
         counter1 = 0;
-        counter2 = 3;
+        counter2 = 6;
       }
 
       // add likeduser to likes array of admin (Not included in this feature)
@@ -219,6 +219,5 @@ router.get("/reset", async (req, res) => {
     console.log(err);
   }
 });
-
 
 module.exports = router;

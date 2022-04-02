@@ -17,7 +17,7 @@ let port = process.env.PORT;
 if (port == null || port == "") {
   port = 3000;
 }
-
+//
 // hi this is a comment
 
 // handlebars setup
@@ -44,6 +44,8 @@ db.connectDb();
 // Code hier
 
 app.use("/", require("./routes/likedislike"))
+
+app.use("/matches", require("./routes/matches"))
 
 // get all users from database etc
 const getUsers = async () => {

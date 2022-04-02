@@ -6,8 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
-    "startdev": "nodemon app.js",
-    "prestartdev": "gulp"
+    "startdev": "gulp"
   },
   "repository": {
     "type": "git",
@@ -24,6 +23,7 @@
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "express-handlebars": "^6.0.3",
+    "gulp-nodemon": "^2.5.0",
     "hbs": "^4.2.0",
     "mongodb": "^4.4.1",
     "mongoose": "^6.2.7",
