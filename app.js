@@ -2,6 +2,7 @@
 const express = require("express");
 const handlebars = require("express-handlebars");
 const multer  = require("multer");
+const path = require('path');
 const db = require("./config/connect.js"); //verbinding mongoDB
 const userModel = require("./models/user")
 const adminUserModel = require("./models/adminUser")
@@ -24,7 +25,7 @@ let port = process.env.PORT;
 if (port == null || port == "") {
   port = 3000;
 }
-
+//
 // hi this is a comment
 
 // handlebars setup
@@ -48,13 +49,14 @@ db.connectDb();
 
 // Code hier
 
-app.use("/", require("./routes/likedislike"))
+app.use("/swiping", require("./routes/likedislike"))
+
+app.use("/matches", require("./routes/matches"))
+
+app.use("/profile", require("./routes/profile"))
 
 app.use("/filter", require("./routes/filter"))
 
-app.get("/profile", (req, res) => {
-    res.render("profile");
-})
 
 // ---
 

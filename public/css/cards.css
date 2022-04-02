@@ -5,7 +5,7 @@
 main > article:last-of-type {
     height: 100%;
     width: 75%;
-    background: var(--primary1);
+  
     position: relative;
 
     display: flex;
