@@ -1,25 +1,18 @@
 
-:root {
-	--primary1: rgba(72, 0, 56, 1);
-	--primary2: rgba(255, 255, 255, 1);
-	--secondary: rgba(161, 169, 238, 1);
-	--tertiary: rgba(255, 211, 205, 1);
-	--accent: rgba(255, 133, 128, 1);
-	--detail: rgba(230, 234, 243, 1);
-}
 ::-webkit-scrollbar {
     width: 0.5em;  
 
-  }
+}
   
 ::-webkit-scrollbar-track {
     background: #FFD6D1; 
  
-  }
+}
   
 ::-webkit-scrollbar-thumb {
     background-color: #FF8580;
 }
+
 .matchMain{
      /* display: grid;
     place-items: center; */
