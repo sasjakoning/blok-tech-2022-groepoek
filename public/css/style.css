@@ -38,7 +38,9 @@ main {
     background: var(--primary2);
     height: 100%;
     width: 35em;
+    padding: 0 6em 0 4em;
     flex-shrink: 0;
     overflow: scroll;
     overflow-x: hidden;
+    scrollbar-width: thin;
 }

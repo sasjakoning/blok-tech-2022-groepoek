@@ -1,20 +1,23 @@
- {{#each data}}
- <li>
+{{#each data}}
+<li>
 
-    <section class="matchInfo" >
-            <picture>
-                {{!-- profile picture --}}
-                <source type="image/webp" srcset="/images/user-image1.webp" />
-                <source type="image/jpg" srcset="/images/user-image1.jpg" />
-                <img src="/images/user-image1.jpg" alt="" />
-            </picture>
- 
- 
-                <h1>{{this.firstname}} {{this.lastname}} - {{this.age}} </h1>
-                <p>{{this.location}}</p>
-               <a class="motivation" href="https://youtu.be/dQw4w9WgXcQ">Start your conversation today!</a>
-              
+    <section class="matchInfo">
+        <picture>
+            {{!-- profile picture --}}
+            <source type="image/webp" srcset="/images/user-image1.webp" />
+            <source type="image/jpg" srcset="/images/user-image1.jpg" />
+            <img src="/images/user-image1.jpg" alt="" />
+        </picture>
+
+
+        <section>
+            <h1>{{this.firstname}} {{this.lastname}} - {{this.age}} </h1>
+            <p>{{this.location}}</p>
+        </section>
+
+            <a class="motivation" href="https://youtu.be/dQw4w9WgXcQ">Start your conversation today!</a>
+
     </section>
 
- </li>
+</li>
 {{/each}}
