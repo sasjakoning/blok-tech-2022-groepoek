@@ -14,18 +14,18 @@ flex-direction: column;
     margin-right: 1em;
 }
 .matchInfo > h1 {
-    font-size: 3em;
+    font-size: 1.5em;
     }
 .matchInfo > p {
-    font-size: 2em;
+    font-size: 1.3em;
 }
 .motivation {
     text-decoration: none;
     
-    font-size: 2.5em;
+    font-size: 1.3em;
     color: var(--tertiary);
     font-weight: bold;
-padding-bottom: 1em;
+    padding-bottom: 1em;
     border-bottom: 2px solid var(--detail);
     transition: all 0.5s ease;
 }
