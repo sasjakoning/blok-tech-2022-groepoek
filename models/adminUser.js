@@ -19,17 +19,27 @@ const adminUserSchema = new Schema({
         type: String,
         required: [true,  "Lastname is required"]
     },
+    platform:{
+        discord: {type: String, required: [false]},
+        xbox: {type: String, required: [false]},
+        playstation: {type: String, required: [false]},
+        whatsapp: {type: String, required: [false]},
+        messenger: {type: String, required: [false]},
+        skype: {type: String, required: [false]},
+        
+    },
     aboutme: {
+        description: {type: String, required: [false]},
+        age: {type: String, required: [false]},
+        place: {type: String, required: [false]},
+        height: {type: String, required: [false]},
+    },
+    interests: {
         type: String,
         required: [false]
     },
-    interests: {
-        type: Array,
-        required: [false]
-    },
     images: {
-        type: Array,
-        required: [false]
+        avatar: {type: String, required: [false]},
     },
     likes: [{type: mongoose.Types.ObjectId, ref: "adminuser"}],
     dislikes: [{type: mongoose.Types.ObjectId, ref: "adminuser"}],
