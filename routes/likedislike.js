@@ -6,10 +6,14 @@ const userModel = require("../models/user");
 const adminUserModel = require("../models/adminUser");
 const mongoose = require("mongoose");
 const toId = mongoose.Types.ObjectId;
+const compression = require('compression')
+const minify = require('express-minify');
 
 // ---
 
 const router = express.Router();
+router.use(compression());
+router.use(minify());
 
 // get all users from database etc
 const getUsers = async () => {
