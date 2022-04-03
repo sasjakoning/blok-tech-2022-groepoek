@@ -20,6 +20,10 @@
   },
   "homepage": "https://github.com/sasjakoning/blok-tech-2022-groepoek#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.6",
+    "express-handlebars": "^6.0.3",
+    "express-session": "^1.17.2",
     "compress": "^0.99.0",
     "compression": "^1.7.4",
     "dotenv": "^16.0.0",

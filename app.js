@@ -42,12 +42,16 @@ app.engine(
 
 // laat files uit "public" zien
 app.use(express.static(__dirname));
-app.use(express.static("public"));
+app.use(express.static("/public"));
 
 // verbinding maken met het database
 db.connectDb();
 
 // Code hier
+
+app.use("/register", require("./routes/register"))
+
+app.use("/login", require("./routes/loginregister"))
 
 app.use("/swiping", require("./routes/likedislike"))
 
@@ -59,5 +63,6 @@ app.use("/filter", require("./routes/filter"))
 
 
 // ---
+
 
 app.listen(port, () => console.log(`App listening to port ${port}`));

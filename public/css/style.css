@@ -9,7 +9,7 @@
 	--detail: rgba(230, 234, 243, 1);
     --text: rgba(66, 49, 179, 1);
 }
-
+/*
 body {
     width: 100vw;
     height: 100vh;
@@ -24,7 +24,7 @@ body {
 main {
     /* display: grid;
     place-items: center; */
-    display: flex;
+   /* display: flex;
     align-items: center;
 
     width: 100%;

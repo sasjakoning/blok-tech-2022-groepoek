@@ -58,8 +58,8 @@ const userModel = mongoose.model("user", userSchema)
 //     {
 //         email: "sasjakoning@hotmail.com",
 //         password: "123",
-//         firstname: "Sasja",
-//         lastname: "Koning",
+//        firstname: "Sasja",
+//       lastname: "Koning",
 //         gender: "male",
 //         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
 //         interests: [
@@ -325,7 +325,8 @@ const userModel = mongoose.model("user", userSchema)
 //         age: 22,
 //         images: "",    
 //     },
-// ])
+// ]) 
+
 
 
  module.exports = userModel;

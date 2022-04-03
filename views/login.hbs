@@ -1,0 +1,42 @@
+<body id="loginpage">
+    <header>
+        <nav>
+            <ul>
+                <li><img src="../public/images/logologin.png"></li>
+                <li><a href="#seeker">Seeker</a></li>
+                <li><a href="#matches">Matches</a></li>
+                <li><a href="#profile">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+ 
+    <main>
+        <h2>Login</h2>
+
+        <form id="login-form"  action="/login/done" method="POST" enctype="multipart/form-data">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" placeholder="Email@dievanjou.nl" required>
+ 
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="● ● ● ● ●" required>
+
+            <input id="LoginButton" type="submit" value="Login" href="index.hbs">
+        </form>
+
+        <section>
+            <h3>No account?</h3>
+            <p><a href="login/register">Sign up here</a></p>
+        </section>
+
+    </main>
+ 
+    <footer>
+        <p>
+            When you use our services, you're trusting us with your
+            information. We understand this is a big responsibility
+            and work hard to protect your information and put you in 
+            control.
+        </p>
+    </footer>
+</body>
+<script src="../public/js/login.js"></script>

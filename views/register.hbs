@@ -1,0 +1,44 @@
+<body id="registerpage">
+    <header>
+        <nav>
+            <ul>
+                <li><img src="../public/images/logologin.png"></li>
+                <li><a href="#seeker">Seeker</a></li>
+                <li><a href="#matches">Matches</a></li>
+                <li><a href="#profile">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+ 
+    <main>
+        <h2>Register</h2>
+
+        <form id="register-form" action="/login/register/done" method="POST" enctype="multipart/form-data">
+            <label for="firstname">First name</label>
+            <input type="text" id="firstname" name="firstname" placeholder="First name">
+
+            <label for="lastname">Last name</label>
+            <input type="text" id="lastname" name="lastname" placeholder="Last name">
+
+            <label for="gender">Gender</label>
+            <input type="text" id="gender" name="gender" placeholder="Gender">
+
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" placeholder="Email@dievanjou.nl" required>
+ 
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="● ● ● ● ●" required>
+            
+            <label for="rppassword">Repeat password</label>
+            <input type="password" id="rppassword" name="rppassword" placeholder="● ● ● ● ●" required>
+
+            <input id="RegisterButton" type="submit" value="Create Account" href="index.hbs">
+        </form>
+
+        <section>
+            <h3>Already have an account?</h3>
+            <p><a href="/login">Log in</a></p>
+        </section>
+    </main>
+</body>
+<script src="../public/js/register.js">
