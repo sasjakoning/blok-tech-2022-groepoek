@@ -8,11 +8,30 @@ const userModel = require("./models/user")
 const adminUserModel = require("./models/adminUser")
 const compression = require('compression')
 const minify = require('express-minify');
+let session = require("express-session");
+const mongoStore = require("connect-mongo");
 
 // ---
 
 const app = express();
 const upload = multer({ dest: "public/uploads/" })
+
+// express session expires in 24 hrs
+const oneDay = 1000 * 60 * 60 * 24;
+
+// sessions
+app.use(session({
+  name: "credentials",
+  secret: "secret",
+  saveUninitialized: true,
+  cookie: {maxAge: oneDay},
+  resave: false,
+  store: new mongoStore({
+    mongooseConnection: db,
+    collections: "sessions",
+    mongoUrl: process.env.ATLAS_URI
+  })
+}))
 
 // set view engine to handlebars
 app.set("view engine", "hbs");
