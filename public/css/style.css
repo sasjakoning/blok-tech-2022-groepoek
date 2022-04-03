@@ -7,6 +7,7 @@
 	--tertiary: rgba(255, 211, 205, 1);
 	--accent: rgba(255, 133, 128, 1);
 	--detail: rgba(230, 234, 243, 1);
+    --text: rgba(66, 49, 179, 1);
 }
 /*
 body {
@@ -14,6 +15,8 @@ body {
     height: 100vh;
 
 	font-size: 10px;
+
+    background: var(--primary1);
 
 	font-family: 'Roboto', sans-serif;
 }
@@ -35,5 +38,10 @@ main {
     background: var(--primary2);
     height: 100%;
     width: 35em;
+    padding: 0 6em 0 4em;
     flex-shrink: 0;
+    overflow: scroll;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    z-index: 100;
 }

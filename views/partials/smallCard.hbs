@@ -1,27 +1,29 @@
+{{#each data}}
 
+<label class="smallCardLabel" for="flip {{@index}}">
+    <input id="flip {{@index}}" class="flipBtn" type="checkbox">
 
-<label class="smallCardLabel">
-    
+    <section class="smallCardContainer">
 
-    <section class="cardContainer">
-        <section class="actionOverlay">
-            <img src="/images/overlayLike.svg" alt="">
+        {{!-- backside --}}
+        <section class="smallCardBack">
+            backside
         </section>
-
+    
         <section class="smallCardFront">
-            <picture>
+            <picture class="smallCardPic">
           
                 <img src="/images/user-image1.jpg" alt="" />
             </picture>
 
             <article>
-                <h1>Frederick Friemel</h1>
-              <p>Urk</p>
-                <ul>
-
-                    <li>kaas</li>
-                    <li>ham</li>
-                    <li>honing</li>
+                 <h1>{{this.firstname}} {{this.lastname}} - {{this.age}}</h1>
+                <p>{{this.location}}</p>
+             <ul>
+                    {{#each interests}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                   
                 </ul>
 
                 
@@ -32,3 +34,4 @@
 
 </label>
 
+{{/each}}

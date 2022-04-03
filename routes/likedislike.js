@@ -6,6 +6,8 @@ const userModel = require("../models/user");
 const adminUserModel = require("../models/adminUser");
 const mongoose = require("mongoose");
 const toId = mongoose.Types.ObjectId;
+const compression = require('compression')
+const minify = require('express-minify');
 
 const cookieParser = require("cookie-parser");
 let session = require("express-session");
@@ -15,6 +17,8 @@ const { authenticate } = require('../config/auth');
 // ---
 
 const router = express.Router();
+router.use(compression());
+router.use(minify());
 
 // express session expires in 24 hrs
 const oneDay = 1000 * 60 * 60 * 24;
@@ -30,9 +34,7 @@ router.use(session({
 // get all users from database etc
 const getUsers = async () => {
   // find the admin user (which is being used as "logged in user" for demo purposes)
-  const admin = await adminUserModel.findOne({}).lean();
-
-  console.log(admin)
+  const admin = await adminUserModel.findOne({});
 
   // find which users admin has matched
   const adminMatches = admin.matches;
@@ -51,18 +53,23 @@ const getUsers = async () => {
 
 // to count the amount of times the page has been visited by the user. this to serve the correct object from array
 let counter1 = 0;
-let counter2 = 3;
+let counter2 = 5;
 
 router.get("/", authenticate, async (req, res) => {
   try {
     counter1 = 0;
-    counter2 = 3;
+    counter2 = 5;
     // for demo purposes, counter is always reset when on start page
+
+    const filtered = await userModel.find({interests: "callofduty"})
+
+    console.log(filtered)
 
     // get users
     getUsers().then(([result, admin]) => {
       console.log(`counter1 is ${counter1}`);
       console.log(`counter2 is ${counter2}`);
+
 
       // only return two users from the array
       result = result.slice(counter1, counter2);
@@ -113,7 +120,7 @@ router.post("/like/:id", async (req, res) => {
       // if the counter goes beyond the amount of users in array, reset back to original
       if (counter2 == userCount.length) {
         counter1 = 0;
-        counter2 = 3;
+        counter2 = 5;
       }
 
       // add likeduser to likes array of admin (Not included in this feature)
@@ -201,7 +208,7 @@ router.post("/dislike/:id", async (req, res) => {
       // if the counter goes beyond the amount of users in array, reset back to original
       if (counter2 == userCount.length) {
         counter1 = 0;
-        counter2 = 3;
+        counter2 = 5;
       }
 
       // add likeduser to likes array of admin (Not included in this feature)
@@ -235,5 +242,6 @@ router.get("/reset", async (req, res) => {
     console.log(err);
   }
 });
+
 
 module.exports = router;
