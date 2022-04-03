@@ -18,7 +18,7 @@ const upload = multer({ dest: "public/uploads/" })
 app.set("view engine", "hbs");
 app.use(compression());
 app.use(minify());
-app.use(express.static(__dirname + '/static'));
+app.use(express.static(__dirname + '/public'));
 
 // setup van port. post is http://localhost:3000/
 let port = process.env.PORT;
@@ -42,7 +42,6 @@ app.engine(
 
 // laat files uit "public" zien
 app.use(express.static(__dirname));
-app.use(express.static("/public"));
 
 // verbinding maken met het database
 db.connectDb();
