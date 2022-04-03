@@ -1,15 +1,18 @@
-let session = require("express-session");
+let sessions = require("express-session");
+
+let currentsession;
 
 // module maken
 module.exports = {
   // de functie is authenticate
   authenticate: function(req, res, next){
     // haal de cookie op van client side
-    session=req.session;
-    console.log(session)
+    currentsession=req.session;
+    console.log(`session cookie is`)
+    console.log(currentsession)
 
     // als de cookie een userid heeft, ga verder
-    if(session.userid){
+    if(currentsession.userid){
       return next()
     }
 
