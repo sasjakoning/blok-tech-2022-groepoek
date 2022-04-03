@@ -43,4 +43,5 @@ main {
     overflow: scroll;
     overflow-x: hidden;
     scrollbar-width: thin;
+    z-index: 100;
 }

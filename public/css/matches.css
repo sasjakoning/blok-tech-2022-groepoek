@@ -32,20 +32,31 @@ html {
 }
 
 .matchMain .sideBar > ul {
-    margin-top: 20em;
+    margin-top: 6em;
     width: calc(35em - 10em);
 }
 
 .title {
     display: flex;
     align-items: center;
-    width: calc(35em - 10em);
+    width: 35em;
     height: 16em;
     position: fixed;
     top: 0;
     background: var(--primary2);
     padding-top: 2em;
-    border-bottom: 2px solid var(--detail);
+    left: 0;
+    padding-left: 3em;
+}
+
+.title::after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: var(--detail);    
+    bottom: 0;
+    left: 0;
+    position: absolute;
 }
 
 .title > img {

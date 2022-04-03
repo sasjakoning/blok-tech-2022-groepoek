@@ -9,10 +9,10 @@
     position: relative;
     z-index: 1;
     display: inline-block;
-    width: 40em;
-    height: 45em;
+    width: 30em;
+    height: 35em;
     background: transparent;
-margin: 2em;
+    margin: 2em;
 	flex-shrink: 0;
 }
 
@@ -74,8 +74,8 @@ margin: 2em;
     
 }
 .smallCardPic {
-    width: 35em;
-    margin-top: 2em;
+    width: calc(100% - 2em);
+    margin-top: 1em;
     display: block;
 }
 
@@ -88,6 +88,10 @@ margin: 2em;
 .smallCardFront > article {
 	width: calc(100% - 2em);
 	font-size: 12px;
+}
+
+.smallCardFront > article > h1 {
+    font-size: 2em;
 }
 
 /* name and age */

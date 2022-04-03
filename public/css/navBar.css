@@ -6,8 +6,8 @@ nav > ul.navUl {
     flex-direction: row;
     justify-content: flex-end;
     background-color: none;
-    padding-right: 15em;
-    padding-top: 5em;
+    padding-right: 6em;
+    padding-top: 3em;
     z-index: 2;
 }
 
