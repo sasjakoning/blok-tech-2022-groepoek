@@ -20,16 +20,6 @@ const router = express.Router();
 router.use(compression());
 router.use(minify());
 
-// express session expires in 24 hrs
-const oneDay = 1000 * 60 * 60 * 24;
-
-// sessions
-router.use(session({
-  secret: "secret",
-  saveUninitialized: true,
-  cookie: {maxAge: oneDay},
-  resave: false
-}))
 
 // get all users from database etc
 const getUsers = async () => {

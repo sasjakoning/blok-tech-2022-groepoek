@@ -8,7 +8,11 @@ const bcrypt = require("bcrypt")
 const saltRounds = 10;
 const auth = require("../config/auth")
 const cookieParser = require("cookie-parser");
+const mongoStore = require("connect-mongo");
 let session = require("express-session");
+require("dotenv").config();
+
+let currentsession;
 
 const { authenticate } = require('../config/auth');
 
@@ -20,10 +24,16 @@ const upload = multer({dest: "public/uploads/"})
 
 // sessions
 router.use(session({
+  name: "credentials",
   secret: "secret",
   saveUninitialized: true,
   cookie: {maxAge: oneDay},
-  resave: false
+  resave: false,
+  store: new mongoStore({
+    mongooseConnection: db,
+    collections: "sessions",
+    mongoUrl: process.env.ATLAS_URI
+  })
 }))
 
 // cookie parser middleware
@@ -94,10 +104,10 @@ router.post("/register/done", upload.none(), async (req, res) => {
 
 router.get("/", async (req, res) => {
   // haal cookie op van client-side
-  session=req.session;
+  currentsession=req.session;
 
   // als de userid in de cookie bestaat (die na 24 uur verloopt), log in.
-  if(session.userid){
+  if(currentsession.userid){
     res.send("welcome")
   }else {
       // anders try again
@@ -119,16 +129,18 @@ router.post("/done", upload.none(), async (req, res) => {
   // als de email matched, update cookie en log in.
   if(email == userEmail.email){
     console.log("is equal")
-    session=req.session;
-    session.userid=email;
+    currentsession=req.session;
+    currentsession.userid=email;
     console.log(req.session)
-    res.send("welcome")
+    res.redirect("/swiping")
   }
 });
 
 // uitloggen van de user door de cookie te destroyen
 router.get("/logout", async (req, res) => {
+  console.log(req.session)
   req.session.destroy();
+  console.log("logout")
   res.redirect("/login")
 })
 

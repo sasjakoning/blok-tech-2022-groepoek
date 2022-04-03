@@ -7,6 +7,8 @@ const adminUserModel = require("../models/adminUser");
 const mongoose = require("mongoose");
 const toId = mongoose.Types.ObjectId;
 
+const { authenticate } = require('../config/auth');
+
 // ---
 
 const router = express.Router();
@@ -37,7 +39,7 @@ const getUsers = async () => {
 let counter1 = 0;
 let counter2 = 6;
 
-router.get("/", async (req, res) => {
+router.get("/", authenticate,  async (req, res) => {
   try {
     counter1 = 0;
     counter2 = 6;
