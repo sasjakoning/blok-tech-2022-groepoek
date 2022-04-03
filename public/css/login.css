@@ -1,50 +1,36 @@
-/*Colors*/
 
-:root {
-    --primary1: rgba(66, 49, 179, 1);
-    --primary2: rgba(255, 255, 255, 1);
-    --secondary: rgba(161, 169, 238, 1);
-    --accent: rgba(255, 133, 128, 1);
-    --detail: rgba(230, 234, 243, 1);
-    --background-color: #C0C0C0;
-    --form-color: #727272;
-    --formlink-color: #2F53EB;
-}
- 
 /* Styling Login Form*/
  
-#loginpage {
+#loginpage, #registerpage {
     overflow-x: hidden;
-}
- 
-#loginpage header nav ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    gap: 5%;
-    font-family: 'Roboto', sans-serif;
-    margin: 5%;
-    margin-top: 2%;
-}
- 
-#loginpage header nav ul li a {
-    color: var(--background-color);
-    font-size: 24px;
-    text-decoration: none;
+    height: 100%;
 }
 
-#loginpage header nav ul li a:hover {
-    text-decoration: underline 2.5px solid;
-    text-underline-offset: 0.2em;
+#loginpage nav a, #registerpage nav a {
+    color: var(--text);
+}
+
+#loginpage nav li:first-of-type, #registerpage nav li:first-of-type {
+    background: url(../images/logo_blue.svg) no-repeat;
+    background-size: contain;
 }
  
-#loginpage main {
+#loginpage main, #registerpage main {
     display: flex;
     flex-direction: column;
     margin-left: 50%;
+    align-items: normal;
+    width: auto;
+    background-color: var(--primary2);
+    height: 100vh;
+    justify-content: center;
+}
+
+#loginpage main > section, #registerpage main > section {
+    margin-left: 6em;
 }
  
-#loginpage main h2{
+#loginpage main h2, #registerpage main h2{
     font-size: 36px;
     font-family: 'Inter', sans-serif;
     border-bottom: solid 1px;
@@ -52,167 +38,70 @@
     margin-right: 55%;
 }
  
-#loginpage main form {
+#loginpage main form, #registerpage main form {
     display: flex;
     flex-direction: column;
-    font-size: 25px;
+    font-size: 2em;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
     padding-top: 2%;
     margin-right: 20%;
 }
  
-#loginpage main form label {
-    color: var(--form-color);
+#loginpage main form label, #registerpage main form label {
+    color: var(--detail2);
     margin-bottom: 2%;
+    font-weight: 500;
 }
  
 #loginpage main form label:last-of-type {
     margin-top: 3%;
 }
  
-#loginpage main form input:last-of-type {
+#loginpage main form input:last-of-type, #registerpage main form input:last-of-type {
     color: var(--primary2);
     background-color: var(--accent);
     margin-top: 8%;
     border-color: var(--accent);
-    font-size: 25px;
+    font-size: 1em;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
     padding: 10px;
 }
  
-#loginpage main form input {
+#loginpage main form input, #registerpage main form input {
     padding: 14px;
     border-radius: 8px;
-    border: var(--background-color) 1px solid;
+    border: var(--detail2) 1px solid;
 }
  
-#loginpage main section {
+#loginpage main section > section, #registerpage main section > section {
     margin-top: 2%;
     display: flex;
     flex-direction: row;
     gap: 1%;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 2em;
+    color: var(--detail2);
 }
  
-#loginpage main section p a{
-    text-decoration: none;
-    color: var(--formlink-color);
+#loginpage main section a, #registerpage main section a{
+    text-decoration: none; 
+    font-size: 1em;
 }
  
-#loginpage footer > p {
+#loginpage section > article > p {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    color: var(--background-color);
-    font-size: 20px;
-    margin-top: 3%;
-    margin-left: 50%;
-    margin-right: 10%;
+    color: var(--detail);
+    font-size: 2em;
+    margin: 3% 10% 0 0 ;
+    padding: 0;
 }
  
-/* Styling Register form */
- 
-#registerpage {
-    overflow-x: hidden;
-}
- 
-#registerpage header nav ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    gap: 5%;
-    font-family: 'Roboto', sans-serif;
-    margin: 5%;
-    margin-top: 3%;
-    margin-bottom: 2%;
-}
- 
-#registerpage header nav ul li a {
-    color: var(--background-color);
-    font-size: 20px;
-    text-decoration: none;
-}
 
-#registerpage header nav ul li a:hover {
-    text-decoration: underline 2.5px solid;
-    text-underline-offset: 0.2em;
-}
- 
-#registerpage main {
-    display: flex;
-    flex-direction: column;
-    margin-left: 50%;
-}
- 
-#registerpage main h2{
-    font-size: 33px;
-    font-family: 'Inter', sans-serif;
-    border-bottom: solid 1px;
-    padding-bottom: 3%;
-    margin-right: 55%;
-}
- 
-#registerpage main form {
-    display: flex;
-    flex-direction: column;
-    font-size: 20px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    padding-top: 2%;
-    margin-right: 20%;
-}
- 
-#registerpage main form label {
-    color: var(--form-color);
-    margin-bottom: 2%;
-}
- 
 #registerpage main form label:nth-of-type(2),label:nth-of-type(3),label:last-of-type {
     margin-top: 3%;
-}
- 
-#registerpage main form input:last-of-type {
-    color: var(--primary2);
-    background-color: var(--accent);
-    margin-top: 8%;
-    border-color: var(--accent);
-    font-size: 15px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    padding: 10px;
-}
- 
-#registerpage main form input {
-    padding: 10px;
-    border-radius: 8px;
-    border: var(--background-color) 1px solid;
-}
- 
-#registerpage main section {
-    margin-top: 2%;
-    display: flex;
-    flex-direction: row;
-    gap: 1%;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 17px;
-}
- 
-#registerpage main section p a{
-    text-decoration: none;
-    color: var(--formlink-color);
-}
- 
-#registerpage footer > p {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    color: var(--background-color);
-    font-size: 15px;
-    margin-top: 5%;
-    margin-left: 10%;
-    margin-right: 30%;
 }
  
