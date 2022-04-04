@@ -1,17 +1,5 @@
 /* ---- Start styling profile ---- */
 
-/* body{
-    background-color: #4d023d;
-}
-
-p, a, label, h2, ::placeholder{
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-p, a, label, ::placeholder{
-    font-size: 1.1em;
-} */
-
 .profilePage{
     position: relative;
     background-color: white;
@@ -22,7 +10,7 @@ p, a, label, ::placeholder{
     padding: 5em 3em 3em 3em;
 }
 
-.profilePage p, .profilePage a, .profilePage ::placeholder{
+.profilePage p, .profilePage a, .profilePage ::placeholder, .profilePage label{
     font-size: 1.1em;
 }
 
@@ -60,12 +48,12 @@ p, a, label, ::placeholder{
     background-color: var(--accent);
     border: none;
     border-radius: 5px;
-    padding: 1em;
     width: 10em;
     color: white;
     font-size: 1.5em;
     cursor: pointer;
     justify-self: end;
+    margin: 1em 0 0 0;
 }
 
 .profilePage button:hover{
@@ -201,7 +189,7 @@ p, a, label, ::placeholder{
     width: 40em;
 }
 
-.profilePage > form > div:nth-of-type(2) div:not(.profilePage > form > div:nth-of-type(2) div:last-of-type){
+.profilePage > form > div:nth-of-type(2) div:not(.profilePage > form > div:nth-of-type(2) > div:last-of-type){
     display: flex;
     justify-content: space-between;
     font-size: 1.3em;
@@ -210,6 +198,7 @@ p, a, label, ::placeholder{
 .profilePage > form > div:nth-of-type(2) input{
     width: 22.05em;
     padding: 0.5em 0.3em;
+    margin: 0 0 0.5em 0;
     border: none;
     border-radius: 5px;
 }
@@ -224,7 +213,7 @@ p, a, label, ::placeholder{
     border-radius: 5px;
     padding: 0.3em;
     margin: 0.5em 0;
-    font-size: 1.3em;
+    font-size: 1.1em;
     width: 22.6em;
     resize: none;
 }
@@ -291,6 +280,7 @@ p, a, label, ::placeholder{
 
 .profilePage > form > div:nth-of-type(3) div input::placeholder{
     color: rgba(255, 255, 255, 0.603);
+    font-size: 1.1em;
 }
 
 .profilePage > form > div:nth-of-type(3) div img{
