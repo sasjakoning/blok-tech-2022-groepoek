@@ -26,13 +26,13 @@ html {
     align-items: flex-start;
 
     width: 100%;
-    height: 100%;
+    height: 100vh;
 
     overflow: hidden;
 }
 
 .matchMain .sideBar > ul {
-    margin-top: 6em;
+    margin-top: 14em;
     width: calc(35em - 10em);
 }
 
@@ -87,6 +87,7 @@ ul.smallCards > li {
     flex-wrap: wrap;
     justify-content: center;
     padding: 3em;
+    margin-top: 10em;
   
 }
 #shadowBox {

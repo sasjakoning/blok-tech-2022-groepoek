@@ -16,7 +16,7 @@
 .padding-sidebar {
   padding-left: 4em;
   padding-top: 7em;
-  margin-bottom: 2em;
+  width: 100%;
 }
 
 .padding-sidebar summary{
