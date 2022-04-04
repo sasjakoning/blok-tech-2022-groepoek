@@ -98,24 +98,42 @@ if (sPath.includes("swiping")) {
     );
     const HuidigeAvatar = document.querySelector(".eigenAvatarfotoGr");
     const uploadFotoOverlay = document.querySelector(".uploadFotoOverlay");
+    const profilePageGlobal = document.querySelector(".profilePage")
+    const editButton = document.querySelector(".profilePage > img:first-of-type")
 
-    dropZone.addEventListener("dragover", (e) => {
-      e.preventDefault();
-      stockFotoInDropZone.classList.add("hidden");
-      HuidigeAvatar.classList.add("transparent50");
-      uploadFotoOverlay.classList.remove("hidden");
-    });
+    dropZone.addEventListener("dragover", e => {
+        e.preventDefault();
+        dropZone.classList.add("hover");
+        stockFotoInDropZone.classList.add("hidden");
+        HuidigeAvatar.classList.add("transparent50");
+        uploadFotoOverlay.classList.remove("hidden");
+    })
 
-    dropZone.addEventListener("dragleave", (e) => {
+    dropZone.addEventListener("dragleave", e => {
+        dropZone.classList.remove("hover");
+        stockFotoInDropZone.classList.remove("hidden");
+        HuidigeAvatar.classList.remove("transparent50");
+        uploadFotoOverlay.classList.add("hidden");
+    })
+
+    dropZone.addEventListener("dragend", e => {
+        dropZone.classList.remove("hover");
+        stockFotoInDropZone.classList.remove("hidden");
+        HuidigeAvatar.classList.remove("transparent50");
+        uploadFotoOverlay.classList.add("hidden");
+    })
+    dropZone.addEventListener("mouseover", e => {
+        stockFotoInDropZone.classList.add("hidden");
+        HuidigeAvatar.classList.add("transparent50");
+        uploadFotoOverlay.classList.remove("hidden");
+    })
+    dropZone.addEventListener("mouseout", e => {
       stockFotoInDropZone.classList.remove("hidden");
       HuidigeAvatar.classList.remove("transparent50");
       uploadFotoOverlay.classList.add("hidden");
-    });
-
-    dropZone.addEventListener("dragend", (e) => {
-      stockFotoInDropZone.classList.remove("hidden");
-      HuidigeAvatar.classList.remove("transparent50");
-      uploadFotoOverlay.classList.add("hidden");
-    });
+  })
+    editButton.addEventListener("click", e => {
+      profilePageGlobal.classList.add("editingProfile");
+    })
   };
 }

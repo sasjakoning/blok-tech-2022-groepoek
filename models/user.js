@@ -41,9 +41,20 @@ const userSchema = new Schema({
         type: Number,
         required: [false]
     },
-    images: {
-        type: Array,
+    height: {
+        type: Number,
         required: [false]
+    },
+    images: {
+        avatar: {type: String, required: [false]},
+    },
+    platform:{
+        discord: {type: String, required: [false]},
+        xbox: {type: String, required: [false]},
+        playstation: {type: String, required: [false]},
+        whatsapp: {type: String, required: [false]},
+        messenger: {type: String, required: [false]},
+        skype: {type: String, required: [false]},
     },
     likes: [{type: mongoose.Types.ObjectId, ref: "adminuser"}],
     dislikes: [{type: mongoose.Types.ObjectId, ref: "adminuser"}],

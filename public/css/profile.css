@@ -1,36 +1,29 @@
 /* ---- Start styling profile ---- */
 
-body{
-    background-color: #4d023d;
-}
-
-p, a, label, h2, ::placeholder{
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-p, a, label, ::placeholder{
-    font-size: 1.1em;
-}
-
 .profilePage{
     position: relative;
     background-color: white;
     border-radius: 15px;
     width: 50%;
     min-width: 80em;
-    margin: 10em auto 3em auto;
+    margin: 11em auto 3em auto;
     padding: 5em 3em 3em 3em;
+}
+
+.profilePage p, .profilePage a, .profilePage ::placeholder, .profilePage label{
+    font-size: 1.1em;
 }
 
 .profilePage h2{
     font-size: 2em;
+    margin: 0 0 0.5em 0;
     border-bottom: 1px solid black;
 }
 
 .profilePage img[src="images/profile/icon/editIcon.svg"]{
     position: absolute;
-    width: 2em;
-    right: 2em;
+    width: 4em;
+    right: 4em;
     top: 2em;
     filter: invert(76%) sepia(0%) saturate(12%) hue-rotate(140deg) brightness(106%) contrast(109%);
     padding: 1em;
@@ -55,12 +48,12 @@ p, a, label, ::placeholder{
     background-color: var(--accent);
     border: none;
     border-radius: 5px;
-    padding: 1em;
     width: 10em;
     color: white;
     font-size: 1.5em;
     cursor: pointer;
     justify-self: end;
+    margin: 1em 0 0 0;
 }
 
 .profilePage button:hover{
@@ -125,7 +118,7 @@ p, a, label, ::placeholder{
 .profilePage .avatarUploadField > img[src="images/profile/uploadicon.svg"]{
     height: 50%;
     top: 25%;
-    left: 20%;
+    left: 0;
     filter: drop-shadow(2px 2px 8px rgba(230, 234, 243, 1));
 }
 
@@ -196,17 +189,27 @@ p, a, label, ::placeholder{
     width: 40em;
 }
 
-.profilePage > form > div:nth-of-type(2) div:not(.profilePage > form > div:nth-of-type(2) div:last-of-type){
+.profilePage > form > div:nth-of-type(2) div:not(.profilePage > form > div:nth-of-type(2) > div:last-of-type){
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: 1.3em;
+}
+
+.profilePage > form > div:nth-of-type(2) div:nth-of-type(4){
+    margin: 0 0 1.5em 0;
 }
 
 .profilePage > form > div:nth-of-type(2) input{
     width: 22.05em;
     padding: 0.5em 0.3em;
+    margin: 0 0 0.5em 0;
     border: none;
     border-radius: 5px;
+}
+
+.profilePage > form > div:nth-of-type(2) div:first-of-type{
+    margin: 1em 0 0 0;
 }
 
 .profilePage > form > div:nth-of-type(2) input:hover, .profilePage.editingProfile > form > div:nth-of-type(2) input, .profilePage > form > div:nth-of-type(2) input.empty, .profilePage > form > div:nth-of-type(2) input.edit{
@@ -219,7 +222,7 @@ p, a, label, ::placeholder{
     border-radius: 5px;
     padding: 0.3em;
     margin: 0.5em 0;
-    font-size: 1.3em;
+    font-size: 1.1em;
     width: 22.6em;
     resize: none;
 }
@@ -227,11 +230,13 @@ p, a, label, ::placeholder{
 .profilePage > form > div:nth-of-type(2) textarea:hover, .profilePage.editingProfile > form > div:nth-of-type(2) textarea{
     outline: 2px dashed var(--detail);
 }
-.profilePage > form > div:nth-of-type(2) > div:nth-of-type(5){
+
+.profilePage > form > div:nth-of-type(2) > div:last-of-type{
     display: flex;
     gap: 1em;
 }
-.profilePage > form > div:nth-of-type(2) > div:nth-of-type(5) > p{
+
+.profilePage > form > div:nth-of-type(2) > div:last-of-type > p{
     background-color: var(--secondary);
     padding: 0.5em 1em;
     border-radius: 15px;
@@ -239,11 +244,11 @@ p, a, label, ::placeholder{
     color: white;
 }
 
-.profilePage > form > div:nth-of-type(2) > div:nth-of-type(5) > p:last-of-type{
+.profilePage > form > div:nth-of-type(2) > div:last-of-type > p:last-of-type{
     font-weight: bolder;
 }
 
-.profilePage > form > div:nth-of-type(2) > div:nth-of-type(5) > p:last-of-type:hover{
+.profilePage > form > div:nth-of-type(2) > div:last-of-type > p:last-of-type:hover{
     cursor: pointer;
     background-color: rgb(185, 190, 238);
 }
@@ -286,11 +291,11 @@ p, a, label, ::placeholder{
 
 .profilePage > form > div:nth-of-type(3) div input::placeholder{
     color: rgba(255, 255, 255, 0.603);
+    font-size: 1.1em;
 }
 
 .profilePage > form > div:nth-of-type(3) div img{
-    width: 2em;
-    height: 100%;
+    width: 4.5em;
     padding: 1em;
 }
 
@@ -319,8 +324,8 @@ p, a, label, ::placeholder{
 }
 
 .profilePage .playstationLabel img[src="images/profile/icon/playstation-white-logo.svg"]{
-    width: 3em;
-    padding: 1em 0.5em 1em 0.5em;
+    width: 4.5em;
+    padding: 1em 0.5em 1em 0em;
 }
 
 .profilePage .whatsappLabel{

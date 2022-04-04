@@ -79,6 +79,8 @@ app.use("/swiping", require("./routes/likedislike"))
 app.use("/matches", require("./routes/matches"))
 
 app.use("/profile", require("./routes/profile"))
+app.post("/avatarupdate", require("./routes/profile"))
+app.post("/updateprofile", require("./routes/profile"))
 
 app.use("/filter", require("./routes/filter"))
 
