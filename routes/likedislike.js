@@ -26,6 +26,8 @@ router.use(compression());
 router.use(minify());
 
 
+let filterInfo = [];
+
 // get all users from database etc
 const getUsers = async () => {
   // find the admin user (which is being used as "logged in user" for demo purposes)
@@ -37,7 +39,10 @@ const getUsers = async () => {
   // return all users except the already matched ones
   const usersList = await userModel.find({
     _id: { $nin: adminMatches },
+    filterInfo
   }).lean();
+
+  console.log(usersList)
 
   const adminLeaned = await adminUserModel.findOne({
     username: "adminuser",
@@ -55,6 +60,9 @@ router.post("/filtered", upload.none(), async (req, res) => {
 
   console.log(gender + age + interests + platform)
 
+  filterInfo.push(interests)
+
+  console.log(filterInfo)
 
 
   let users = await userModel.find({
