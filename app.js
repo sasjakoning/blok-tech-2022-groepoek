@@ -10,6 +10,7 @@ const compression = require('compression')
 const minify = require('express-minify');
 let session = require("express-session");
 const mongoStore = require("connect-mongo");
+const { authenticate } = require('./config/auth');
 
 // ---
 
@@ -66,6 +67,10 @@ app.use(express.static(__dirname));
 db.connectDb();
 
 // Code hier
+
+app.get("/", authenticate, async (req, res) => {
+  res.redirect("/swiping")
+})
 
 app.use("/register", require("./routes/register"))
 
