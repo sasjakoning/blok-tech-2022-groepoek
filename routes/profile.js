@@ -83,6 +83,7 @@ async function updateProfile(req, res) {
     aboutme: req.body.omschrijving,
     age: req.body.leeftijd,
     location: req.body.plaats,
+    gender: req.body.geslacht,
     height: req.body.lengte,
     // interests: req.body.interesses,
     platform: {
@@ -95,10 +96,12 @@ async function updateProfile(req, res) {
     },
   });
 
-    res.render("profile", {
-      layout: "index",
-      data: currentUser,
-    });
+    // res.render("profile", {
+    //   layout: "index",
+    //   data: currentUser,
+    // });
+
+    res.redirect("/profile")
 }
 
 router.post("/avatarupdate", upload.single("avatar"), avatarUpdate);
@@ -117,12 +120,14 @@ async function avatarUpdate(req, res) {
     }
   });
 
-  getUsers().then(([result, admin, adminLeaned]) => {
-    res.render("profile", {
-      layout: "index",
-      data: currentUser,
-    });
-  });
+  res.redirect("/profile")
+
+  // getUsers().then(([result, admin, adminLeaned]) => {
+  //   res.render("profile", {
+  //     layout: "index",
+  //     data: currentUser,
+  //   });
+  // });
 }
 
 
