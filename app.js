@@ -72,8 +72,6 @@ app.get("/", authenticate, async (req, res) => {
   res.redirect("/swiping")
 })
 
-app.use("/register", require("./routes/register"))
-
 app.use("/login", require("./routes/loginregister"))
 
 app.use("/swiping", require("./routes/likedislike"))
