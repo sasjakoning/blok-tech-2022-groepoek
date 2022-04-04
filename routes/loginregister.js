@@ -118,7 +118,7 @@ router.get("/", async (req, res) => {
 });
 
 // wanneer je inlogt
-router.post("/done", authenticate, upload.none(), async (req, res) => {
+router.post("/done", upload.none(), async (req, res) => {
 
   // ophalen email en password van body
   const {email, password} = req.body;
