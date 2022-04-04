@@ -29,7 +29,7 @@ const getUsers = async () => {
       _id: { $nin: adminMatches },
     })
     .lean();
-
+  
   const adminLeaned = await adminUserModel
     .findOne({
       username: "adminuser",
@@ -39,37 +39,53 @@ const getUsers = async () => {
   return [usersList, admin, adminLeaned];
 };
 
+
+
 router.get("/", authenticate, profile);
 
 async function profile(req, res) {
-  getUsers().then(([result, admin, adminLeaned]) => {
+  const userid = req.session.userid
+  const currentUser = await userModel.findOne({
+    email: userid,
+  }).lean();
+
+
     res.render("profile", {
       layout: "index",
-      data: adminLeaned,
+      data: currentUser,
     });
-  });
+
+  return [userid, currentUser, userModel]
 }
+
+
+
 
 router.post("/updateprofile", upload.none(), updateProfile);
 
-async function update(updatedata) {
-  const result = await adminUserModel.updateOne(
-    { email: "admin@hotmail.com" },
+async function update(userid, updatedata) {
+
+  const result = await userModel.updateOne(
+    { email: userid },
     { $set: updatedata },
     { upsert: true }
   );
 }
 
 async function updateProfile(req, res) {
-  update({
+  const userid = req.session.userid
+  const currentUser = await userModel.findOne({
+    email: userid,
+  }).lean();
+
+  
+  update(userid, {
     firstname: req.body.voornaam,
-    aboutme: {
-      description: req.body.omschrijving,
-      age: req.body.leeftijd,
-      place: req.body.plaats,
-      height: req.body.lengte,
-    },
-    interests: req.body.interesses,
+    aboutme: req.body.omschrijving,
+    age: req.body.leeftijd,
+    location: req.body.plaats,
+    height: req.body.lengte,
+    // interests: req.body.interesses,
     platform: {
       discord: req.body.discord,
       xbox: req.body.xbox,
@@ -80,12 +96,10 @@ async function updateProfile(req, res) {
     },
   });
 
-  getUsers().then(([result, admin, adminLeaned]) => {
     res.render("profile", {
       layout: "index",
-      data: adminLeaned,
+      data: currentUser,
     });
-  });
 }
 
 router.post("/avatarupdate", upload.single("avatar"), avatarUpdate);
@@ -94,15 +108,13 @@ async function avatarUpdate(req, res) {
   const avatar = (await "uploads/") + req.file.filename;
 
   update({
-    images: {
-      avatar: avatar,
-    },
+    images: avatar,
   });
 
   getUsers().then(([result, admin, adminLeaned]) => {
     res.render("profile", {
       layout: "index",
-      data: adminLeaned,
+      data: currentUser,
     });
   });
 }
