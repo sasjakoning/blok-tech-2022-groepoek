@@ -55,7 +55,6 @@ async function profile(req, res) {
       data: currentUser,
     });
 
-  return [userid, currentUser, userModel]
 }
 
 
@@ -105,10 +104,17 @@ async function updateProfile(req, res) {
 router.post("/avatarupdate", upload.single("avatar"), avatarUpdate);
 
 async function avatarUpdate(req, res) {
+  const userid = req.session.userid
+  const currentUser = await userModel.findOne({
+    email: userid,
+  }).lean();
+  
   const avatar = (await "uploads/") + req.file.filename;
 
-  update({
-    images: avatar,
+  update(userid,{
+    images: {
+      avatar: avatar,
+    }
   });
 
   getUsers().then(([result, admin, adminLeaned]) => {

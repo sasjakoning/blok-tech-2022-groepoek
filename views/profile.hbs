@@ -4,7 +4,7 @@
     <form action="/avatarupdate" method="post" enctype="multipart/form-data">
             <div class="avatarUploadField">
                 <img src="images/profile/NoAvatar.jpg" alt="">
-                <img src="{{this.images}}" alt="Eigen profielfoto" name="avatar" class="eigenAvatarfotoGr" onerror="this.style.display='none'">
+                <img src="{{this.images.avatar}}" alt="Eigen profielfoto" name="avatar" class="eigenAvatarfotoGr" onerror="this.style.display='none'">
                 <img src="images/profile/uploadicon.svg" alt="" class="uploadFotoOverlay hidden">
                 <input type="file" name="avatar" accept=".jpeg,.jpg,.png" onchange="this.form.submit()">
             </div>
