@@ -79,7 +79,7 @@ router.get("/", authenticate, async (req, res) => {
 /* if like has been pressed */
 /****************************/
 
-router.post("/like/:id", async (req, res) => {
+router.post("/like/:id", authenticate , async (req, res) => {
   console.log("like");
 
   try {
@@ -168,7 +168,7 @@ router.post("/like/:id", async (req, res) => {
 /* if dislike has been pressed */
 /*******************************/
 
-router.post("/dislike/:id", async (req, res) => {
+router.post("/dislike/:id", authenticate , async (req, res) => {
   console.log("dislike");
 
   try {
@@ -215,7 +215,7 @@ router.post("/dislike/:id", async (req, res) => {
   }
 });
 
-router.get("/reset", async (req, res) => {
+router.get("/reset", authenticate, async (req, res) => {
   try {
     adminUserModel.updateMany(
       { name: "admin" },

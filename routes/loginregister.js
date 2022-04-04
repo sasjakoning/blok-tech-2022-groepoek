@@ -118,7 +118,7 @@ router.get("/", async (req, res) => {
 });
 
 // wanneer je inlogt
-router.post("/done", upload.none(), async (req, res) => {
+router.post("/done", authenticate, upload.none(), async (req, res) => {
 
   // ophalen email en password van body
   const {email, password} = req.body;
@@ -137,7 +137,7 @@ router.post("/done", upload.none(), async (req, res) => {
 });
 
 // uitloggen van de user door de cookie te destroyen
-router.get("/logout", async (req, res) => {
+router.get("/logout", authenticate, async (req, res) => {
   console.log(req.session)
   req.session.destroy();
   console.log("logout")

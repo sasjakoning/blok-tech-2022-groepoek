@@ -7,6 +7,8 @@ const adminUserModel = require("../models/adminUser");
 const mongoose = require("mongoose");
 const toId = mongoose.Types.ObjectId;
 const multer = require("multer")
+const { authenticate } = require('../config/auth');
+
 
 // ---
 
@@ -37,7 +39,7 @@ const getUsers = async () => {
   return [usersList, admin, adminLeaned];
 };
 
-router.get("/", profile);
+router.get("/", authenticate, profile);
 
 async function profile(req, res) {
   getUsers().then(([result, admin, adminLeaned]) => {
