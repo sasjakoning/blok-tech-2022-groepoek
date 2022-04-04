@@ -20,6 +20,10 @@
         <div>
             <h2>Persoonlijke informatie</h2>
             <div>
+                <label for="formLeeftijd">Geslacht</label>
+                <input type="text" id="formLeeftijd" name="leeftijd" value="{{this.gender}}" placeholder="Laat potentiele matches weten hoe oud je bent">
+            </div>
+            <div>
                 <label for="formLeeftijd">Leeftijd</label>
                 <input type="text" id="formLeeftijd" name="leeftijd" value="{{this.age}}" placeholder="Laat potentiele matches weten hoe oud je bent">
             </div>
@@ -31,11 +35,11 @@
                 <label for="formLengte">Lengte</label>
                 <input type="number" id="formLengte" name="lengte" value="{{this.height}}" min="100" max="250">
             </div>
-            <h2>Interesses</h2>
+            {{!-- <h2>Interesses</h2>
             <div class="grow-wrap">
                 <textarea id="formInteresses" name="interesses" placeholder="Wat zijn je interesses" onInput="this.parentNode.dataset.replicatedValue = this.value">{{this.interests}}</textarea>
-            </div>
-            <h2>Tags</h2>
+            </div> --}}
+            <h2>Interesses</h2>
             <div>
                 {{#each interests}}
                     <p>{{this}}</p>

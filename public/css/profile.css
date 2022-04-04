@@ -192,7 +192,12 @@
 .profilePage > form > div:nth-of-type(2) div:not(.profilePage > form > div:nth-of-type(2) > div:last-of-type){
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: 1.3em;
+}
+
+.profilePage > form > div:nth-of-type(2) div:nth-of-type(4){
+    margin: 0 0 1.5em 0;
 }
 
 .profilePage > form > div:nth-of-type(2) input{
@@ -201,6 +206,10 @@
     margin: 0 0 0.5em 0;
     border: none;
     border-radius: 5px;
+}
+
+.profilePage > form > div:nth-of-type(2) div:first-of-type{
+    margin: 1em 0 0 0;
 }
 
 .profilePage > form > div:nth-of-type(2) input:hover, .profilePage.editingProfile > form > div:nth-of-type(2) input, .profilePage > form > div:nth-of-type(2) input.empty, .profilePage > form > div:nth-of-type(2) input.edit{
@@ -221,11 +230,13 @@
 .profilePage > form > div:nth-of-type(2) textarea:hover, .profilePage.editingProfile > form > div:nth-of-type(2) textarea{
     outline: 2px dashed var(--detail);
 }
-.profilePage > form > div:nth-of-type(2) > div:nth-of-type(5){
+
+.profilePage > form > div:nth-of-type(2) > div:last-of-type{
     display: flex;
     gap: 1em;
 }
-.profilePage > form > div:nth-of-type(2) > div:nth-of-type(5) > p{
+
+.profilePage > form > div:nth-of-type(2) > div:last-of-type > p{
     background-color: var(--secondary);
     padding: 0.5em 1em;
     border-radius: 15px;
@@ -233,11 +244,11 @@
     color: white;
 }
 
-.profilePage > form > div:nth-of-type(2) > div:nth-of-type(5) > p:last-of-type{
+.profilePage > form > div:nth-of-type(2) > div:last-of-type > p:last-of-type{
     font-weight: bolder;
 }
 
-.profilePage > form > div:nth-of-type(2) > div:nth-of-type(5) > p:last-of-type:hover{
+.profilePage > form > div:nth-of-type(2) > div:last-of-type > p:last-of-type:hover{
     cursor: pointer;
     background-color: rgb(185, 190, 238);
 }
