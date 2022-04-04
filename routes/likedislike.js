@@ -8,11 +8,16 @@ const mongoose = require("mongoose");
 const toId = mongoose.Types.ObjectId;
 const compression = require('compression')
 const minify = require('express-minify');
+const multer = require("multer")
 
 const cookieParser = require("cookie-parser");
 let session = require("express-session");
 
 const { authenticate } = require('../config/auth');
+const async = require("hbs/lib/async");
+const { log } = require("npmlog");
+
+const upload = multer({dest: "public/uploads/"})
 
 // ---
 
@@ -45,15 +50,35 @@ const getUsers = async () => {
 let counter1 = 0;
 let counter2 = 5;
 
+router.post("/filtered", upload.none(), async (req, res) => {
+  const {gender, age, interests , platform} = req.body;
+
+  console.log(gender + age + interests + platform)
+
+
+
+  let users = await userModel.find({
+    interests,
+    gender,
+    age,
+    platform
+  }) 
+
+  console.log(users)
+
+  res.render("main", {
+    layout: "index"
+  });
+})
+
 router.get("/", authenticate, async (req, res) => {
   try {
+
     counter1 = 0;
     counter2 = 5;
     // for demo purposes, counter is always reset when on start page
 
     const filtered = await userModel.find({interests: "callofduty"})
-
-    console.log(filtered)
 
     // get users
     getUsers().then(([result, admin]) => {
