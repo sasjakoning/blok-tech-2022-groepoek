@@ -101,7 +101,7 @@
 }
  
 
-#registerpage main form label:nth-of-type(2),label:nth-of-type(3),label:last-of-type {
+#registerpage main form label:nth-of-type(2),#registerpage label:nth-of-type(3),#registerpage label:last-of-type {
     margin-top: 3%;
 }
  
