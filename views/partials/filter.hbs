@@ -1,14 +1,14 @@
 <Section class="padding-sidebar">
-  <form action="/filter" method="post" id="filters">
+  <form action="/swiping/filtered" method="post" id="filters" enctype="multipart/form-data">
     <h1>Filter</h1>
 
     <h2>Geslacht</h2>
     <label class="container">Man
-      <input type="radio" value="man" name="geslacht" />
+      <input type="radio" value="male" name="gender" />
       <span class="checkmark"></span>
     </label>
     <label class="container">Vrouw
-      <input type="radio" value="vrouw" name="geslacht" />
+      <input type="radio" value="female" name="gender" />
       <span class="checkmark"></span>
     </label>
 
@@ -21,6 +21,7 @@
         value="50"
         class="slider"
         id="myRange"
+        name="age"
       />
       <p> <span id="demo"></span></p>
     </div>
@@ -28,19 +29,19 @@
     <details>
       <summary>Interesses</summary>
       <label class="container">Fortnite
-        <input type="radio" name="interesses" value="fortnite" />
+        <input type="radio" name="interests" value="fortnite" />
         <span class="checkmark"></span>
       </label>
       <label class="container">Minecraft
-        <input type="radio" name="interesses" value="minecraft"/>
+        <input type="radio" name="interests" value="minecraft"/>
         <span class="checkmark"></span>
       </label>
       <label class="container">valorant
-        <input type="radio" name="interesses" value="valorant" />
+        <input type="radio" name="interests" value="valorant" />
         <span class="checkmark"></span>
       </label>
       <label class="container">Jentlegarden
-        <input type="radio" name="interesses" value="jentlegarden" />
+        <input type="radio" name="interests" value="jentlegarden" />
         <span class="checkmark"></span>
       </label>
     </details>
