@@ -1,6 +1,6 @@
 /* ---- Start styling profile ---- */
 
-body{
+/* body{
     background-color: #4d023d;
 }
 
@@ -10,7 +10,7 @@ p, a, label, h2, ::placeholder{
 
 p, a, label, ::placeholder{
     font-size: 1.1em;
-}
+} */
 
 .profilePage{
     position: relative;
@@ -20,6 +20,10 @@ p, a, label, ::placeholder{
     min-width: 80em;
     margin: 10em auto 3em auto;
     padding: 5em 3em 3em 3em;
+}
+
+.profilePage p, .profilePage a, .profilePage ::placeholder{
+    font-size: 1.1em;
 }
 
 .profilePage h2{
@@ -289,8 +293,7 @@ p, a, label, ::placeholder{
 }
 
 .profilePage > form > div:nth-of-type(3) div img{
-    width: 2em;
-    height: 100%;
+    width: 4em;
     padding: 1em;
 }
 
@@ -319,8 +322,8 @@ p, a, label, ::placeholder{
 }
 
 .profilePage .playstationLabel img[src="images/profile/icon/playstation-white-logo.svg"]{
-    width: 3em;
-    padding: 1em 0.5em 1em 0.5em;
+    width: 4.5em;
+    padding: 1em 0.5em 1em 0em;
 }
 
 .profilePage .whatsappLabel{
