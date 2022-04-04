@@ -28,13 +28,14 @@ p, a, label, ::placeholder{
 
 .profilePage h2{
     font-size: 2em;
+    margin: 0 0 0.5em 0;
     border-bottom: 1px solid black;
 }
 
 .profilePage img[src="images/profile/icon/editIcon.svg"]{
     position: absolute;
-    width: 2em;
-    right: 2em;
+    width: 4em;
+    right: 4em;
     top: 2em;
     filter: invert(76%) sepia(0%) saturate(12%) hue-rotate(140deg) brightness(106%) contrast(109%);
     padding: 1em;
@@ -129,7 +130,7 @@ p, a, label, ::placeholder{
 .profilePage .avatarUploadField > img[src="images/profile/uploadicon.svg"]{
     height: 50%;
     top: 25%;
-    left: 20%;
+    left: 0;
     filter: drop-shadow(2px 2px 8px rgba(230, 234, 243, 1));
 }
 
@@ -293,7 +294,7 @@ p, a, label, ::placeholder{
 }
 
 .profilePage > form > div:nth-of-type(3) div img{
-    width: 4em;
+    width: 4.5em;
     padding: 1em;
 }
 
