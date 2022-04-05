@@ -15,31 +15,6 @@ const { authenticate } = require('../config/auth');
 const router = express.Router();
 const upload = multer({dest: "public/uploads/"})
 
-// get all users from database etc
-const getUsers = async () => {
-  // find the admin user (which is being used as "logged in user" for demo purposes)
-  const admin = await adminUserModel.findOne({});
-
-  // find which users admin has matched
-  const adminMatches = admin.matches;
-
-  // return all users except the already matched ones
-  const usersList = await userModel
-    .find({
-      _id: { $nin: adminMatches },
-    })
-    .lean();
-  
-  const adminLeaned = await adminUserModel
-    .findOne({
-      username: "adminuser",
-    })
-    .lean();
-
-  return [usersList, admin, adminLeaned];
-};
-
-
 
 router.get("/", authenticate, profile);
 
@@ -81,6 +56,7 @@ async function updateProfile(req, res) {
   update(userid, {
     firstname: req.body.voornaam,
     aboutme: req.body.omschrijving,
+    gender: req.body.geslacht,
     age: req.body.leeftijd,
     location: req.body.plaats,
     height: req.body.lengte,
