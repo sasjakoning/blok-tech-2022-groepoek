@@ -26,7 +26,10 @@ router.use(compression());
 router.use(minify());
 
 
-let filterInfo = [];
+let genderFilter = [];
+let ageFilter = [];
+let interestsFilter = [];
+let platformFilter = [];
 
 // get all users from database etc
 const getUsers = async () => {
@@ -36,10 +39,15 @@ const getUsers = async () => {
   // find which users admin has matched
   const adminMatches = admin.matches;
 
+  console.log(platformFilter)
+
   // return all users except the already matched ones
   const usersList = await userModel.find({
     _id: { $nin: adminMatches },
-    filterInfo
+    // gender: {$in: genderFilter},
+    // age: {$in: ageFilter},
+    // interests: {$in: interestsFilter},
+    // platform: {$cond: {if: platformFilter, then: {$in: platformFilter}}}
   }).lean();
 
   console.log(usersList)
@@ -60,9 +68,25 @@ router.post("/filtered", upload.none(), async (req, res) => {
 
   console.log(gender + age + interests + platform)
 
-  filterInfo.push(interests)
+  genderFilter.push(gender)
+  ageFilter.push(age)
+  interestsFilter.push(interests)
+  platformFilter.push(platform)
 
-  console.log(filterInfo)
+  if(platformFilter.includes(undefined)){
+    console.log(`content of platformfilter should be undefined and cleared`)
+    platformFilter = {};
+    console.log(platformFilter);
+  }else {
+    console.log(`content of platformfilter has content`)
+    console.log(platformFilter);
+  }
+
+  // platformFilter = {
+  //   $cond: {
+  //     if: platformFilter, then: platformFilter, else: {}
+  //   }
+  // }
 
 
   let users = await userModel.find({
