@@ -25,10 +25,12 @@ ul.navUl > li:first-of-type {
 
     background: url(../images/logo_white.svg) no-repeat;
     background-size: contain;
-
+transition: all ease-in-out 0.5s;
     margin-right: 2em;
 }
-
+ul.navUl > li:first-of-type:hover{
+    transform: scale(1.1);
+}
 ul.navUl > li {
     margin: 0 1em;
 }
