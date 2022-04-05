@@ -21,6 +21,17 @@ const upload = multer({
 
 const error = new Error("De volgende errors hebben plaatsgevonden:")
 
+const getCurrentUsers = async () => {
+  const userid = req.session.userid
+  const currentUser = await userModel.findOne({
+    email: userid,
+  }).lean();
+
+  return [userid, currentUser]
+}
+
+
+
 router.get("/", authenticate, profile);
 
 async function profile(req, res) {
@@ -31,7 +42,7 @@ async function profile(req, res) {
     }).lean();
 
 
-    res.render("profile", {
+    await res.render("profile", {
       layout: "index",
       data: currentUser,
     });
@@ -39,7 +50,6 @@ async function profile(req, res) {
     console.error(error)
   }
 }
-
 
 
 
@@ -63,10 +73,6 @@ async function update(userid, updatedata) {
 async function updateProfile(req, res) {
   try {
     const userid = req.session.userid
-    const currentUser = await userModel.findOne({
-      email: userid,
-    }).lean();
-
 
     update(userid, {
       firstname: req.body.voornaam,
@@ -86,6 +92,10 @@ async function updateProfile(req, res) {
       },
     });
 
+    const currentUser = await userModel.findOne({
+      email: userid,
+    }).lean();
+
     res.render("profile", {
       layout: "index",
       data: currentUser,
@@ -95,14 +105,13 @@ async function updateProfile(req, res) {
   }
 }
 
+
+
 router.post("/avatarupdate", upload.single("avatar"), avatarUpdate);
 
 async function avatarUpdate(req, res) {
   try {
     const userid = req.session.userid
-    const currentUser = await userModel.findOne({
-      email: userid,
-    }).lean();
 
     const avatar = (await "uploads/") + req.file.filename;
 
@@ -112,7 +121,11 @@ async function avatarUpdate(req, res) {
       }
     });
 
-    res.render("profile", {
+    const currentUser = await userModel.findOne({
+      email: userid,
+    }).lean();
+
+    await res.render("profile", {
       layout: "index",
       data: currentUser,
     });
