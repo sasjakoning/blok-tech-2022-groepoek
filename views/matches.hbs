@@ -1,6 +1,3 @@
-{{!-- <header>
-    {{>navBar}}
-</header> --}}
 
 <main class="matchMain">
 
@@ -10,19 +7,28 @@
             <h1 class="matchesTitle">Matches</h1>
         </article>
 
+        {{#if data.length}}
         <ul>
             {{>matchInfo}}
         </ul>
+        {{else}}
+            <p>oeps geen matches loser</p>
+        {{/if}}
 
 
     </article>
     <article>
 
+        {{#if data.length}}
+
         <ul class="smallCards">
             <li> {{>smallCard}} </li>
-
-
         </ul>
+
+        {{else}}
+            <p>gay</p>
+        {{/if}}
+
         <div id="shadowBox"></div>
     </article>
 
