@@ -19,7 +19,7 @@ const upload = multer({
   dest: "public/uploads/"
 })
 
-const error = new Error("De volgende errors hebben plaatsgevonden:")
+const error = new Error("Plaatsgevonden error")
 
 const getCurrentUsers = async () => {
   const userid = req.session.userid
