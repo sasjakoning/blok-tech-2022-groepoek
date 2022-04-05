@@ -1,31 +1,36 @@
 {{#with data}}
 <section class="profilePage">
-    <img src="images/profile/icon/editIcon.svg" alt="">  
+    <img src="images/profile/icon/editIcon.svg" alt="">
     <form action="/avatarupdate" method="post" enctype="multipart/form-data">
-            <div class="avatarUploadField">
-                <img src="images/profile/NoAvatar.jpg" alt="">
-                <img src="{{this.images.avatar}}" alt="Eigen profielfoto" name="avatar" class="eigenAvatarfotoGr" onerror="this.style.display='none'">
-                <img src="images/profile/uploadicon.svg" alt="" class="uploadFotoOverlay hidden">
-                <input type="file" name="avatar" accept=".jpeg,.jpg,.png" onchange="this.form.submit()">
-            </div>
+        <div class="avatarUploadField">
+            <img src="images/profile/NoAvatar.jpg" alt="">
+            <img src="{{this.images.avatar}}" alt="Eigen profielfoto" name="avatar" class="eigenAvatarfotoGr"
+                onerror="this.style.display='none'">
+            <img src="images/profile/uploadicon.svg" alt="" class="uploadFotoOverlay hidden">
+            <input type="file" name="avatar" accept=".jpeg,.jpg,.png" onchange="this.form.submit()">
+        </div>
     </form>
     <form action="/updateprofile" method="post" enctype="multipart/form-data">
         <div>
-            <input type="text" id="formRoepnaam" name="voornaam" value="{{this.firstname}}" placeholder="Wat is je naam?" required>
+            <input type="text" id="formRoepnaam" name="voornaam" value="{{this.firstname}}"
+                placeholder="Wat is je naam?" required>
             <h2>Over mij</h2>
             <div class="grow-wrap">
-                <textarea id="formOmschrijving" name="omschrijving" placeholder="Vertel iets over jezelf" onInput="this.parentNode.dataset.replicatedValue = this.value">{{this.aboutme}}</textarea>
+                <textarea id="formOmschrijving" name="omschrijving" placeholder="Vertel iets over jezelf"
+                    onInput="this.parentNode.dataset.replicatedValue = this.value">{{this.aboutme}}</textarea>
             </div>
         </div>
         <div>
             <h2>Persoonlijke informatie</h2>
             <div>
                 <label for="formLeeftijd">Geslacht</label>
-                <input type="text" id="formGender" name="geslacht" value="{{this.gender}}" placeholder="Laat potentiele matches weten hoe oud je bent">
+                <input type="text" id="formGender" name="geslacht" value="{{this.gender}}"
+                    placeholder="Laat potentiele matches weten hoe oud je bent">
             </div>
             <div>
                 <label for="formLeeftijd">Leeftijd</label>
-                <input type="number" id="formLeeftijd" name="leeftijd" value="{{this.age}}" placeholder="Laat potentiele matches weten hoe oud je bent">
+                <input type="number" id="formLeeftijd" name="leeftijd" value="{{this.age}}"
+                    placeholder="Laat potentiele matches weten hoe oud je bent">
             </div>
             <div>
                 <label for="formPlaats">Plaats</label>
@@ -37,12 +42,13 @@
             </div>
             {{!-- <h2>Interesses</h2>
             <div class="grow-wrap">
-                <textarea id="formInteresses" name="interesses" placeholder="Wat zijn je interesses" onInput="this.parentNode.dataset.replicatedValue = this.value">{{this.interests}}</textarea>
+                <textarea id="formInteresses" name="interesses" placeholder="Wat zijn je interesses"
+                    onInput="this.parentNode.dataset.replicatedValue = this.value">{{this.interests}}</textarea>
             </div> --}}
             <h2>Interesses</h2>
             <div>
                 {{#each interests}}
-                    <p>{{this}}</p>
+                <p>{{this}}</p>
                 {{/each}}
                 <p>+</p>
             </div>
@@ -51,7 +57,8 @@
         <div>
             <div class="discordLabel">
                 <img src="images/profile/icon/discord-white-logo.svg" alt="">
-                <input type="text" id="formDiscord" name="discord" value="{{this.platform.discord}}" placeholder="Account naam">
+                <input type="text" id="formDiscord" name="discord" value="{{this.platform.discord}}"
+                    placeholder="Account naam">
             </div>
             <div class="xboxLabel">
                 <img src="images/profile/icon/xbox-white-logo.svg" alt="">
@@ -59,19 +66,23 @@
             </div>
             <div class="playstationLabel">
                 <img src="images/profile/icon/playstation-white-logo.svg" alt="">
-                <input type="text" id="formplaystation" name="playstation" value="{{this.platform.playstation}}" placeholder="Account naam">
+                <input type="text" id="formplaystation" name="playstation" value="{{this.platform.playstation}}"
+                    placeholder="Account naam">
             </div>
             <div class="whatsappLabel">
                 <img src="images/profile/icon/whatsapp-white-logo.svg" alt="">
-                <input type="number" id="formwhatsapp" name="whatsapp" value="{{this.platform.whatsapp}}" placeholder="+31 ">
+                <input type="number" id="formwhatsapp" name="whatsapp" value="{{this.platform.whatsapp}}"
+                    placeholder="+31 ">
             </div>
             <div class="messengerLabel">
                 <img src="images/profile/icon/messenger-white-logo.svg" alt="">
-                <input type="text" id="formmessenger" name="messenger" value="{{this.platform.messenger}}" placeholder="Account naam">
+                <input type="text" id="formmessenger" name="messenger" value="{{this.platform.messenger}}"
+                    placeholder="Account naam">
             </div>
             <div class="skypeLabel">
                 <img src="images/profile/icon/skype-white-logo.svg" alt="">
-                <input type="text" id="formskype" name="skype" value="{{this.platform.skype}}" placeholder="Account naam">
+                <input type="text" id="formskype" name="skype" value="{{this.platform.skype}}"
+                    placeholder="Account naam">
             </div>
         </div>
         <button>✓ Opslaan</button>
