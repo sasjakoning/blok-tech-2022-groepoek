@@ -26,10 +26,10 @@ router.use(compression());
 router.use(minify());
 
 
-let genderFilter = [];
-let ageFilter = [];
-let interestsFilter = [];
-let platformFilter = [];
+let genderFilter;
+let ageFilter;
+let interestsFilter;
+let platformFilter;
 
 // get all users from database etc
 const getUsers = async () => {
@@ -39,18 +39,46 @@ const getUsers = async () => {
   // find which users admin has matched
   const adminMatches = admin.matches;
 
-  console.log(platformFilter)
 
   // return all users except the already matched ones
   const usersList = await userModel.find({
     _id: { $nin: adminMatches },
-    // gender: {$in: genderFilter},
-    // age: {$in: ageFilter},
-    // interests: {$in: interestsFilter},
-    // platform: {$cond: {if: platformFilter, then: {$in: platformFilter}}}
+    // $cond: {
+    //   if: {interestsFilter: {$ne: undefined}},
+    //   then: {interests: {$eq: interestsFilter}}
+    // }
+
+    // interests: {$cond: 
+    //   {if: {interestsFilter: {$ne: undefined}}, 
+    //   then: {$eq: interestsFilter}}}
+    // gender: {$eq: genderFilter},
+    // age: {$eq: ageFilter},
+    // interests: {$eq: interestsFilter},
+    // platform: { $eq: platformFilter }
   }).lean();
 
-  console.log(usersList)
+  // const count = await userModel.aggregate(
+  //   [
+  //     {$cond: {
+  //     if: {interestsFilter: {$ne: undefined}},
+  //     then: {interests: {$eq: interestsFilter}}
+  //     }}
+  //   ]
+  // )
+
+  // console.log(count)
+
+
+  // usersList.aggregate(
+  //   [
+  //     {$cond: {
+  //     if: {interestsFilter: {$ne: undefined}},
+  //     then: {interests: {$eq: interestsFilter}}
+  //     }}
+  //   ]
+  // )
+
+  // console.log(usersList)
 
   const adminLeaned = await adminUserModel.findOne({
     username: "adminuser",
@@ -68,49 +96,55 @@ router.post("/filtered", upload.none(), async (req, res) => {
 
   console.log(gender + age + interests + platform)
 
-  genderFilter.push(gender)
-  ageFilter.push(age)
-  interestsFilter.push(interests)
-  platformFilter.push(platform)
+  genderFilter = gender;
+  ageFilter = age;
+  interestsFilter = interests;
+  platformFilter = platform;
 
-  if(platformFilter.includes(undefined)){
-    console.log(`content of platformfilter should be undefined and cleared`)
-    platformFilter = {};
-    console.log(platformFilter);
-  }else {
-    console.log(`content of platformfilter has content`)
-    console.log(platformFilter);
+  let query = {};
+  query["$and"]=[];
+  if(genderFilter != undefined){
+    query["$and"].push({gender: {$in: genderFilter}})
+  }
+  if(ageFilter != undefined){
+    query["$and"].push({age: {$in: ageFilter}})
+  }
+  if(interestsFilter != undefined){
+    query["$and"].push({interests: {$in: interestsFilter}})
   }
 
-  // platformFilter = {
-  //   $cond: {
-  //     if: platformFilter, then: platformFilter, else: {}
-  //   }
-  // }
+  let usersList = await userModel.find(query).lean();
 
 
-  let users = await userModel.find({
-    interests,
-    gender,
-    age,
-    platform
-  }) 
 
-  console.log(users)
+  //  usersList.forEach(user => {
+  //    if(user.interests.includes(interestsFilter)){
+  //      actualUsers.push(user)
+  //    }
+  //  })
 
-  res.render("main", {
-    layout: "index"
-  });
+
+    // only return two users from the array
+    // usersList = usersList.slice(counter1, counter2);
+
+    // send result to handlebars
+    res.render("main", {
+      layout: "index",
+      data: usersList,
+    });
 })
 
 router.get("/", authenticate, async (req, res) => {
   try {
 
+    genderFilter = undefined;
+    ageFilter = undefined;
+    interestsFilter = undefined;
+    platformFilter = undefined;
+
     counter1 = 0;
     counter2 = 5;
     // for demo purposes, counter is always reset when on start page
-
-    const filtered = await userModel.find({interests: "callofduty"})
 
     // get users
     getUsers().then(([result, admin]) => {
