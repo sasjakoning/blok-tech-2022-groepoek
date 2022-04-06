@@ -21,14 +21,14 @@ const upload = multer({
 
 const error = new Error("Plaatsgevonden error")
 
-const getCurrentUsers = async () => {
-  const userid = req.session.userid
-  const currentUser = await userModel.findOne({
-    email: userid,
-  }).lean();
+// const getCurrentUsers = async () => {
+//   const userid = req.session.userid
+//   const currentUser = await userModel.findOne({
+//     email: userid,
+//   }).lean();
 
-  return [userid, currentUser]
-}
+//   return [userid, currentUser]
+// }
 
 
 
