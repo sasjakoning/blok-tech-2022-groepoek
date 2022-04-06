@@ -56,9 +56,9 @@ const userSchema = new Schema({
         messenger: {type: String, required: [false]},
         skype: {type: String, required: [false]},
     },
-    likes: [{type: mongoose.Types.ObjectId, ref: "adminuser"}],
-    dislikes: [{type: mongoose.Types.ObjectId, ref: "adminuser"}],
-    matches: [{type: mongoose.Types.ObjectId, ref: "adminuser"}]
+    likes: [{type: mongoose.Types.ObjectId, ref: "user"}],
+    dislikes: [{type: mongoose.Types.ObjectId, ref: "user"}],
+    matches: [{type: mongoose.Types.ObjectId, ref: "user"}]
 })
 
 const userModel = mongoose.model("user", userSchema)

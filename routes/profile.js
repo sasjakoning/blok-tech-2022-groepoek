@@ -91,15 +91,13 @@ async function updateProfile(req, res) {
         skype: req.body.skype,
       },
     });
-
+    
     const currentUser = await userModel.findOne({
       email: userid,
     }).lean();
 
-    res.render("profile", {
-      layout: "index",
-      data: currentUser,
-    });
+     res.redirect("/profile");
+    
   } catch (error) {
     console.error(error)
   }
@@ -125,10 +123,8 @@ async function avatarUpdate(req, res) {
       email: userid,
     }).lean();
 
-    await res.render("profile", {
-      layout: "index",
-      data: currentUser,
-    });
+     await res.redirect("/profile")
+    
   } catch (error) {
     console.error(error)
   }
