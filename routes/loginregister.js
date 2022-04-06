@@ -51,13 +51,6 @@ router.get("/register", async (req, res) => {
 
 // wanneer je hebt geregistreerd
 router.post("/register/done", upload.none(), async (req, res) => {
-  // const errors = validationResult(req);
-
-  // if(!errors.isEmpty()) {
-  //   return res.status(400).json({
-  //     errors: errors.array()
-  //   })
-  // }
 
   // ophalen ingevulde email en password uit de body
   const {firstname, lastname, gender ,email, password} = req.body;
@@ -131,7 +124,8 @@ router.post("/done", upload.none(), async (req, res) => {
     console.log("is equal")
     currentsession=req.session;
     currentsession.userid=email;
-    console.log(req.session)
+
+    // redirect naar swiping
     res.redirect("/swiping")
   }
 });
