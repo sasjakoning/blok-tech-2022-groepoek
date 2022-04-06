@@ -7,127 +7,127 @@ const adminUserModel = require("../models/adminUser");
 const mongoose = require("mongoose");
 const toId = mongoose.Types.ObjectId;
 const multer = require("multer")
-const { authenticate } = require('../config/auth');
+const {
+  authenticate
+} = require('../config/auth');
 
 
 // ---
 
 const router = express.Router();
-const upload = multer({dest: "public/uploads/"})
+const upload = multer({
+  dest: "public/uploads/"
+})
 
-// get all users from database etc
-const getUsers = async () => {
-  // find the admin user (which is being used as "logged in user" for demo purposes)
-  const admin = await adminUserModel.findOne({});
+const error = new Error("Plaatsgevonden error")
 
-  // find which users admin has matched
-  const adminMatches = admin.matches;
+const getCurrentUsers = async () => {
+  const userid = req.session.userid
+  const currentUser = await userModel.findOne({
+    email: userid,
+  }).lean();
 
-  // return all users except the already matched ones
-  const usersList = await userModel
-    .find({
-      _id: { $nin: adminMatches },
-    })
-    .lean();
-  
-  const adminLeaned = await adminUserModel
-    .findOne({
-      username: "adminuser",
-    })
-    .lean();
-
-  return [usersList, admin, adminLeaned];
-};
+  return [userid, currentUser]
+}
 
 
 
 router.get("/", authenticate, profile);
 
 async function profile(req, res) {
-  const userid = req.session.userid
-  const currentUser = await userModel.findOne({
-    email: userid,
-  }).lean();
+  try {
+    const userid = req.session.userid
+    const currentUser = await userModel.findOne({
+      email: userid,
+    }).lean();
 
 
-    res.render("profile", {
+    await res.render("profile", {
       layout: "index",
       data: currentUser,
     });
-
+  } catch (error) {
+    console.error(error)
+  }
 }
-
 
 
 
 router.post("/updateprofile", upload.none(), updateProfile);
 
 async function update(userid, updatedata) {
+  try {
+    const result = await userModel.updateOne({
+      email: userid
+    }, {
+      $set: updatedata
+    }, {
+      upsert: true
+    });
+  } catch (error) {
+    console.error(error)
+  }
 
-  const result = await userModel.updateOne(
-    { email: userid },
-    { $set: updatedata },
-    { upsert: true }
-  );
 }
 
 async function updateProfile(req, res) {
-  const userid = req.session.userid
-  const currentUser = await userModel.findOne({
-    email: userid,
-  }).lean();
+  try {
+    const userid = req.session.userid
 
-  
-  update(userid, {
-    firstname: req.body.voornaam,
-    aboutme: req.body.omschrijving,
-    age: req.body.leeftijd,
-    location: req.body.plaats,
-    gender: req.body.geslacht,
-    height: req.body.lengte,
-    // interests: req.body.interesses,
-    platform: {
-      discord: req.body.discord,
-      xbox: req.body.xbox,
-      playstation: req.body.playstation,
-      whatsapp: req.body.whatsapp,
-      messenger: req.body.messenger,
-      skype: req.body.skype,
-    },
-  });
+    update(userid, {
+      firstname: req.body.voornaam,
+      aboutme: req.body.omschrijving,
+      gender: req.body.geslacht,
+      age: req.body.leeftijd,
+      location: req.body.plaats,
+      height: req.body.lengte,
+      // interests: req.body.interesses,
+      platform: {
+        discord: req.body.discord,
+        xbox: req.body.xbox,
+        playstation: req.body.playstation,
+        whatsapp: req.body.whatsapp,
+        messenger: req.body.messenger,
+        skype: req.body.skype,
+      },
+    });
+    
+    const currentUser = await userModel.findOne({
+      email: userid,
+    }).lean();
 
-    // res.render("profile", {
-    //   layout: "index",
-    //   data: currentUser,
-    // });
-
-    res.redirect("/profile")
+     res.redirect("/profile");
+    
+  } catch (error) {
+    console.error(error)
+  }
 }
+
+
 
 router.post("/avatarupdate", upload.single("avatar"), avatarUpdate);
 
 async function avatarUpdate(req, res) {
-  const userid = req.session.userid
-  const currentUser = await userModel.findOne({
-    email: userid,
-  }).lean();
-  
-  const avatar = (await "uploads/") + req.file.filename;
+  try {
+    const userid = req.session.userid
 
-  update(userid,{
-    images: {
-      avatar: avatar,
-    }
-  });
+    const avatar = (await "uploads/") + req.file.filename;
 
-  res.redirect("/profile")
+    update(userid, {
+      images: {
+        avatar: avatar,
+      }
+    });
 
-  // getUsers().then(([result, admin, adminLeaned]) => {
-  //   res.render("profile", {
-  //     layout: "index",
-  //     data: currentUser,
-  //   });
-  // });
+    const currentUser = await userModel.findOne({
+      email: userid,
+    }).lean();
+
+     await res.redirect("/profile")
+    
+  } catch (error) {
+    console.error(error)
+  }
 }
 
 
