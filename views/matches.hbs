@@ -1,0 +1,36 @@
+
+<main class="matchMain">
+
+    <article class="sideBar">
+        <article class="title">
+            <img class="icon" src="images/placeholder_icon.png" alt="">
+            <h1 class="matchesTitle">Matches</h1>
+        </article>
+
+        {{#if data.length}}
+        <ul>
+            {{>matchInfo}}
+        </ul>
+        {{else}}
+           {{>infoEmpty}}
+        {{/if}}
+
+
+    </article>
+    <article>
+
+        {{#if data.length}}
+
+        <ul class="smallCards">
+            <li> {{>smallCard}} </li>
+        </ul>
+
+        {{else}}
+            {{>quote}}
+        {{/if}}
+
+        <div id="shadowBox"></div>
+    </article>
+
+</main>
+{{>background}}

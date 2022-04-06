@@ -1,1 +1,51 @@
 /* styling here */
+
+:root {
+	--primary1: rgba(72, 0, 56, 1);
+	--primary2: rgba(255, 255, 255, 1);
+	--secondary: rgba(161, 169, 238, 1);
+	--tertiary: rgba(255, 211, 205, 1);
+	--accent: rgba(255, 133, 128, 1);
+	--detail: rgba(230, 234, 243, 1);
+    --detail2: rgba(114, 114, 114, 1);
+    --text: rgba(66, 49, 179, 1);
+}
+
+body {
+    width: 100vw;
+    height: 100%;
+    overflow-x: hidden;
+
+	font-size: 10px;
+
+    background: var(--primary1);
+
+	font-family: 'Roboto', sans-serif;
+}
+
+main {
+    /* display: grid;
+    place-items: center; */
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+}
+
+.sideBar {
+    background: var(--primary2);
+    height: 100vh;
+    width: 35em;
+    /* padding: 0 6em 0 4em; */
+    flex-shrink: 0;
+    overflow: scroll;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+}

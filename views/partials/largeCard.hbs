@@ -1,0 +1,46 @@
+{{#each data}}
+
+<label class="cardLabel" for="flip{{@index}}">
+    <input id="flip{{@index}}" class="flipBtn" type="checkbox">
+
+    <section class="cardContainer">
+        <section class="actionOverlay">
+            <img src="/images/overlayLike.svg" alt="">
+        </section>
+
+        {{!-- backside --}}
+        <section class="cardBack">
+            backside
+        </section>
+
+        {{!-- frontside --}}
+        <section class="cardFront">
+            <picture>
+                {{!-- profile picture --}}
+                <source type="image/webp" srcset="/images/user-image1.webp" />
+                <source type="image/jpg" srcset="/images/user-image1.jpg" />
+                <img src="/images/user-image1.jpg" alt="" />
+            </picture>
+
+            <article>
+                <p>{{this.gender}}</p>
+                <h1>{{this.firstname}} {{this.lastname}} - {{this.age}}</h1>
+                <p>{{this.location}}</p>
+                <ul>
+                    {{#each interests}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+
+                <section>
+                    <h2>About me</h2>
+                    <p>{{this.aboutme}}</p>
+                </section>
+            </article>
+        </section>
+
+    </section>
+
+</label>
+
+{{/each}}

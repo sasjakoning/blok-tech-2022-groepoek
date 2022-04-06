@@ -1,0 +1,426 @@
+/* ---- Start styling profile ---- */
+
+.profilePage {
+    position: relative;
+    background-color: white;
+    border-radius: 15px;
+    width: 50%;
+    min-width: 80em;
+    margin: 11em auto 3em auto;
+    padding: 5em 3em 3em 3em;
+}
+
+.profilePage p,
+.profilePage a,
+.profilePage ::placeholder,
+.profilePage label {
+    font-size: 1.1em;
+}
+
+.profilePage h2 {
+    font-size: 2em;
+    margin: 0 0 0.5em 0;
+    border-bottom: 1px solid black;
+}
+
+.profilePage img[src="images/profile/icon/editIcon.svg"] {
+    position: absolute;
+    width: 4em;
+    right: 4em;
+    top: 2em;
+    filter: invert(76%) sepia(0%) saturate(12%) hue-rotate(140deg) brightness(106%) contrast(109%);
+    padding: 1em;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.profilePage img[src="images/profile/icon/editIcon.svg"]:hover {
+    filter: invert(90%) sepia(0%) saturate(1399%) hue-rotate(53deg) brightness(87%) contrast(105%);
+}
+
+.profilePage form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 0 0 2em;
+}
+
+.profilePage form div:nth-of-type(3),
+.profilePage form button {
+    grid-column: 1 / 3;
+}
+
+.profilePage button {
+    background-color: var(--accent);
+    border: none;
+    border-radius: 5px;
+    width: 10em;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+    justify-self: end;
+    margin: 1em 0 0 0;
+}
+
+.profilePage button:hover {
+    background-color: rgb(248, 151, 148);
+}
+
+.profilePage>form:nth-of-type(1) {
+    position: absolute;
+    width: 31em;
+}
+
+.profilePage>form>div:nth-of-type(1)>input {
+    border: none;
+    border-radius: 5px;
+    font-size: 2em;
+    padding: 0.3em;
+    margin: 0.5em 0;
+    width: 14.5em;
+}
+
+.profilePage.editingProfile>form>div:nth-of-type(1)>input,
+.profilePage>form>div:nth-of-type(1)>input:hover,
+.profilePage.editingProfile>form>div:nth-of-type(1)>input.empty {
+    outline: 2px dashed var(--detail);
+}
+
+.profilePage>form:nth-of-type(2)>div:nth-of-type(1) {
+    margin: 30em 0 0 0;
+}
+
+/* // profile - profielfoto-dropzone // */
+
+.profilePage .avatarUploadField {
+    position: relative;
+    width: 30em;
+    height: 30em;
+    overflow: hidden;
+    border-radius: 15px;
+    align-items: center;
+}
+
+.profilePage .avatarUploadField:hover,
+.profilePage .avatarUploadField.hover {
+    outline: 4px dashed var(--detail);
+    outline-offset: -1em;
+}
+
+.profilePage .avatarUploadField img {
+    position: absolute;
+    top: 0;
+}
+
+.profilePage .avatarUploadField img:not(.profilePage .avatarUploadField img:first-child, .profilePage .avatarUploadField img:last-of-type) {
+    width: 100%;
+    right: 0;
+    object-fit: contain;
+}
+
+.profilePage .avatarUploadField>img[src="images/profile/NoAvatar.jpg"] {
+    height: 100%;
+    right: 0;
+    object-fit: contain;
+}
+
+.profilePage .avatarUploadField>img[src="images/profile/uploadicon.svg"] {
+    height: 50%;
+    top: 25%;
+    left: 0;
+    filter: drop-shadow(2px 2px 8px rgba(230, 234, 243, 1));
+}
+
+.profilePage .avatarUploadField input {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+/* // END profile - profielfoto-dropzone // */
+
+
+/* // profile - Omschrijving - MBV https://css-tricks.com/the-cleanest-trick-for-autogrowing-textareas/ // */
+
+.profilePage div:nth-of-type(1) h2 {
+    width: 15em;
+}
+
+.profilePage div:nth-of-type(1) .grow-wrap {
+    display: grid;
+}
+
+.profilePage div:nth-of-type(1) .grow-wrap::after {
+    content: attr(data-replicated-value) " ";
+    white-space: pre-wrap;
+    visibility: hidden;
+}
+
+.profilePage div:nth-of-type(1) .grow-wrap>textarea {
+    resize: none;
+    overflow: hidden;
+}
+
+.profilePage div:nth-of-type(1) .grow-wrap>textarea,
+.profilePage div:nth-of-type(1) .grow-wrap::after {
+    border: none;
+    border-radius: 5px;
+    padding: 0.3em;
+    margin: 0.5em 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    font-size: 1.3em;
+    width: 22.6em;
+    grid-area: 1 / 1 / 2 / 3;
+    transition: 1s ease-out;
+}
+
+.profilePage.editingProfile div:nth-of-type(1) .grow-wrap>textarea,
+.profilePage div:nth-of-type(1) .grow-wrap>textarea:hover,
+.profilePage.editingProfile div:nth-of-type(1) .grow-wrap.empty>textarea,
+.profilePage.editingProfile div:nth-of-type(1) .grow-wrap::after,
+.profilePage div:nth-of-type(1) .grow-wrap:hover::after,
+.profilePage.editingProfile div:nth-of-type(1) .grow-wrap.empty::after {
+    outline: 2px dashed var(--detail);
+    transition: 0s;
+}
+
+
+/* // END profile - Omschrijving // */
+
+
+/* // profile - persoonlijke informatie // */
+
+.profilePage>form>div:nth-of-type(2):not(.profilePage > form > div:nth-of-type(2) textarea) {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 40em;
+}
+
+.profilePage>form>div:nth-of-type(2) div:not(.profilePage > form > div:nth-of-type(2) > div:last-of-type) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3em;
+}
+
+.profilePage>form>div:nth-of-type(2) div:nth-of-type(4) {
+    margin: 0 0 1.5em 0;
+}
+
+.profilePage>form>div:nth-of-type(2) input {
+    width: 22.05em;
+    padding: 0.5em 0.3em;
+    margin: 0 0 0.5em 0;
+    border: none;
+    border-radius: 5px;
+}
+
+.profilePage>form>div:nth-of-type(2) div:first-of-type {
+    margin: 1em 0 0 0;
+}
+
+.profilePage>form>div:nth-of-type(2) input:hover,
+.profilePage.editingProfile>form>div:nth-of-type(2) input,
+.profilePage>form>div:nth-of-type(2) input.empty,
+.profilePage>form>div:nth-of-type(2) input.edit {
+    outline: 2px dashed var(--detail);
+}
+
+.profilePage>form>div:nth-of-type(2) textarea {
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+    border-radius: 5px;
+    padding: 0.3em;
+    margin: 0.5em 0;
+    font-size: 1.1em;
+    width: 22.6em;
+    resize: none;
+}
+
+.profilePage>form>div:nth-of-type(2) textarea:hover,
+.profilePage.editingProfile>form>div:nth-of-type(2) textarea {
+    outline: 2px dashed var(--detail);
+}
+
+.profilePage>form>div:nth-of-type(2)>div:last-of-type {
+    display: flex;
+    gap: 1em;
+}
+
+.profilePage>form>div:nth-of-type(2)>div:last-of-type>p {
+    background-color: var(--secondary);
+    padding: 0.5em 1em;
+    border-radius: 15px;
+    font-size: 1.3em;
+    color: white;
+}
+
+.profilePage>form>div:nth-of-type(2)>div:last-of-type>p:last-of-type {
+    font-weight: bolder;
+}
+
+.profilePage>form>div:nth-of-type(2)>div:last-of-type>p:last-of-type:hover {
+    cursor: pointer;
+    background-color: rgb(185, 190, 238);
+}
+
+/* // END profile - persoonlijke informatie // */
+
+
+/* // profile - platforms // */
+
+.profilePage>form>div:nth-of-type(3) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em 1.5em;
+    width: 80%;
+    padding: 1em 0 0 0;
+}
+
+.profilePage>form>h2 {
+    width: 15em;
+    margin: 1em 0 0 0;
+}
+
+.profilePage>form>div:nth-of-type(3) div {
+    display: flex;
+    align-items: center;
+    width: 17em;
+    height: 3.5em;
+    border-radius: 5px;
+}
+
+.profilePage>form>div:nth-of-type(3) div input {
+    width: 8.8em;
+    height: 2em;
+    padding: 0 0 0 0.5em;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.profilePage>form>div:nth-of-type(3) div input::placeholder {
+    color: rgba(255, 255, 255, 0.603);
+    font-size: 1.1em;
+}
+
+.profilePage>form>div:nth-of-type(3) div img {
+    width: 4.5em;
+    padding: 1em;
+}
+
+.profilePage .discordLabel {
+    background-color: #5662f6;
+}
+
+.profilePage .discordLabel input:hover {
+    background-color: #6e77f3;
+}
+
+.profilePage .xboxLabel {
+    background-color: #2e8c2e;
+}
+
+.profilePage .xboxLabel input:hover {
+    background-color: #4da74d;
+}
+
+.profilePage .playstationLabel {
+    background-color: #0070d1;
+}
+
+.profilePage .playstationLabel input:hover {
+    background-color: #1c87e4;
+}
+
+.profilePage .playstationLabel img[src="images/profile/icon/playstation-white-logo.svg"] {
+    width: 4.5em;
+    padding: 1em 0.5em 1em 0em;
+}
+
+.profilePage .whatsappLabel {
+    background-color: #46e862;
+}
+
+.profilePage .whatsappLabel input:hover {
+    background-color: #70e784;
+}
+
+.profilePage .messengerLabel {
+    background-color: #00b1ff;
+}
+
+.profilePage .messengerLabel input:hover {
+    background-color: #33b9f3;
+}
+
+.profilePage .skypeLabel {
+    background-color: #15ace5;
+}
+
+.profilePage .skypeLabel input:hover {
+    background-color: #32b6e6;
+}
+
+/* // END profile - platforms // */
+
+
+/* // profile - tag menu // */
+
+.tagsMenu {
+    position: absolute;
+    background-color: rgba(16, 16, 16, 0.714);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.tagsMenu form {
+    background-color: white;
+    width: 50em;
+    margin: 3em auto;
+}
+
+.tagsMenu form div {
+    border: 1px solid var(--primary1);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+}
+
+.tagsMenu form input {
+    display: none;
+}
+
+.tagsMenu form label {
+    padding: 0.3em 0.8em;
+}
+
+.tagsMenu form input:checked {
+    content: "\2713";
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+    font-size: 15px;
+    color: #f3f3f3;
+    text-align: center;
+    line-height: 15px;
+}
+
+/* // END profile - tag menu // */
+
+/* ---- END styling profile ---- */
+
+.hidden {
+    display: none;
+}
+
+.transparent50 {
+    opacity: 50%;
+}

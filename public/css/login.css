@@ -1,0 +1,107 @@
+
+/* Styling Login Form*/
+ 
+#loginpage, #registerpage {
+    overflow-x: hidden;
+    height: 100%;
+}
+
+#loginpage nav a, #registerpage nav a {
+    color: var(--text);
+}
+
+#loginpage nav li:first-of-type, #registerpage nav li:first-of-type {
+    background: url(../images/logo_blue.svg) no-repeat;
+    background-size: contain;
+}
+ 
+#loginpage main, #registerpage main {
+    display: flex;
+    flex-direction: column;
+    margin-left: 50%;
+    align-items: normal;
+    width: auto;
+    background-color: var(--primary2);
+    height: 100vh;
+    justify-content: center;
+}
+
+#loginpage main > section, #registerpage main > section {
+    margin-left: 6em;
+}
+ 
+#loginpage main h2, #registerpage main h2{
+    font-size: 36px;
+    font-family: 'Inter', sans-serif;
+    border-bottom: solid 1px;
+    padding-bottom: 3%;
+    margin-right: 55%;
+}
+ 
+#loginpage main form, #registerpage main form {
+    display: flex;
+    flex-direction: column;
+    font-size: 2em;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    padding-top: 2%;
+    margin-right: 20%;
+}
+ 
+#loginpage main form label, #registerpage main form label {
+    color: var(--detail2);
+    margin-bottom: 2%;
+    font-weight: 500;
+}
+ 
+#loginpage main form label:last-of-type {
+    margin-top: 3%;
+}
+ 
+#loginpage main form input:last-of-type, #registerpage main form input:last-of-type {
+    color: var(--primary2);
+    background-color: var(--accent);
+    margin-top: 8%;
+    border-color: var(--accent);
+    font-size: 1em;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    padding: 10px;
+}
+ 
+#loginpage main form input, #registerpage main form input {
+    padding: 14px;
+    border-radius: 8px;
+    border: var(--detail2) 1px solid;
+}
+ 
+#loginpage main section > section, #registerpage main section > section {
+    margin-top: 2%;
+    display: flex;
+    flex-direction: row;
+    gap: 1%;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 2em;
+    color: var(--detail2);
+}
+ 
+#loginpage main section a, #registerpage main section a{
+    text-decoration: none; 
+    font-size: 1em;
+}
+ 
+#loginpage section > article > p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: var(--detail);
+    font-size: 2em;
+    margin: 3% 10% 0 0 ;
+    padding: 0;
+}
+ 
+
+#registerpage main form label:nth-of-type(2),#registerpage label:nth-of-type(3),#registerpage label:last-of-type {
+    margin-top: 3%;
+}
+ 

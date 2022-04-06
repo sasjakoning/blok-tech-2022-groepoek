@@ -1,0 +1,47 @@
+
+
+.matchInfo {
+    padding-top: 6em;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.matchInfo > picture {
+    max-width: 30%;
+}
+
+.matchInfo > picture > img {
+    max-width: 100%;
+	border-radius: 0.5em;
+    margin-right: 1em;
+    height: 7em;
+    object-fit: cover;
+}
+
+.matchInfo  h1 {
+    font-size: 1.7em;
+}
+
+.matchInfo  p {
+    font-size: 1.3em;
+}
+
+.matchInfo > section {
+    padding-left: 1em;
+}
+
+.motivation {
+    text-decoration: none;
+    font-size: 1.3em;
+    color: var(--tertiary);
+    font-weight: 700;
+    padding: .7em 0 1em 0;
+    border-bottom: 2px solid var(--detail);
+    transition: all .5s ease;
+    width: 100%;
+    flex-basis: 100%;
+}
+
+.motivation:hover {
+    color: var(--accent)
+}

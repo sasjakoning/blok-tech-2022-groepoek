@@ -1,1 +1,18 @@
-<h1>Hello world!</h1>
+{{!-- <header>
+    {{>navBar}}
+</header> --}}
+<main>
+    <article class="sideBar">
+         {{>filter}}
+    </article>
+    <article>
+        {{#if isMatched}}
+            {{>matchPopup}}
+        {{/if}}
+        <section>
+            {{>largeCard}}
+        </section>
+        {{>likeDislike}}
+    </article>
+</main>
+{{>background}}

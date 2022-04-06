@@ -1,0 +1,6 @@
+.svgBackground {
+position: fixed;
+bottom: 0;
+z-index: -100;
+background-color: var(--primary1);
+}
