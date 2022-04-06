@@ -34,6 +34,8 @@ let platformFilter;
 // save session user id to this variable
 let userid;
 
+let globalQuery = {};
+
 // get all users from database etc
 const getUsers = async (req, res) => {
   // find logged in user based on session id
@@ -43,7 +45,7 @@ const getUsers = async (req, res) => {
     })
     .lean();
 
-  // get matches of current user
+  // get matches, likes and dislikes of current user
   const currentUserMatches = currentUser.matches;
   const currentUserLikes = currentUser.likes;
   const currentUserDislikes = currentUser.dislikes;
@@ -52,15 +54,12 @@ const getUsers = async (req, res) => {
 
   const currentUserInfo = currentUserConcat.concat(currentUserMatches, currentUserLikes, currentUserDislikes)
 
-  console.log("currentuser info is")
-  console.log(currentUserInfo)
+  globalQuery["_id"] = { $nin: currentUserMatches }
+
+  console.log(globalQuery);
 
   // return all users except the already matched ones
-  const usersList = await userModel
-    .find({
-      _id: { $nin: currentUserInfo},
-    })
-    .lean();
+  const usersList = await userModel.find(globalQuery).lean();
 
   return [usersList, currentUser];
 };
@@ -69,44 +68,28 @@ const getUsers = async (req, res) => {
 let counter1 = 0;
 let counter2 = 5;
 
+
 router.post("/filtered", upload.none(), async (req, res) => {
   const { gender, age, interests, platform } = req.body;
-
-  console.log(gender + age + interests + platform);
 
   genderFilter = gender;
   ageFilter = age;
   interestsFilter = interests;
   platformFilter = platform;
 
-  let query = {};
-  query["$and"] = [];
+  globalQuery["$and"] = [];
   if (genderFilter != undefined) {
-    query["$and"].push({ gender: { $in: genderFilter } });
+    globalQuery["$and"].push({ gender: { $in: genderFilter } });
   }
   if (ageFilter != undefined) {
-    query["$and"].push({ age: { $in: ageFilter } });
+    globalQuery["$and"].push({ age: { $in: ageFilter } });
   }
   if (interestsFilter != undefined) {
-    query["$and"].push({ interests: { $in: interestsFilter } });
+    globalQuery["$and"].push({ interests: { $in: interestsFilter } });
   }
 
-  let usersList = await userModel.find(query).lean();
+  // res.redirect("/swiping")
 
-  //  usersList.forEach(user => {
-  //    if(user.interests.includes(interestsFilter)){
-  //      actualUsers.push(user)
-  //    }
-  //  })
-
-  // only return two users from the array
-  // usersList = usersList.slice(counter1, counter2);
-
-  // send result to handlebars
-  res.render("main", {
-    layout: "index",
-    data: usersList,
-  });
 });
 
 router.get("/", authenticate, upload.none(), async (req, res) => {
@@ -263,7 +246,14 @@ router.post("/like/:id", authenticate, async (req, res) => {
             )
           }
         });
+      }else {
+        res.render("main", {
+          layout: "index",
+          data: result
+        });
       }
+
+      
     });
   } catch (err) {
     console.log(err);
@@ -282,14 +272,15 @@ router.post("/dislike/:id", authenticate, async (req, res) => {
     req.params.id = toId(req.params.id);
 
     // find the user that's been liked
-    const disLikedUser = await userModel.findById(req.params.id).lean();
+    const dislikedUser = await userModel.findById(req.params.id).lean();
 
     // put all users in variable to check length
     const userCount = await userModel.find({}).lean();
 
     // find users
-    getUsers().then(([result, admin]) => {
-      // add to the counter everytime "dislike" is pressed aka: link is visited
+    getUsers().then(([result, currentUser]) => {
+      // add to the counter everytime "like" is pressed aka: link is visited
+      console.log("Adding to counter");
       counter1++;
       counter2++;
 
@@ -307,14 +298,25 @@ router.post("/dislike/:id", authenticate, async (req, res) => {
         counter2 = 5;
       }
 
-      // add likeduser to likes array of admin (Not included in this feature)
-      // admin.dislikes.push(likedUser)
-      // admin.save();
+      console.log("adding disliked user to database");
+
+      userModel.findOneAndUpdate(
+        {_id: currentUser._id},
+        {$push: {dislikes: dislikedUser}},
+        function (err, success) {
+          if (err){
+            console.log(err)
+          }else {
+            console.log("added user to dislikes!")
+          }
+        }
+      )
 
       res.render("main", {
         layout: "index",
-        data: result,
+        data: result
       });
+      
     });
   } catch (err) {
     console.log(err);
@@ -323,15 +325,20 @@ router.post("/dislike/:id", authenticate, async (req, res) => {
 
 router.get("/reset", authenticate, async (req, res) => {
   try {
-    adminUserModel.updateMany(
-      { name: "admin" },
-      { $set: { matches: [] } },
-      (err, affected) => {
-        console.log("affected", affected);
-      }
-    );
 
-    res.render("reset", {
+    getUsers().then(([result, currentUser]) => {
+
+      userModel.findOneAndUpdate(
+        { _id: currentUser._id },
+        { $set: { matches: [], likes: [], dislikes: [] }, },
+        (err, affected) => {
+          console.log("affected", affected);
+        }
+      );
+
+    })
+
+    res.render("main", {
       layout: "index",
     });
   } catch (err) {
