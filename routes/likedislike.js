@@ -54,7 +54,8 @@ const getUsers = async (req, res) => {
 
   const currentUserInfo = currentUserConcat.concat(currentUserMatches, currentUserLikes, currentUserDislikes)
 
-  globalQuery["_id"] = { $nin: currentUserMatches }
+
+  globalQuery["_id"] = { $nin: currentUserInfo }
 
   console.log(globalQuery);
 
@@ -88,7 +89,7 @@ router.post("/filtered", upload.none(), async (req, res) => {
     globalQuery["$and"].push({ interests: { $in: interestsFilter } });
   }
 
-  // res.redirect("/swiping")
+  res.redirect("/swiping")
 
 });
 
@@ -164,7 +165,7 @@ router.post("/like/:id", authenticate, async (req, res) => {
         counter2 = 5;
       }
 
-      console.log("adding liked user to database");
+      console.log("adding liked user to database ccc");
 
       userModel.findOneAndUpdate(
         {_id: currentUser._id},
@@ -173,14 +174,17 @@ router.post("/like/:id", authenticate, async (req, res) => {
           if (err){
             console.log(err)
           }else {
-            console.log("added user to likes!")
+            return;
           }
         }
       )
 
+      const likedUserLikes = likedUser.likes;
+
       // check if the liked user has own likes as well
-      if (likedUser.likes) {
-        const likedUserLikes = likedUser.likes;
+      if (likedUserLikes.length > 0) {
+
+        console.log("yes")
 
         likedUserLikes.forEach((like) => {
 
@@ -202,7 +206,7 @@ router.post("/like/:id", authenticate, async (req, res) => {
               // als de currentuser not niet gematched heeft, voeg toe aan matches
               console.log("admin matches does not yet include this liked user");
 
-              console.log("adding liked user to database");
+              console.log("adding liked user to database aaa");
 
               console.log(currentUser._id)
               console.log(likedUser._id);
@@ -214,7 +218,7 @@ router.post("/like/:id", authenticate, async (req, res) => {
                   if (err){
                     console.log(err)
                   }else {
-                    console.log("added user to matches!")
+                    return;
                   }
                 }
               )
@@ -231,7 +235,8 @@ router.post("/like/:id", authenticate, async (req, res) => {
           } else {
             console.log("likeduser does not like currentuser back");
 
-            console.log("adding liked user to database");
+            console.log("kaas");
+            console.log("adding liked user to database bbb");
 
             userModel.findOneAndUpdate(
               {_id: currentUser._id},
@@ -240,7 +245,7 @@ router.post("/like/:id", authenticate, async (req, res) => {
                 if (err){
                   console.log(err)
                 }else {
-                  console.log("added user to likes!")
+                  return;
                 }
               }
             )
@@ -307,7 +312,7 @@ router.post("/dislike/:id", authenticate, async (req, res) => {
           if (err){
             console.log(err)
           }else {
-            console.log("added user to dislikes!")
+            return;
           }
         }
       )
@@ -323,6 +328,7 @@ router.post("/dislike/:id", authenticate, async (req, res) => {
   }
 });
 
+// reset user likes, dislikes and matches (dev)
 router.get("/reset", authenticate, async (req, res) => {
   try {
 
