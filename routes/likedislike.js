@@ -21,70 +21,33 @@ const upload = multer({dest: "public/uploads/"})
 
 // ---
 
+
 const router = express.Router();
 router.use(compression());
 router.use(minify());
-
 
 let genderFilter;
 let ageFilter;
 let interestsFilter;
 let platformFilter;
 
+let userid;
+
 // get all users from database etc
-const getUsers = async () => {
-  // find the admin user (which is being used as "logged in user" for demo purposes)
-  const admin = await adminUserModel.findOne({});
+const getUsers = async (req, res) => {
+  const currentUser = await userModel.findOne({
+    email: userid,
+  }).lean();
 
-  // find which users admin has matched
-  const adminMatches = admin.matches;
-
+  const currentUserMatches = currentUser.matches
 
   // return all users except the already matched ones
   const usersList = await userModel.find({
-    _id: { $nin: adminMatches },
-    // $cond: {
-    //   if: {interestsFilter: {$ne: undefined}},
-    //   then: {interests: {$eq: interestsFilter}}
-    // }
-
-    // interests: {$cond: 
-    //   {if: {interestsFilter: {$ne: undefined}}, 
-    //   then: {$eq: interestsFilter}}}
-    // gender: {$eq: genderFilter},
-    // age: {$eq: ageFilter},
-    // interests: {$eq: interestsFilter},
-    // platform: { $eq: platformFilter }
+    _id: { $nin: currentUserMatches },
   }).lean();
 
-  // const count = await userModel.aggregate(
-  //   [
-  //     {$cond: {
-  //     if: {interestsFilter: {$ne: undefined}},
-  //     then: {interests: {$eq: interestsFilter}}
-  //     }}
-  //   ]
-  // )
 
-  // console.log(count)
-
-
-  // usersList.aggregate(
-  //   [
-  //     {$cond: {
-  //     if: {interestsFilter: {$ne: undefined}},
-  //     then: {interests: {$eq: interestsFilter}}
-  //     }}
-  //   ]
-  // )
-
-  // console.log(usersList)
-
-  const adminLeaned = await adminUserModel.findOne({
-    username: "adminuser",
-  }).lean();
-
-  return [usersList, admin, adminLeaned];
+  return [usersList, currentUser];
 };
 
 // to count the amount of times the page has been visited by the user. this to serve the correct object from array
@@ -93,6 +56,7 @@ let counter2 = 5;
 
 router.post("/filtered", upload.none(), async (req, res) => {
   const {gender, age, interests , platform} = req.body;
+  
 
   console.log(gender + age + interests + platform)
 
@@ -134,8 +98,10 @@ router.post("/filtered", upload.none(), async (req, res) => {
     });
 })
 
-router.get("/", authenticate, async (req, res) => {
+router.get("/", authenticate, upload.none(), async (req, res) => {
   try {
+
+    userid = req.session.userid
 
     genderFilter = undefined;
     ageFilter = undefined;
@@ -147,7 +113,10 @@ router.get("/", authenticate, async (req, res) => {
     // for demo purposes, counter is always reset when on start page
 
     // get users
-    getUsers().then(([result, admin]) => {
+    getUsers().then(([result, currentUser]) => {
+
+      console.log(currentUser)
+      
       console.log(`counter1 is ${counter1}`);
       console.log(`counter2 is ${counter2}`);
 
@@ -184,7 +153,7 @@ router.post("/like/:id", authenticate , async (req, res) => {
     const userCount = await userModel.find({}).lean();
 
     // find users
-    getUsers().then(([result, admin, adminLeaned]) => {
+    getUsers().then(([result, currentUser]) => {
       // add to the counter everytime "like" is pressed aka: link is visited
       console.log("Adding to counter");
       counter1++;
@@ -209,7 +178,15 @@ router.post("/like/:id", authenticate , async (req, res) => {
       // admin.save();
 
       // check if the liked user has own likes as well
-      if (likedUser.likes[0]) {
+      if (likedUser.likes) {
+
+        likedUser.liked.forEach(like => {
+          if(like.equals(currentUser._id)){
+            console.log("liked user likes you back")
+          }else {
+          console.log("liked user doesnt like you back");
+        }})
+
         // if true, check if the like in the likedUser is equal to the admin user's id
         if (likedUser.likes[0].equals(admin._id)) {
           console.log("Match!");
