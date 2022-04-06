@@ -15,15 +15,23 @@
 
         {{!-- frontside --}}
         <section class="cardFront">
+            {{#if this.images.avatar.length}}
+            <picture>
+                {{!-- profile picture --}}
+                {{!-- <source type="image/webp" srcset="/images/user-image1.webp" />
+                <source type="image/jpg" srcset="/images/user-image1.jpg" /> --}}
+                <img src="{{this.images.avatar}}" alt="" />
+            </picture>
+            {{else}}
             <picture>
                 {{!-- profile picture --}}
                 <source type="image/webp" srcset="/images/user-image1.webp" />
                 <source type="image/jpg" srcset="/images/user-image1.jpg" />
                 <img src="/images/user-image1.jpg" alt="" />
             </picture>
+            {{/if}}
 
             <article>
-                <p>{{this.gender}}</p>
                 <h1>{{this.firstname}} {{this.lastname}} - {{this.age}}</h1>
                 <p>{{this.location}}</p>
                 <ul>
