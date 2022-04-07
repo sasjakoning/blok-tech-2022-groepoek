@@ -61,7 +61,7 @@
 #loginpage main form input:last-of-type, #registerpage main form input:last-of-type {
     color: var(--primary2);
     background-color: var(--accent);
-    margin-top: 8%;
+    margin-top: 4%;
     border-color: var(--accent);
     font-size: 1em;
     font-family: 'Inter', sans-serif;
