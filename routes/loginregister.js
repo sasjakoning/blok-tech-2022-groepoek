@@ -44,10 +44,13 @@ router.use(cookieParser());
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 
+let userExists = false;
+
 // register page
 router.get("/register", async (req, res) => {
   res.render("register", {
     layout: "index",
+    userExists: userExists
   });
 });
 
@@ -64,27 +67,38 @@ router.post("/register/done", upload.none(), async (req, res) => {
 
     // als dat waar is, zeg dat ie al bestaat
     if (user) {
-      return res.status(400).json({
-        msg: "User already exists",
+      // return res.status(400).json({
+      //   msg: "User already exists",
+      // });
+
+      userExists = true;
+
+      res.redirect("/login/register")
+
+      console.log(userExists)
+    }else {
+
+      console.log("doesnt stay in if")
+      userExists = false;
+  
+      // als de user nog niet bestaat, maak een nieuwe user aan
+      user = new userModel({
+        firstname,
+        lastname,
+        email,
+        password,
       });
+  
+      // bcrypt dingen, security
+      const salt = await bcrypt.genSalt(10);
+      user.password = await bcrypt.hash(password, salt);
+  
+      // opslaan nieuwe user naar database
+      await user.save();
+  
+      res.redirect("/login")
     }
 
-    // als de user nog niet bestaat, maak een nieuwe user aan
-    user = new userModel({
-      firstname,
-      lastname,
-      email,
-      password,
-    });
-
-    // bcrypt dingen, security
-    const salt = await bcrypt.genSalt(10);
-    user.password = await bcrypt.hash(password, salt);
-
-    // opslaan nieuwe user naar database
-    await user.save();
-
-    res.redirect("/login")
   } catch (err) {
     console.log(err.message);
     res.status(500).send("Error in saving");

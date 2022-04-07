@@ -3,6 +3,10 @@
         <section>
             <h2>Register</h2>
 
+            {{#if userExists}}
+            <h3>user already exists!</h3>
+            {{/if}}
+
             <form id="register-form" action="/login/register/done" method="POST" enctype="multipart/form-data">
                 <label for="firstname">First name</label>
                 <input type="text" id="firstname" name="firstname" placeholder="First name">
