@@ -54,7 +54,7 @@ router.get("/register", async (req, res) => {
 // wanneer je hebt geregistreerd
 router.post("/register/done", upload.none(), async (req, res) => {
   // ophalen ingevulde email en password uit de body
-  const { firstname, lastname, gender, email, password } = req.body;
+  const { firstname, lastname, email, password } = req.body;
 
   try {
     // zoeken of er een user is die al dezelfde email heeft
@@ -73,7 +73,6 @@ router.post("/register/done", upload.none(), async (req, res) => {
     user = new userModel({
       firstname,
       lastname,
-      gender,
       email,
       password,
     });
