@@ -344,9 +344,7 @@ router.get("/reset", authenticate, async (req, res) => {
 
     })
 
-    res.render("main", {
-      layout: "index",
-    });
+    res.redirect("/swiping")
   } catch (err) {
     console.log(err);
   }
