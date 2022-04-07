@@ -26,40 +26,50 @@ router.use(compression());
 router.use(minify());
 
 // save filter values to these variables
+// Bewaard filter waarden in deze variables, zorgt dat de waarde van de filter globaal worden opgeslagen,zodat je ze ook op andere plekken kan oproepen.
 let genderFilter;
 let ageFilter;
 let interestsFilter;
 let platformFilter;
 
 // save session user id to this variable
+// global variable, kijkt naar de user die is ingelogt, cookies etc.
 let userid;
 
+// dingen opslaan
 let globalQuery = {};
 
 // get all users from database etc
+// function, die de gebruikers ophaalt.
 const getUsers = async (req, res) => {
   // find logged in user based on session id
+  // haalt de ingelogde gebruiker op
   const currentUser = await userModel
     .findOne({
       email: userid,
     })
-    .lean();
+    // zonder.lean krijg je een hele lap tekst, laat alleen relefante/essentiele info zien. het versimpeld/meer leesbaar maken.
+    .lean(); 
+
 
   // get matches, likes and dislikes of current user
+  // eerst de ingelogde gebruiker kijken of die matches heeft door de .matches
   const currentUserMatches = currentUser.matches;
   const currentUserLikes = currentUser.likes;
   const currentUserDislikes = currentUser.dislikes;
 
   const currentUserConcat = [];
 
+  // door deze lijn te gebruiken zorgt die ervoor dat alles in 1 array komt.
   const currentUserInfo = currentUserConcat.concat(currentUserMatches, currentUserLikes, currentUserDislikes)
 
-
+  // haal alle gebruikers op behalve jezelf. 
   globalQuery["_id"] = { $nin: currentUserInfo }
 
   console.log(globalQuery);
 
   // return all users except the already matched ones
+  // zoekt de gebruikers, alle waarde geven we mee.
   const usersList = await userModel.find(globalQuery).lean();
 
   return [usersList, currentUser];
@@ -69,18 +79,28 @@ const getUsers = async (req, res) => {
 let counter1 = 0;
 let counter2 = 5;
 
-
+/****************************/
+/**********  Filter *********/
+/****************************/
 router.post("/filtered", upload.none(), async (req, res) => {
-  const { gender, age, interests, platform } = req.body;
+  // variable aanmaken met onderstaande kenmerken
+  const { gender, age, interests, platform } = req.body; // req.body haalt het op, wat je hebt aangevraagd
 
+// globale, slaan we de waardes op
   genderFilter = gender;
   ageFilter = age;
   interestsFilter = interests;
   platformFilter = platform;
 
-  globalQuery["$and"] = [];
+// globalquery is een query die is gedefinieerd voor de hele site en 
+// beschikbaar wordt gesteld voor gebruik in projecten als dat nodig is. 
+
+// het globale wat we van te voren hebben gemaakt, "$and"=
+// if controleert controlleert of er een waarde is ingevuld.
+  globalQuery["$and"] = []; //array
   if (genderFilter != undefined) {
-    globalQuery["$and"].push({ gender: { $in: genderFilter } });
+    globalQuery["$and"].push({ gender: { $in: genderFilter } }); 
+    //zoek in de gender ($in = include, kijkt of die data erin zit in dit geval het geslacht. kijkt hij of de waarde van het gender filter erin zit)
   }
   if (ageFilter != undefined) {
     globalQuery["$and"].push({ age: { $in: ageFilter } });
@@ -89,10 +109,19 @@ router.post("/filtered", upload.none(), async (req, res) => {
     globalQuery["$and"].push({ interests: { $in: interestsFilter } });
   }
 
+// gaat naar de pagina /swiping
   res.redirect("/swiping")
 
 });
 
+// resetten, haalt de global query helemaal leeg. "reset"
+router.post("/filterreset", upload.none(), async (req, res) => {
+  globalQuery = {};
+
+  res.redirect("/swiping")
+})
+
+// de swiping pagina. 
 router.get("/", authenticate, upload.none(), async (req, res) => {
   try {
     userid = req.session.userid;
@@ -107,6 +136,7 @@ router.get("/", authenticate, upload.none(), async (req, res) => {
     // for demo purposes, counter is always reset when on start page
 
     // get users
+    // om de gebruikers op te halen.
     getUsers().then(([result, currentUser]) => {
       console.log(currentUser);
 
@@ -344,9 +374,7 @@ router.get("/reset", authenticate, async (req, res) => {
 
     })
 
-    res.render("main", {
-      layout: "index",
-    });
+    res.redirect("/swiping")
   } catch (err) {
     console.log(err);
   }

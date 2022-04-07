@@ -13,6 +13,7 @@ main > article:last-of-type {
 	flex-direction: column;
 
 	padding-left: 5em;
+	margin-top: 7em;
 
 	gap: 2em;
 }
@@ -28,8 +29,8 @@ main > article:last-of-type > section:first-of-type {
     position: relative;
     z-index: 1;
     display: inline-block;
-    width: 30em;
-    height: 50em;
+	width: 27em;
+	height: 45em;
     background: transparent;
 
 	flex-shrink: 0;
@@ -107,7 +108,7 @@ main > article:last-of-type > section:first-of-type {
 
 /* name and age */
 .cardFront > article > h1 {
-	font-size: 28px;
+	font-size: 24px;
 }
 
 /* location */
@@ -140,7 +141,7 @@ main > article:last-of-type > section:first-of-type {
 	padding: .4em 1em;
 	background: var(--tertiary);
 	margin-right: 1em;
-	margin: 0 1em 1em 0;
+	margin: 0 1em 0em 0;
 	border-radius: 10em;
 }
 
@@ -186,8 +187,8 @@ main > article:last-of-type > section:first-of-type {
 
 .actionOverlay {
 	display: none;
-	width: 30em;
-	height: 50em;
+	width: 27em;
+	height: 45em;
 	position: absolute;
 	z-index: 2;
 	place-items: center;
@@ -220,17 +221,18 @@ main > article:last-of-type > section:first-of-type {
 .likeDislike {
     display: flex;
 	gap: 4em;
-	width: 30em;
+	width: 27em;
 	justify-content: center;
 }
 
 .likeDislike button {
 	background: none;
 	border: none;
+	margin: 0;
 }
 
 .likeDislike button > img {
-	width: 8em;
+	width: 7em;
 }
 
 /************************/
@@ -323,6 +325,8 @@ main > article:last-of-type > section:first-of-type {
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-end;
+	flex-direction: column;
+	align-items: center;
 
 	margin-top: 3em;
 }
@@ -333,7 +337,7 @@ main > article:last-of-type > section:first-of-type {
 }
 
 .matchCard {
-    background: var(--card-blue);
+    background: var(--primary2);
     height: 20em;
 
 	width: 48%;
@@ -393,7 +397,7 @@ main > article:last-of-type > section:first-of-type {
 }
 
 .matchCard .playerInfo > h3 {
-	font-size: 14px;
+	font-size: 20px;
 	line-height: 1.2;
 }
 
@@ -401,4 +405,6 @@ main > article:last-of-type > section:first-of-type {
 	font-size: 3.2em;
 	text-align: center;
 	margin-top: .7em;
+	color: var(--primary2);
+	filter: drop-shadow(0px 0px 5px black);
 }

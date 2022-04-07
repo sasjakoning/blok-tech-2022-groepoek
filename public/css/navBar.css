@@ -6,6 +6,34 @@ nav {
     right: 0;
     width: 100%;
     z-index: 101;
+    transform: translateY(0);
+    transition: all .5s;
+}
+
+.navAnimDown {
+    animation: navbarDown .5s ease-in-out forwards;
+}
+
+.navAnimUp {
+    animation: nabarUp .5s ease-in-out forwards;
+}
+
+@keyframes navbarDown {
+    0% {
+        transform: translateY(0%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes navbarUp {
+    100% {
+        transform: translateY(-100%);
+    }
+    0% {
+        transform: translateY(0%);
+    }
 }
 
 nav > ul.navUl {

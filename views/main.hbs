@@ -1,6 +1,7 @@
-{{!-- <header>
+
+  <header>
     {{>navBar}}
-</header> --}}
+  </header>
 <main>
     <article class="sideBar">
          {{>filter}}
@@ -9,10 +10,19 @@
         {{#if isMatched}}
             {{>matchPopup}}
         {{/if}}
+        {{#if data.length}}
         <section>
             {{>largeCard}}
         </section>
         {{>likeDislike}}
+        {{else}}
+        <section class="funnyQuote">
+
+            <h1>Damn, a bit too specific perhaps?</h1>
+
+        </section>
+        {{/if}}
+
     </article>
 </main>
 {{>background}}

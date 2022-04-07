@@ -1,10 +1,11 @@
 <body id="registerpage">
-
-    {{>navBar}}
-
     <main>
         <section>
             <h2>Register</h2>
+
+            {{#if userExists}}
+            <h3>user already exists!</h3>
+            {{/if}}
 
             <form id="register-form" action="/login/register/done" method="POST" enctype="multipart/form-data">
                 <label for="firstname">First name</label>
@@ -12,9 +13,9 @@
 
                 <label for="lastname">Last name</label>
                 <input type="text" id="lastname" name="lastname" placeholder="Last name">
-
+{{!-- 
                 <label for="gender">Gender</label>
-                <input type="text" id="gender" name="gender" placeholder="Gender">
+                <input type="text" id="gender" name="gender" placeholder="Gender"> --}}
 
                 <label for="email">Email</label>
                 <input type="text" id="email" name="email" placeholder="Email@dievanjou.nl" required>

@@ -23,7 +23,7 @@ const userSchema = new Schema({
     },
     gender: {
         type: String,
-        required: [true,  "gender is required"]
+        required: [false]
     },
     aboutme: {
         type: String,

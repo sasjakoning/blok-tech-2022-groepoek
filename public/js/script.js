@@ -1,8 +1,34 @@
+// const { log } = require("npmlog");
+
 // fix for transitions firing on load
 window.addEventListener("load", () => {
   document.querySelector("body").classList.remove("preload");
   console.log("removed preload");
 });
+
+const navBar = document.querySelector("nav")
+
+var lastScrollTop = 0;
+
+window.addEventListener("scroll", () => {
+    var st = window.pageYOffset || document.documentElement.scrollTop;
+    if (st > lastScrollTop) {
+      // downscroll code
+      console.log("scroll down");
+      navBar.classList.add("navAnimDown")
+      navBar.classList.remove("navAnimUp")
+    } else {
+      // upscroll code
+      console.log("scroll up");
+      navBar.classList.add("navAnimUp")
+      navBar.classList.remove("navAnimDown")
+    }
+    lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+  },
+  false
+);
+
+// scroll credit: https://stackoverflow.com/questions/31223341/detecting-scroll-direction
 
 const sPath = window.location.pathname;
 const sPage = sPath.substring(sPath.lastIndexOf("/") + 1);
@@ -52,8 +78,8 @@ if (sPath.includes("swiping")) {
     e.preventDefault();
 
     card.classList.add("cardDislike");
-    actionOverlay.classList.add("actionLiked");
     actionOverlayImg.src = "/images/overlayDislike.svg";
+    actionOverlay.classList.add("actionLiked");
 
     otherCards.forEach((card) => {
       card.classList.add("cardsMove");
@@ -86,8 +112,6 @@ if (sPath.includes("swiping")) {
   slider.oninput = function () {
     output.innerHTML = this.value;
   };
-
-  
 } else if (sPath.includes("profile")) {
   console.log("profile");
 
@@ -98,42 +122,44 @@ if (sPath.includes("swiping")) {
     );
     const HuidigeAvatar = document.querySelector(".eigenAvatarfotoGr");
     const uploadFotoOverlay = document.querySelector(".uploadFotoOverlay");
-    const profilePageGlobal = document.querySelector(".profilePage")
-    const editButton = document.querySelector(".profilePage > img:first-of-type")
+    const profilePageGlobal = document.querySelector(".profilePage");
+    const editButton = document.querySelector(
+      ".profilePage > img:first-of-type"
+    );
 
-    dropZone.addEventListener("dragover", e => {
-        e.preventDefault();
-        dropZone.classList.add("hover");
-        stockFotoInDropZone.classList.add("hidden");
-        HuidigeAvatar.classList.add("transparent50");
-        uploadFotoOverlay.classList.remove("hidden");
-    })
+    dropZone.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      dropZone.classList.add("hover");
+      stockFotoInDropZone.classList.add("hidden");
+      HuidigeAvatar.classList.add("transparent50");
+      uploadFotoOverlay.classList.remove("hidden");
+    });
 
-    dropZone.addEventListener("dragleave", e => {
-        dropZone.classList.remove("hover");
-        stockFotoInDropZone.classList.remove("hidden");
-        HuidigeAvatar.classList.remove("transparent50");
-        uploadFotoOverlay.classList.add("hidden");
-    })
-
-    dropZone.addEventListener("dragend", e => {
-        dropZone.classList.remove("hover");
-        stockFotoInDropZone.classList.remove("hidden");
-        HuidigeAvatar.classList.remove("transparent50");
-        uploadFotoOverlay.classList.add("hidden");
-    })
-    dropZone.addEventListener("mouseover", e => {
-        stockFotoInDropZone.classList.add("hidden");
-        HuidigeAvatar.classList.add("transparent50");
-        uploadFotoOverlay.classList.remove("hidden");
-    })
-    dropZone.addEventListener("mouseout", e => {
+    dropZone.addEventListener("dragleave", (e) => {
+      dropZone.classList.remove("hover");
       stockFotoInDropZone.classList.remove("hidden");
       HuidigeAvatar.classList.remove("transparent50");
       uploadFotoOverlay.classList.add("hidden");
-  })
-    editButton.addEventListener("click", e => {
+    });
+
+    dropZone.addEventListener("dragend", (e) => {
+      dropZone.classList.remove("hover");
+      stockFotoInDropZone.classList.remove("hidden");
+      HuidigeAvatar.classList.remove("transparent50");
+      uploadFotoOverlay.classList.add("hidden");
+    });
+    dropZone.addEventListener("mouseover", (e) => {
+      stockFotoInDropZone.classList.add("hidden");
+      HuidigeAvatar.classList.add("transparent50");
+      uploadFotoOverlay.classList.remove("hidden");
+    });
+    dropZone.addEventListener("mouseout", (e) => {
+      stockFotoInDropZone.classList.remove("hidden");
+      HuidigeAvatar.classList.remove("transparent50");
+      uploadFotoOverlay.classList.add("hidden");
+    });
+    editButton.addEventListener("click", (e) => {
       profilePageGlobal.classList.add("editingProfile");
-    })
+    });
   };
 }
