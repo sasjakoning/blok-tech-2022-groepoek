@@ -69,18 +69,22 @@ const userModel = mongoose.model("user", userSchema)
 //     {
 //         email: "sasjakoning@hotmail.com",
 //         password: "123",
-//        firstname: "Sasja",
-//       lastname: "Koning",
+//         firstname: "Sasja",
+//         lastname: "Koning",
 //         gender: "male",
-//         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
+//         aboutme: "Ruth Ocean Blackman is a 40-year-old chef at own restaurant who enjoys blogging.",
 //         interests: [
 //             "minecraft",
 //             "fortnite",
 //             "overwatch"
 //           ],
 //         location: "Amsterdam",
-//         age: 22,
-//         images: "",    
+//         age: 23,
+//         height: 163,
+//         platform: {
+//             discord: "sasja#1234",
+//             whatsapp: "06123456"
+//         }
 //     },
 //     {
 //         email: "griffinrolling@hotmail.com",
@@ -88,14 +92,19 @@ const userModel = mongoose.model("user", userSchema)
 //         firstname: "Griffin",
 //         lastname: "Rollins",
 //         gender: "male",
-//         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
+//         aboutme: "She is an Australian Sikh who defines herself as bisexual. She started studying food science at college but never finished the course.",
 //         interests: [
 //             "overwatch",
 //             "jentiegarden"
 //           ],
 //         location: "Amsterdam",
-//         age: 22,
-//         images: "",    
+//         age: 23,
+//         height: 182,
+//         platform: {
+//             discord: "kaas",
+//             playstation: "lekker",
+//             xbox: "player"
+//         }    
 //     },
 //     {
 //         email: "valentintanner@hotmail.com",
@@ -103,14 +112,18 @@ const userModel = mongoose.model("user", userSchema)
 //         firstname: "Valentin",
 //         lastname: "Tanner",
 //         gender: "male",
-//         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
+//         aboutme: "Physically, Ruth is slightly overweight but otherwise in good shape. She is short with pale skin, grey hair and black eyes.",
 //         interests: [
 //             "minecraft",
 //             "valorant"
 //           ],
 //         location: "Amsterdam",
 //         age: 22,
-//         images: "",    
+//         height: 182,
+//         platform: {
+//             discord: "kaas",
+//             whatsapp: "06123456"
+//         }    
 //     },
 //     {
 //         email: "noahpowell@hotmail.com",
@@ -118,14 +131,18 @@ const userModel = mongoose.model("user", userSchema)
 //         firstname: "Noah",
 //         lastname: "Powell",
 //         gender: "male",
-//         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
+//         aboutme: "She grew up in an upper class neighbourhood. She was raised by her father, her mother having left when she was young.",
 //         interests: [
 //             "valorant",
 //             "minecraft"
 //           ],
 //         location: "Amsterdam",
-//         age: 22,
-//         images: "",    
+//         age: 27,
+//         height: 182,
+//         platform: {
+//             discord: "kaas",
+//             playstation: "lekker"
+//         }    
 //     },
 //     {
 //         email: "royyu@hotmail.com",
@@ -133,14 +150,18 @@ const userModel = mongoose.model("user", userSchema)
 //         firstname: "Roy",
 //         lastname: "Yu",
 //         gender: "non-binary",
-//         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
+//         aboutme: "She is currently single. Her most recent romance was with a personal trainer called Alvin Rae Simmons,",
 //         interests: [
 //             "overwatch",
 //             "minecraft"
 //           ],
 //         location: "Amsterdam",
-//         age: 22,
-//         images: "",    
+//         age: 19,
+//         height: 182,
+//         platform: {
+//             discord: "kaas",
+//             playstation: "lekker"
+//         }    
 //     },
 //     {
 //         email: "alfredmunoz@hotmail.com",
@@ -148,14 +169,18 @@ const userModel = mongoose.model("user", userSchema)
 //         firstname: "Alfred",
 //         lastname: "Munoz",
 //         gender: "male",
-//         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
+//         aboutme: "who was 2 years older than her. They broke up because Alvin wanted somebody more 'badass'.",
 //         interests: [
 //             "fortnite",
 //             "minecraft"
 //           ],
 //         location: "Amsterdam",
 //         age: 22,
-//         images: "",    
+//         height: 182,
+//         platform: {
+//             discord: "kaas",
+//             playstation: "lekker"
+//         }    
 //     },
 //     {
 //         email: "auggilbert@hotmail.com",
@@ -163,14 +188,18 @@ const userModel = mongoose.model("user", userSchema)
 //         firstname: "Augustus",
 //         lastname: "Gilbert",
 //         gender: "female",
-//         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
+//         aboutme: "Ruth's best friend is a chef at own restaurant called Dillon Bell. They are inseparable.",
 //         interests: [
 //             "overwatch",
 //             "valorant"
 //           ],
 //         location: "Amsterdam",
-//         age: 22,
-//         images: "",    
+//         age: 20,
+//         height: 182,
+//         platform: {
+//             discord: "kaas",
+//             whatsapp: "06123456"
+//         }    
 //     },
 //     {
 //         email: "keithgoodwin@hotmail.com",
@@ -178,14 +207,19 @@ const userModel = mongoose.model("user", userSchema)
 //         firstname: "Keith",
 //         lastname: "Goodwin",
 //         gender: "non-binary",
-//         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
+//         aboutme: "She also hangs around with Finlay O'Brien and Abdul Evans. They enjoy playing card games together. ",
 //         interests: [
 //             "overwatch",
 //             "valorant"
 //           ],
 //         location: "Amsterdam",
-//         age: 22,
-//         images: "",    
+//         age: 21,
+//         height: 182,
+//         platform: {
+//             discord: "kaas",
+//             playstation: "lekker",
+//             skype: "killerqueen"
+//         }    
 //     },
 //     {
 //         email: "ellicemartins@hotmail.com",
@@ -193,14 +227,19 @@ const userModel = mongoose.model("user", userSchema)
 //         firstname: "Ellice",
 //         lastname: "Martins",
 //         gender: "male",
-//         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
+//         aboutme: "She is addicted to chocolate, something which her friend Shirley Betsy Walker pointed out when she was 18. The problem intensified in 2022. ",
 //         interests: [
 //             "minecraft",
 //             "jentlegarden"
 //           ],
 //         location: "Amsterdam",
 //         age: 22,
-//         images: "",    
+//         height: 182,
+//         platform: {
+//             discord: "kaas",
+//             playstation: "lekker",
+//             skype: "killerqueen"
+//         }    
 //     },
 //     {
 //         email: "avianawilliam@hotmail.com",
@@ -208,14 +247,18 @@ const userModel = mongoose.model("user", userSchema)
 //         firstname: "Aviana",
 //         lastname: "William",
 //         gender: "female",
-//         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
+//         aboutme: "She is a Spanish Buddhist who defines herself as asexual. She has a degree in sports science. She is obsessed with zombies.",
 //         interests: [
 //             "callofduty",
 //             "valorant"
 //           ],
 //         location: "Amsterdam",
-//         age: 22,
-//         images: "",    
+//         age: 34,
+//         height: 182,
+//         platform: {
+//             discord: "kaas",
+//             playstation: "lekker"
+//         }    
 //     },
 //     {
 //         email: "kubafrencis@hotmail.com",
@@ -223,14 +266,19 @@ const userModel = mongoose.model("user", userSchema)
 //         firstname: "Kuba",
 //         lastname: "Frencis",
 //         gender: "male",
-//         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
+//         aboutme: "Physically, Flora is not in great shape. She needs to lose quite a lot of weight. She is average-height with pale skin, grey hair and brown eyes. ",
 //         interests: [
 //             "callofduty",
 //             "minecraft"
 //           ],
 //         location: "Amsterdam",
-//         age: 22,
-//         images: "",    
+//         age: 32,
+//         height: 182,
+//         platform: {
+//             discord: "kaas",
+//             playstation: "lekker",
+//             skype: "killerqueen"
+//         }    
 //     },
 //     {
 //         email: "eamonmc@hotmail.com",
@@ -238,14 +286,18 @@ const userModel = mongoose.model("user", userSchema)
 //         firstname: "Eamonn",
 //         lastname: "Mcknight",
 //         gender: "male",
-//         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
+//         aboutme: "She grew up in a middle class neighbourhood. Having never really known her parents, she was raised in a series of foster homes.",
 //         interests: [
 //             "overwatch",
 //             "fortnite"
 //           ],
 //         location: "Amsterdam",
-//         age: 22,
-//         images: "",    
+//         age: 18,
+//         height: 182,
+//         platform: {
+//             discord: "kaas",
+//             playstation: "lekker"
+//         }    
 //     },
 //     {
 //         email: "kasimsteven@hotmail.com",
@@ -253,14 +305,18 @@ const userModel = mongoose.model("user", userSchema)
 //         firstname: "Kasim",
 //         lastname: "Stevenson",
 //         gender: "female",
-//         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
+//         aboutme: "Flora's best friend is a gym assistant called Shirley Walker. They have a very firey friendship.",
 //         interests: [
 //             "overwatch",
 //             "minecraft"
 //           ],
 //         location: "Amsterdam",
 //         age: 22,
-//         images: "",    
+//         height: 182,
+//         platform: {
+//             discord: "kaas",
+//             playstation: "lekker"
+//         }    
 //     },
 //     {
 //         email: "bethanygall@hotmail.com",
@@ -268,14 +324,18 @@ const userModel = mongoose.model("user", userSchema)
 //         firstname: "Bethany",
 //         lastname: "Gallagher",
 //         gender: "female",
-//         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
+//         aboutme: "She also hangs around with Everly Yates and Angelica Adam. They enjoy social media together. ",
 //         interests: [
 //             "callofduty",
 //             "valorant"
 //           ],
 //         location: "Amsterdam",
-//         age: 22,
-//         images: "",    
+//         age: 23,
+//         height: 182,
+//         platform: {
+//             discord: "kaas",
+//             playstation: "lekker"
+//         }    
 //     },
 //     {
 //         email: "riyarossi@hotmail.com",
@@ -283,14 +343,18 @@ const userModel = mongoose.model("user", userSchema)
 //         firstname: "Riya",
 //         lastname: "Rossi",
 //         gender: "male",
-//         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
+//         aboutme: "Christiana Suzanne Blacksmith is a 20-year-old P.P.E. student who enjoys travelling, walking and watching television.",
 //         interests: [
 //             "valorant",
 //             "jentlegarden"
 //           ],
 //         location: "Amsterdam",
-//         age: 22,
-//         images: "",    
+//         age: 24,
+//         height: 182,
+//         platform: {
+//             discord: "kaas",
+//             playstation: "lekker"
+//         }    
 //     },
 //     {
 //         email: "devvilla@hotmail.com",
@@ -298,14 +362,18 @@ const userModel = mongoose.model("user", userSchema)
 //         firstname: "Dev",
 //         lastname: "Villalobos",
 //         gender: "female",
-//         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
+//         aboutme: "She is entertaining and gentle, but can also be very disloyal and a bit unfriendly.",
 //         interests: [
 //             "callofduty",
 //             "fortnite"
 //           ],
 //         location: "Amsterdam",
-//         age: 22,
-//         images: "",    
+//         age: 19,
+//         height: 182,
+//         platform: {
+//             discord: "kaas",
+//             playstation: "lekker"
+//         }    
 //     },
 //     {
 //         email: "eviebevan@hotmail.com",
@@ -313,14 +381,18 @@ const userModel = mongoose.model("user", userSchema)
 //         firstname: "Evie-Mai",
 //         lastname: "Bevan",
 //         gender: "male",
-//         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
+//         aboutme: "She is Dutch who defines herself as asexual. She is currently at college. studying philosophy, politics and economics. ",
 //         interests: [
 //             "overwatch",
 //             "fortnite"
 //           ],
 //         location: "Amsterdam",
-//         age: 22,
-//         images: "",    
+//         age: 26,
+//         height: 182,
+//         platform: {
+//             discord: "kaas",
+//             playstation: "lekker"
+//         }    
 //     },
 //     {
 //         email: "asiyaredfern@hotmail.com",
@@ -328,13 +400,17 @@ const userModel = mongoose.model("user", userSchema)
 //         firstname: "Asiya",
 //         lastname: "Redfern",
 //         gender: "female",
-//         aboutme: "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis",
+//         aboutme: " She is allergic to hazelnuts. She has a severe phobia of balloons, and is obsessed with milkshake. ",
 //         interests: [
 //             "overwatch"
 //           ],
 //         location: "Amsterdam",
-//         age: 22,
-//         images: "",    
+//         age: 20,
+//         height: 120,
+//         platform: {
+//             discord: "kaas",
+//             playstation: "lekker"
+//         }    
 //     },
 // ]) 
 
