@@ -93,6 +93,12 @@ router.post("/filtered", upload.none(), async (req, res) => {
 
 });
 
+router.post("/filterreset", upload.none(), async (req, res) => {
+  globalQuery = {};
+
+  res.redirect("/swiping")
+})
+
 router.get("/", authenticate, upload.none(), async (req, res) => {
   try {
     userid = req.session.userid;
